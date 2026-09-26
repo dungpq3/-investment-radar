@@ -59,6 +59,7 @@ jobs:
           else
             RUN_ID=$(python -c 'import json; print(json.load(open("data/health/latest.json"))["run_id"])')
             git commit -m "radar: ${RUN_ID}"
+            git pull --rebase origin main
             git push
           fi
 
