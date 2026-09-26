@@ -50,7 +50,7 @@ def line(c):
         "WAIT_BREAKOUT_RETEST": "WAIT",
     }
     return (
-        f"{c['symbol'].replace('USDT','')} {f(c.get('signal_score'),0)}/{c.get('score_grade','?')} | "
+        f"<b>{c['symbol'].replace('USDT','')}</b> {f(c.get('signal_score'),0)}/{c.get('score_grade','?')} | "
         f"12h {f(c.get('ret_12h_pct'))}% | V {f(c.get('volume_ratio_4h'))}x | C {confirm}/3 {bo}\n"
         f"  Entry-ref {px(entry.get('low'))}-{px(entry.get('high'))} [{state_map.get(entry.get('state'),'?')}] "
         f"| DCA-ref {px(dca.get('dca1'))}/{px(dca.get('dca2'))}"
@@ -100,6 +100,7 @@ def main():
     body = urllib.parse.urlencode({
         "chat_id": chat_id,
         "text": text,
+        "parse_mode": "HTML",
         "disable_web_page_preview": "true",
     }).encode()
     req = urllib.request.Request(url, data=body, method="POST")
