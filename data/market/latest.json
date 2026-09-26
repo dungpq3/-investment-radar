@@ -1,45 +1,45 @@
 {
   "schema_version": 1,
-  "run_id": "20260926T092309Z",
-  "generated_at_utc": "2026-09-26T09:23:09+00:00",
-  "generated_at_ict": "2026-09-26T16:23:09+07:00",
+  "run_id": "20260926T093323Z",
+  "generated_at_utc": "2026-09-26T09:33:23+00:00",
+  "generated_at_ict": "2026-09-26T16:33:23+07:00",
   "status": "OK",
   "source": "Binance Spot public market data",
   "regime": "MIXED",
   "rotation_24h": [
     "SOL",
-    "ETH",
-    "BTC"
+    "BTC",
+    "ETH"
   ],
   "assets": {
     "BTCUSDT": {
       "symbol": "BTCUSDT",
-      "price": 84037.34,
+      "price": 84029.99,
       "change_4h_pct": 0.21182048868821912,
       "change_12h_pct": 0.11519874848862077,
-      "change_24h_pct": -0.671,
+      "change_24h_pct": -0.789,
       "change_7d_pct": 3.9762192387678974,
-      "quote_volume_24h": 1290663700.478096,
+      "quote_volume_24h": 1280379443.7950668,
       "last_closed_4h_ms": 1790409599999
     },
     "ETHUSDT": {
       "symbol": "ETHUSDT",
-      "price": 2684.2,
+      "price": 2681.98,
       "change_4h_pct": 0.11830445167002601,
       "change_12h_pct": -0.08094039371190354,
-      "change_24h_pct": -0.442,
+      "change_24h_pct": -0.973,
       "change_7d_pct": 3.0423331061887993,
-      "quote_volume_24h": 535246114.097306,
+      "quote_volume_24h": 521066379.387135,
       "last_closed_4h_ms": 1790409599999
     },
     "SOLUSDT": {
       "symbol": "SOLUSDT",
-      "price": 120.14,
+      "price": 120.0,
       "change_4h_pct": 0.09946949602122057,
       "change_12h_pct": -0.9433188417685145,
-      "change_24h_pct": 2.142,
+      "change_24h_pct": 1.274,
       "change_7d_pct": 8.365862313697669,
-      "quote_volume_24h": 466143716.08228,
+      "quote_volume_24h": 461652073.91219,
       "last_closed_4h_ms": 1790409599999
     }
   }
