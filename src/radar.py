@@ -175,6 +175,7 @@ def four_hour_features(rows: list[list[Any]], cfg: dict[str, Any]) -> dict[str, 
         return None
     opens = [fnum(r[1]) for r in rows]
     highs = [fnum(r[2]) for r in rows]
+    lows = [fnum(r[3]) for r in rows]
     closes = [fnum(r[4]) for r in rows]
     vols = [fnum(r[5]) for r in rows]
     i = len(rows) - 1
@@ -196,6 +197,30 @@ def four_hour_features(rows: list[list[Any]], cfg: dict[str, Any]) -> dict[str, 
     breakout = last > prior_high20
     near_breakout = last >= prior_high20 * float(cfg["signal"]["near_breakout_ratio"])
 
+    trs = []
+    for j in range(1, len(rows)):
+        trs.append(max(
+            highs[j] - lows[j],
+            abs(highs[j] - closes[j - 1]),
+            abs(lows[j] - closes[j - 1]),
+        ))
+    atr14 = statistics.fmean(trs[-14:]) if len(trs) >= 14 else statistics.fmean(trs)
+
+    lv = cfg.get("backtest_levels", {})
+    anchor = prior_high20
+    entry_low = max(0.0, anchor - float(lv.get("entry_atr_below", 0.35)) * atr14)
+    entry_high = max(entry_low, anchor + float(lv.get("entry_atr_above", 0.15)) * atr14)
+    dca1 = max(0.0, anchor - float(lv.get("dca1_atr_below", 1.0)) * atr14)
+    dca2 = max(0.0, anchor - float(lv.get("dca2_atr_below", 2.0)) * atr14)
+    invalidation = max(0.0, anchor - float(lv.get("invalidation_atr_below", 2.5)) * atr14)
+
+    if entry_low <= last <= entry_high:
+        entry_state = "IN_REF_ZONE"
+    elif last > entry_high:
+        entry_state = "EXTENDED_ABOVE_REF"
+    else:
+        entry_state = "WAIT_BREAKOUT_RETEST"
+
     old_vols = vols[i - 21:i - 1]
     volume_ratio_8h = 0.0
     if len(old_vols) >= 10:
@@ -214,6 +239,20 @@ def four_hour_features(rows: list[list[Any]], cfg: dict[str, Any]) -> dict[str, 
         "breakout_20x4h": breakout,
         "near_breakout_20x4h": near_breakout,
         "prior_high_20x4h": prior_high20,
+        "atr14_4h": atr14,
+        "entry_reference": {
+            "method": "20x4h_breakout_retest_atr",
+            "low": entry_low,
+            "high": entry_high,
+            "mid": (entry_low + entry_high) / 2,
+            "state": entry_state,
+        },
+        "dca_reference": {
+            "method": "atr_below_breakout_anchor",
+            "dca1": dca1,
+            "dca2": dca2,
+            "invalidation": invalidation,
+        },
         "last_closed_kline_close_time_ms": int(rows[-1][6]),
     }
 
@@ -275,6 +314,16 @@ def signal_score(feat: dict[str, Any]) -> float:
     liq = 5.0 if feat.get("spread_bps") is not None and feat.get("spread_bps", 9999) <= 40 else 2.5
     depth = min(20.0, dd / 5.0)
     return round(min(100.0, depth + base + vol + mom + brk + liq), 1)
+
+
+def score_grade(score: float) -> str:
+    if score >= 85:
+        return "A"
+    if score >= 75:
+        return "B"
+    if score >= 65:
+        return "C"
+    return "D"
 
 
 def weekly_preselect(w: dict[str, Any], cfg: dict[str, Any]) -> bool:
@@ -395,16 +444,51 @@ def main() -> int:
             f4, fd = fast_map[sym]
             feat = {**meta, **weekly_map[sym], **f4, **fd}
             state = classify_state(feat, cfg)
-            previous = prior_symbols.get(sym, {}).get("state")
+            prior = prior_symbols.get(sym, {})
+            previous = prior.get("state")
             feat["state"] = state
             feat["previous_state"] = previous
             feat["state_changed"] = previous is not None and previous != state
             feat["signal_score"] = signal_score(feat)
+            feat["score_grade"] = score_grade(feat["signal_score"])
+
+            active_states = {"WAKE_UP", "EARLY_IGNITION", "ALREADY_MOVED"}
+            if state in active_states:
+                if prior.get("setup_id") and previous in active_states:
+                    setup_id = prior["setup_id"]
+                    signal_started_at = prior.get("signal_started_at_utc")
+                    first_entry_mid = prior.get("first_entry_mid")
+                    first_dca1 = prior.get("first_dca1")
+                    first_dca2 = prior.get("first_dca2")
+                else:
+                    setup_id = f"{sym}-{started.strftime('%Y%m%dT%H%MZ')}"
+                    signal_started_at = started.isoformat(timespec="seconds")
+                    first_entry_mid = feat["entry_reference"]["mid"]
+                    first_dca1 = feat["dca_reference"]["dca1"]
+                    first_dca2 = feat["dca_reference"]["dca2"]
+                feat["setup_id"] = setup_id
+                feat["signal_started_at_utc"] = signal_started_at
+                feat["first_entry_mid"] = first_entry_mid
+                feat["first_dca1"] = first_dca1
+                feat["first_dca2"] = first_dca2
+            else:
+                setup_id = None
+                signal_started_at = None
+                first_entry_mid = None
+                first_dca1 = None
+                first_dca2 = None
+
             candidates.append(feat)
             new_state["symbols"][sym] = {
                 "state": state,
                 "signal_score": feat["signal_score"],
+                "score_grade": feat["score_grade"],
                 "last_price": feat["last_price"],
+                "setup_id": setup_id,
+                "signal_started_at_utc": signal_started_at,
+                "first_entry_mid": first_entry_mid,
+                "first_dca1": first_dca1,
+                "first_dca2": first_dca2,
                 "updated_at_utc": started.isoformat(timespec="seconds"),
             }
 
