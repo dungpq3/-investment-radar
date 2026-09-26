@@ -23,13 +23,37 @@ def f(v, digits=1):
         return "?"
 
 
+def px(v):
+    try:
+        x = float(v)
+    except (TypeError, ValueError):
+        return "?"
+    if x >= 1000:
+        return f"{x:,.0f}"
+    if x >= 100:
+        return f"{x:,.2f}"
+    if x >= 1:
+        return f"{x:.3f}"
+    if x >= 0.01:
+        return f"{x:.5f}"
+    return f"{x:.8f}"
+
+
 def line(c):
     confirm = c.get("confirmed_candles_3x4h", "?")
     bo = "BO" if c.get("breakout_20x4h") or c.get("daily_breakout_20d") else "near" if c.get("near_breakout_20x4h") or c.get("near_daily_breakout_20d") else "-"
+    entry = c.get("entry_reference", {})
+    dca = c.get("dca_reference", {})
+    state_map = {
+        "IN_REF_ZONE": "IN",
+        "EXTENDED_ABOVE_REF": "EXT",
+        "WAIT_BREAKOUT_RETEST": "WAIT",
+    }
     return (
-        f"{c['symbol'].replace('USDT','')} "
-        f"12h {f(c.get('ret_12h_pct'))}% | V {f(c.get('volume_ratio_4h'))}x | "
-        f"C {confirm}/3 | {bo} | DD {f(c.get('drawdown_major_pct'),0)}%"
+        f"{c['symbol'].replace('USDT','')} {f(c.get('signal_score'),0)}/{c.get('score_grade','?')} | "
+        f"12h {f(c.get('ret_12h_pct'))}% | V {f(c.get('volume_ratio_4h'))}x | C {confirm}/3 {bo}\n"
+        f"  Entry-ref {px(entry.get('low'))}-{px(entry.get('high'))} [{state_map.get(entry.get('state'),'?')}] "
+        f"| DCA-ref {px(dca.get('dca1'))}/{px(dca.get('dca2'))}"
     )
 
 
@@ -56,7 +80,7 @@ def build_report(latest, cfg):
         parts.append("⚪ MOVED\n" + "\n".join(line(c) for c in moved))
     if not early and not wake:
         parts.append("No early signal this run.")
-    parts.append("Mục tiêu: bắt nhịp sớm; chưa phải tín hiệu vào lệnh.")
+    parts.append("Score/Entry/DCA = mốc deterministic để backtest, không phải lệnh tự động.")
     parts.append(f"run={latest.get('run_id','?')}")
     return "\n\n".join(parts)
 
