@@ -41,6 +41,10 @@ jobs:
         continue-on-error: true
         run: python src/radar.py
 
+      - name: Build compact BTC ETH SOL market brief
+        if: always()
+        run: python src/market_brief.py
+
       - name: Send concise Telegram report
         if: always()
         env:
