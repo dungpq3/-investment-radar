@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import html
 import json
 import os
 import urllib.parse
@@ -35,63 +36,133 @@ def price(v):
     return f"{v:.5f}"
 
 
+def compact_price(v):
+    v = float(v)
+    if v >= 1000:
+        return f"{v/1000:.2f}k"
+    if v >= 100:
+        return f"{v:.0f}"
+    if v >= 10:
+        return f"{v:.1f}"
+    if v >= 1:
+        return f"{v:.2f}"
+    return f"{v:.4f}"
+
+
 def money(v):
     if v is None:
         return "?"
     x = float(v)
     sign = "+" if x > 0 else ""
-    return f"{sign}{x:,.1f}m"
+    if abs(x) >= 1000:
+        return f"{sign}{x/1000:.2f}b"
+    return f"{sign}{x:.1f}m"
 
 
-def trap(a):
-    vc = a.get("volume_clusters", {})
-    z = vc.get("overhead")
-    if not z:
-        return "kẹt↑ ?"
-    return f"kẹt↑ {price(z['low'])}-{price(z['high'])} ({p(z.get('distance_pct'))})"
-
-
-def etf_line(market, name):
+def etf_row(market, name):
     e = market.get("etf", {}).get(name, {})
     if e.get("status") != "OK":
-        return "ETF ?"
-    return (
-        f"ETF {money(e.get('latest_flow_usdm'))} | "
-        f"5S {money(e.get('five_session_flow_usdm'))}"
-    )
+        return [name, "?", "?"]
+    return [
+        name,
+        money(e.get("latest_flow_usdm")),
+        money(e.get("five_session_flow_usdm")),
+    ]
+
+
+def trap_row(assets, name):
+    a = assets[name + "USDT"]
+    z = a.get("volume_clusters", {}).get("overhead")
+    if not z:
+        return [name, compact_price(a["price"]), "?", "?"]
+    zone = f"{compact_price(z['low'])}-{compact_price(z['high'])}"
+    return [name, compact_price(a["price"]), zone, p(z.get("distance_pct"))]
+
+
+def monospace_table(headers, rows):
+    widths = []
+    for i, h in enumerate(headers):
+        widths.append(max(len(str(h)), *(len(str(r[i])) for r in rows)))
+    line = lambda r: "  ".join(str(r[i]).ljust(widths[i]) for i in range(len(headers)))
+    return "\n".join([line(headers), line(["-" * w for w in widths]), *(line(r) for r in rows)])
+
+
+def short_view(name, a, e):
+    flow_latest = e.get("latest_flow_usdm") if e.get("status") == "OK" else None
+    flow5 = e.get("five_session_flow_usdm") if e.get("status") == "OK" else None
+    z = a.get("volume_clusters", {}).get("overhead")
+    dist = z.get("distance_pct") if z else None
+    ch24 = a.get("change_24h_pct")
+
+    if flow_latest is None or flow5 is None or dist is None or ch24 is None:
+        return "thiếu dữ liệu để ghép giá/flow/kẹt"
+
+    flow_positive = flow_latest > 0 and flow5 > 0
+    flow_negative = flow_latest < 0 and flow5 < 0
+    near_trap = dist <= 1.0
+
+    if flow_positive and ch24 < 0 and near_trap:
+        return "ETF vào nhưng giá chưa hấp thụ; kẹt rất gần"
+    if flow_positive and near_trap:
+        return "ETF vào + giá giữ; đang sát vùng kẹt"
+    if flow_positive and not near_trap:
+        return "ETF vào; còn khoảng tới vùng kẹt chính"
+    if flow_negative and near_trap:
+        return "ETF yếu + kẹt gần; lực cản đang dày"
+    if flow_negative:
+        return "ETF rút; giá cần tự hấp thụ trước vùng kẹt"
+    if near_trap:
+        return "flow trái chiều; giá đang sát vùng kẹt"
+    return "flow trái chiều; chưa bị ép ngay bởi vùng kẹt"
 
 
 def build_report(market, radar):
     assets = market["assets"]
-    rows = []
-    for sym in ("BTCUSDT", "ETHUSDT", "SOLUSDT"):
-        a = assets[sym]
-        name = sym.replace("USDT", "")
-        rows.append(
-            f"{name} {price(a['price'])} | 4H {p(a.get('change_4h_pct'))} | 24H {p(a.get('change_24h_pct'))}\n"
-            f"  {etf_line(market, name)} | {trap(a)}"
+    names = ("BTC", "ETH", "SOL")
+
+    price_rows = []
+    for name in names:
+        a = assets[name + "USDT"]
+        price_rows.append(
+            f"<b>{name}</b> {price(a['price'])} | 4H {p(a.get('change_4h_pct'))} | 24H {p(a.get('change_24h_pct'))}"
         )
+
+    etf_rows = [etf_row(market, n) for n in names]
+    trap_rows = [trap_row(assets, n) for n in names]
+
+    etf_table = monospace_table(["Coin", "1D", "5S"], etf_rows)
+    trap_table = monospace_table(["Coin", "Price", "Kẹt↑", "Δ"], trap_rows)
+
+    views = []
+    for name in names:
+        a = assets[name + "USDT"]
+        e = market.get("etf", {}).get(name, {})
+        views.append(f"• <b>{name}</b>: {short_view(name, a, e)}")
 
     rotation = " > ".join(market.get("rotation_24h", []))
     summary = radar.get("summary", {})
-    gem = f"Gem: {summary.get('EARLY_IGNITION',0)} EARLY | {summary.get('WAKE_UP',0)} WAKE"
-    head = (
-        f"📊 MARKET BRIEF {market.get('generated_at_ict','?')[11:16]} ICT | "
-        f"{market.get('regime','UNKNOWN')} | {market.get('status','?')}"
-    )
+    gem = f"Gem {summary.get('EARLY_IGNITION',0)} EARLY | {summary.get('WAKE_UP',0)} WAKE"
+
     dates = [
         e.get("latest_date")
         for e in market.get("etf", {}).values()
         if e.get("status") == "OK" and e.get("latest_date")
     ]
     etf_date = max(dates) if dates else "?"
+
     return "\n".join([
-        head,
-        *rows,
-        f"Rotation 24H: {rotation}",
-        f"ETF date: {etf_date} | {gem}",
-        "Kẹt↑ = vùng volume 1H 14D phía trên (proxy, không phải holder cost basis).",
-        f"market_run={market.get('run_id','?')} | radar_run={radar.get('run_id','?')}",
+        f"📊 <b>MARKET BRIEF</b> {market.get('generated_at_ict','?')[11:16]} ICT | {market.get('regime','UNKNOWN')} | {market.get('status','?')}",
+        *price_rows,
+        f"Rotation 24H: {rotation} | {gem}",
+        "",
+        f"💰 <b>ETF FLOW</b> · {etf_date}",
+        f"<pre>{html.escape(etf_table)}</pre>",
+        "🧱 <b>VÙNG KẸT GIÁ</b> · volume 1H/14D proxy",
+        f"<pre>{html.escape(trap_table)}</pre>",
+        "🔎 <b>Giá × Flow × Kẹt</b>",
+        *views,
+        "",
+        f"<code>market={market.get('run_id','?')} radar={radar.get('run_id','?')}</code>",
     ])
 
 
@@ -106,6 +177,7 @@ def send(text):
     body = urllib.parse.urlencode({
         "chat_id": chat_id,
         "text": text,
+        "parse_mode": "HTML",
         "disable_web_page_preview": "true",
     }).encode()
     req = urllib.request.Request(url, data=body, method="POST")
