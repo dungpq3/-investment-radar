@@ -1,0 +1,30 @@
+{
+  "quote_asset": "USDT",
+  "min_quote_volume_24h": 2000000,
+  "max_spread_bps": 120,
+  "weekly_history_limit": 260,
+  "weekly_preselect": {
+    "max_drawdown_major_pct": -70,
+    "max_position_52w": 0.50,
+    "min_weeks_since_26w_low": 4,
+    "max_base_range_12w_pct": 65
+  },
+  "signal": {
+    "already_moved_24h_pct": 35,
+    "already_moved_12h_pct": 30,
+    "wake_min_12h_pct": 2,
+    "wake_max_12h_pct": 25,
+    "wake_min_volume_ratio_4h": 1.25,
+    "early_min_12h_pct": 4,
+    "early_max_12h_pct": 25,
+    "early_min_volume_ratio_4h": 1.50,
+    "early_min_confirmed_candles": 2,
+    "near_breakout_ratio": 0.98
+  },
+  "output": {
+    "max_candidates": 40,
+    "telegram_early": 5,
+    "telegram_watch": 5,
+    "telegram_moved": 3
+  }
+}
