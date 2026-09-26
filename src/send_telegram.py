@@ -24,10 +24,12 @@ def f(v, digits=1):
 
 
 def line(c):
+    confirm = c.get("confirmed_candles_3x4h", "?")
+    bo = "BO" if c.get("breakout_20x4h") or c.get("daily_breakout_20d") else "near" if c.get("near_breakout_20x4h") or c.get("near_daily_breakout_20d") else "-"
     return (
         f"{c['symbol'].replace('USDT','')} "
         f"12h {f(c.get('ret_12h_pct'))}% | V {f(c.get('volume_ratio_4h'))}x | "
-        f"DD {f(c.get('drawdown_major_pct'),0)}% | base {c.get('weeks_since_26w_low','?')}W"
+        f"C {confirm}/3 | {bo} | DD {f(c.get('drawdown_major_pct'),0)}%"
     )
 
 
@@ -41,20 +43,20 @@ def build_report(latest, cfg):
     moved = [c for c in candidates if c.get("state") == "ALREADY_MOVED"][: cfg["output"]["telegram_moved"]]
 
     head = (
-        f"RADAR {latest.get('generated_at_ict','?')[11:16]} ICT | {status} | "
-        f"{scan.get('fully_evaluated','?')} eval\n"
+        f"💎 GEM RADAR {latest.get('generated_at_ict','?')[11:16]} ICT | {status}\n"
         f"EARLY {summary.get('EARLY_IGNITION',0)} | WAKE {summary.get('WAKE_UP',0)} | "
         f"BASE {summary.get('DORMANT_BASE',0)} | MOVED {summary.get('ALREADY_MOVED',0)}"
     )
     parts = [head]
     if early:
-        parts.append("🟢 EARLY\n" + "\n".join(line(c) for c in early))
+        parts.append("🟢 EARLY — đã đủ xác nhận sơ bộ\n" + "\n".join(line(c) for c in early))
     if wake:
-        parts.append("🟡 WAKE\n" + "\n".join(line(c) for c in wake))
+        parts.append("🟡 WAKE — volume/giá vừa thức\n" + "\n".join(line(c) for c in wake))
     if moved:
         parts.append("⚪ MOVED\n" + "\n".join(line(c) for c in moved))
     if not early and not wake:
         parts.append("No early signal this run.")
+    parts.append("Mục tiêu: bắt nhịp sớm; chưa phải tín hiệu vào lệnh.")
     parts.append(f"run={latest.get('run_id','?')}")
     return "\n\n".join(parts)
 
