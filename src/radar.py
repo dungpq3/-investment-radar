@@ -7,6 +7,7 @@ import json
 import statistics
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -103,7 +104,8 @@ def closed_klines(rows: list[list[Any]], now_ms: int) -> list[list[Any]]:
 
 
 def klines(api_base: str, symbol: str, interval: str, limit: int) -> list[list[Any]]:
-    url = f"{api_base}/api/v3/klines?symbol={symbol}&interval={interval}&limit={limit}"
+    query = urllib.parse.urlencode({"symbol": symbol, "interval": interval, "limit": limit})
+    url = f"{api_base}/api/v3/klines?{query}"
     payload = http_json(url)
     if not isinstance(payload, list):
         raise RuntimeError(f"unexpected klines payload for {symbol} {interval}")
