@@ -1,13 +1,11 @@
 {
   "schema_version": 1,
-  "run_id": "20260926T084016Z",
+  "run_id": "20260926T084114Z",
   "status": "OK",
-  "generated_at_utc": "2026-09-26T08:40:16+00:00",
-  "generated_at_ict": "2026-09-26T15:40:16+07:00",
+  "generated_at_utc": "2026-09-26T08:41:14+00:00",
+  "generated_at_ict": "2026-09-26T15:41:14+07:00",
   "api_base": "https://data-api.binance.vision",
-  "duration_seconds": 19.81,
-  "errors": 1,
-  "error_sample": [
-    "weekly 牛来USDT: 'ascii' codec can't encode characters in position 26-27: ordinal not in range(128)"
-  ]
+  "duration_seconds": 27.22,
+  "errors": 0,
+  "error_sample": []
 }
