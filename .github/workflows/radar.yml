@@ -1,0 +1,70 @@
+name: investment-radar
+
+on:
+  schedule:
+    # 03:05, 07:05, 11:05, 15:05, 19:05, 23:05 Asia/Ho_Chi_Minh
+    - cron: "5 0,4,8,12,16,20 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "config/**"
+      - "tests/**"
+      - ".github/workflows/radar.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: investment-radar
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Run deterministic market scan
+        id: radar
+        continue-on-error: true
+        run: python src/radar.py
+
+      - name: Send concise Telegram report
+        if: always()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python src/send_telegram.py
+
+      - name: Persist radar data
+        if: always()
+        run: |
+          git config user.name "investment-radar[bot]"
+          git config user.email "investment-radar[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No data change"
+          else
+            RUN_ID=$(python -c 'import json; print(json.load(open("data/health/latest.json"))["run_id"])')
+            git commit -m "radar: ${RUN_ID}"
+            git push
+          fi
+
+      - name: Fail workflow when scanner failed
+        if: always()
+        run: |
+          STATUS=$(python -c 'import json; print(json.load(open("data/health/latest.json"))["status"])')
+          echo "RADAR_STATUS=${STATUS}"
+          test "${STATUS}" != "FAILED"
