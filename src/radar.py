@@ -305,15 +305,22 @@ def classify_state(feat: dict[str, Any], cfg: dict[str, Any]) -> str:
 
 
 def signal_score(feat: dict[str, Any]) -> float:
-    # Ranking only; not a probability or expected return.
+    # Deterministic setup/readiness score for ranking and backtest cohorts.
+    # It is not a probability of profit.
     dd = abs(min(0.0, feat.get("drawdown_major_pct", 0.0)))
-    base = min(20.0, feat.get("weeks_since_26w_low", 0) * 1.5)
-    vol = min(25.0, max(0.0, feat.get("volume_ratio_4h", 0.0) - 1.0) * 12.5)
-    mom = min(15.0, max(0.0, feat.get("ret_12h_pct", 0.0)) * 0.75)
+    depth = min(15.0, dd / 6.0)
+    base = min(15.0, feat.get("weeks_since_26w_low", 0) * 1.5)
+    vol = min(20.0, max(0.0, feat.get("volume_ratio_4h", 0.0) - 1.0) * 10.0)
+    mom = min(10.0, max(0.0, feat.get("ret_12h_pct", 0.0)) * 0.6)
     brk = 15.0 if feat.get("breakout_20x4h") or feat.get("daily_breakout_20d") else 8.0 if feat.get("near_breakout_20x4h") else 0.0
-    liq = 5.0 if feat.get("spread_bps") is not None and feat.get("spread_bps", 9999) <= 40 else 2.5
-    depth = min(20.0, dd / 5.0)
-    return round(min(100.0, depth + base + vol + mom + brk + liq), 1)
+    confirm = min(20.0, max(0.0, feat.get("confirmed_candles_3x4h", 0)) / 3.0 * 20.0)
+    liq = 5.0 if feat.get("spread_bps") is not None and feat.get("spread_bps", 9999) <= 40 else 2.0
+
+    entry_state = feat.get("entry_reference", {}).get("state")
+    extension_penalty = 10.0 if entry_state == "EXTENDED_ABOVE_REF" else 5.0 if entry_state == "WAIT_BREAKOUT_RETEST" else 0.0
+
+    raw = depth + base + vol + mom + brk + confirm + liq - extension_penalty
+    return round(max(0.0, min(100.0, raw)), 1)
 
 
 def score_grade(score: float) -> str:
