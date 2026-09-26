@@ -55,15 +55,22 @@ jobs:
       - name: Persist radar data
         if: always()
         run: |
+          RUN_ID=$(python -c 'import json; print(json.load(open("data/health/latest.json"))["run_id"])')
+          rm -rf /tmp/radar-data
+          cp -a data /tmp/radar-data
+
           git config user.name "investment-radar[bot]"
           git config user.email "investment-radar[bot]@users.noreply.github.com"
+          git fetch origin main
+          git reset --hard origin/main
+
+          rm -rf data
+          cp -a /tmp/radar-data data
           git add data/
           if git diff --cached --quiet; then
             echo "No data change"
           else
-            RUN_ID=$(python -c 'import json; print(json.load(open("data/health/latest.json"))["run_id"])')
             git commit -m "radar: ${RUN_ID}"
-            git pull --rebase origin main
             git push
           fi
 
