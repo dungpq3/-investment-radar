@@ -16,13 +16,6 @@ def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def f(v, digits=1):
-    try:
-        return f"{float(v):.{digits}f}"
-    except (TypeError, ValueError):
-        return "?"
-
-
 def px(v):
     try:
         x = float(v)
@@ -31,7 +24,7 @@ def px(v):
     if x >= 1000:
         return f"{x:,.0f}"
     if x >= 100:
-        return f"{x:,.2f}"
+        return f"{x:.1f}"
     if x >= 1:
         return f"{x:.3f}"
     if x >= 0.01:
@@ -39,49 +32,48 @@ def px(v):
     return f"{x:.8f}"
 
 
-def line(c):
-    confirm = c.get("confirmed_candles_3x4h", "?")
-    bo = "BO" if c.get("breakout_20x4h") or c.get("daily_breakout_20d") else "near" if c.get("near_breakout_20x4h") or c.get("near_daily_breakout_20d") else "-"
-    entry = c.get("entry_reference", {})
-    dca = c.get("dca_reference", {})
-    state_map = {
-        "IN_REF_ZONE": "IN",
-        "EXTENDED_ABOVE_REF": "EXT",
-        "WAIT_BREAKOUT_RETEST": "WAIT",
-    }
+def compact_line(c):
+    er = c.get("entry_reference", {})
+    score = float(c.get("signal_score") or 0)
     return (
-        f"<b>{c['symbol'].replace('USDT','')}</b> {f(c.get('signal_score'),0)}/{c.get('score_grade','?')} | "
-        f"12h {f(c.get('ret_12h_pct'))}% | V {f(c.get('volume_ratio_4h'))}x | C {confirm}/3 {bo}\n"
-        f"  Entry-ref {px(entry.get('low'))}-{px(entry.get('high'))} [{state_map.get(entry.get('state'),'?')}] "
-        f"| DCA-ref {px(dca.get('dca1'))}/{px(dca.get('dca2'))}"
+        f"<b>{c['symbol'].replace('USDT','')}</b> {score:.0f}{c.get('score_grade','?')} "
+        f"· {px(er.get('low'))}-{px(er.get('high'))}"
+    )
+
+
+def short_names(items):
+    if not items:
+        return "-"
+    return " · ".join(
+        f"<b>{c['symbol'].replace('USDT','')}</b> {float(c.get('signal_score') or 0):.0f}{c.get('score_grade','?')}"
+        for c in items
     )
 
 
 def build_report(latest, cfg):
-    status = latest.get("status", "UNKNOWN")
-    scan = latest.get("scan", {})
-    summary = latest.get("summary", {})
     candidates = latest.get("candidates", [])
-    early = [c for c in candidates if c.get("state") == "EARLY_IGNITION"][: cfg["output"]["telegram_early"]]
-    wake = [c for c in candidates if c.get("state") == "WAKE_UP"][: cfg["output"]["telegram_watch"]]
-    moved = [c for c in candidates if c.get("state") == "ALREADY_MOVED"][: cfg["output"]["telegram_moved"]]
+    ready = [c for c in candidates if c.get("opportunity_tier") == "READY"][: int(cfg["output"].get("telegram_ready", 3))]
+    watch = [c for c in candidates if c.get("opportunity_tier") == "WATCH"][: int(cfg["output"].get("telegram_watch", 4))]
+    extended = [c for c in candidates if c.get("opportunity_tier") == "EXTENDED"][: int(cfg["output"].get("telegram_extended", 3))]
+    observe_n = sum(1 for c in candidates if c.get("opportunity_tier") == "OBSERVE")
 
-    head = (
-        f"💎 GEM RADAR {latest.get('generated_at_ict','?')[11:16]} ICT | {status}\n"
-        f"EARLY {summary.get('EARLY_IGNITION',0)} | WAKE {summary.get('WAKE_UP',0)} | "
-        f"BASE {summary.get('DORMANT_BASE',0)} | MOVED {summary.get('ALREADY_MOVED',0)}"
-    )
-    parts = [head]
-    if early:
-        parts.append("🟢 EARLY — đã đủ xác nhận sơ bộ\n" + "\n".join(line(c) for c in early))
-    if wake:
-        parts.append("🟡 WAKE — volume/giá vừa thức\n" + "\n".join(line(c) for c in wake))
-    if moved:
-        parts.append("⚪ MOVED\n" + "\n".join(line(c) for c in moved))
-    if not early and not wake:
-        parts.append("No early signal this run.")
-    parts.append("Score/Entry/DCA = mốc deterministic để backtest, không phải lệnh tự động.")
-    parts.append(f"run={latest.get('run_id','?')}")
+    parts = [
+        f"💎 <b>GEM RADAR</b> {latest.get('generated_at_ict','?')[11:16]} | "
+        f"READY {len(ready)} · WATCH {len(watch)} · EXT {sum(1 for c in candidates if c.get('opportunity_tier') == 'EXTENDED')}"
+    ]
+
+    if ready:
+        parts.append("🟢 <b>READY</b>\n" + "\n".join(compact_line(c) for c in ready))
+    if watch:
+        parts.append("👀 <b>WATCH</b>\n" + "\n".join(compact_line(c) for c in watch))
+    if extended:
+        parts.append("🔥 <b>EXT</b> " + short_names(extended))
+    if observe_n:
+        parts.append(f"○ OBSERVE {observe_n}")
+    if not ready and not watch and not extended:
+        parts.append("Không có setup nổi bật kỳ này.")
+
+    parts.append(f"<code>R{latest.get('run_id','?')[-7:-1]}</code>")
     return "\n\n".join(parts)
 
 
