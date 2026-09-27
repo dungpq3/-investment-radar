@@ -41,6 +41,10 @@ jobs:
         continue-on-error: true
         run: python src/radar.py
 
+      - name: Update paper-watch cohorts
+        if: always()
+        run: python src/watchlist.py
+
       - name: Build compact BTC ETH SOL market brief
         if: always()
         run: python src/market_brief.py
