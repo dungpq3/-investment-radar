@@ -24,29 +24,16 @@ def p(v):
 
 
 def price(v):
-    v = float(v)
-    if v >= 1000:
-        return f"{v:,.0f}"
-    if v >= 100:
-        return f"{v:,.1f}"
-    if v >= 10:
-        return f"{v:,.2f}"
-    if v >= 1:
-        return f"{v:.3f}"
-    return f"{v:.5f}"
-
-
-def compact_price(v):
-    v = float(v)
-    if v >= 1000:
-        return f"{v/1000:.2f}k"
-    if v >= 100:
-        return f"{v:.0f}"
-    if v >= 10:
-        return f"{v:.1f}"
-    if v >= 1:
-        return f"{v:.2f}"
-    return f"{v:.4f}"
+    x = float(v)
+    if x >= 1000:
+        return f"{x/1000:.2f}k"
+    if x >= 100:
+        return f"{x:.0f}"
+    if x >= 10:
+        return f"{x:.1f}"
+    if x >= 1:
+        return f"{x:.2f}"
+    return f"{x:.4f}"
 
 
 def money(v):
@@ -56,92 +43,68 @@ def money(v):
     sign = "+" if x > 0 else ""
     if abs(x) >= 1000:
         return f"{sign}{x/1000:.2f}b"
-    return f"{sign}{x:.1f}m"
+    return f"{sign}{x:.0f}m"
+
+
+def table(headers, rows):
+    widths = [max(len(str(h)), *(len(str(r[i])) for r in rows)) for i, h in enumerate(headers)]
+    fmt = lambda r: " ".join(str(r[i]).ljust(widths[i]) for i in range(len(headers)))
+    return "\n".join([fmt(headers), *(fmt(r) for r in rows)])
 
 
 def etf_row(market, name):
     e = market.get("etf", {}).get(name, {})
     if e.get("status") != "OK":
         return [name, "?", "?"]
-    return [
-        name,
-        money(e.get("latest_flow_usdm")),
-        money(e.get("five_session_flow_usdm")),
-    ]
+    return [name, money(e.get("latest_flow_usdm")), money(e.get("five_session_flow_usdm"))]
 
 
 def trap_row(assets, name):
     a = assets[name + "USDT"]
     z = a.get("volume_clusters", {}).get("overhead")
     if not z:
-        return [name, compact_price(a["price"]), "?", "?"]
-    zone = f"{compact_price(z['low'])}-{compact_price(z['high'])}"
-    return [name, compact_price(a["price"]), zone, p(z.get("distance_pct"))]
+        return [name, "?", "?"]
+    return [name, f"{price(z['low'])}-{price(z['high'])}", p(z.get("distance_pct"))]
 
 
-def monospace_table(headers, rows):
-    widths = []
-    for i, h in enumerate(headers):
-        widths.append(max(len(str(h)), *(len(str(r[i])) for r in rows)))
-    line = lambda r: "  ".join(str(r[i]).ljust(widths[i]) for i in range(len(headers)))
-    return "\n".join([line(headers), line(["-" * w for w in widths]), *(line(r) for r in rows)])
-
-
-def short_view(name, a, e):
-    flow_latest = e.get("latest_flow_usdm") if e.get("status") == "OK" else None
-    flow5 = e.get("five_session_flow_usdm") if e.get("status") == "OK" else None
+def verdict(name, a, e):
     z = a.get("volume_clusters", {}).get("overhead")
     dist = z.get("distance_pct") if z else None
+    flow1 = e.get("latest_flow_usdm") if e.get("status") == "OK" else None
+    flow5 = e.get("five_session_flow_usdm") if e.get("status") == "OK" else None
     ch24 = a.get("change_24h_pct")
 
-    if flow_latest is None or flow5 is None or dist is None or ch24 is None:
-        return "thiếu dữ liệu để ghép giá/flow/kẹt"
+    if None in (dist, flow1, flow5, ch24):
+        return "data thiếu"
 
-    flow_positive = flow_latest > 0 and flow5 > 0
-    flow_negative = flow_latest < 0 and flow5 < 0
-    near_trap = dist <= 1.0
+    flow_up = flow1 > 0 and flow5 > 0
+    flow_down = flow1 < 0 and flow5 < 0
+    near = dist <= 1.0
 
-    if flow_positive and ch24 < 0 and near_trap:
-        return "ETF vào nhưng giá chưa hấp thụ; kẹt rất gần"
-    if flow_positive and near_trap:
-        return "ETF vào + giá giữ; đang sát vùng kẹt"
-    if flow_positive and not near_trap:
-        return "ETF vào; còn khoảng tới vùng kẹt chính"
-    if flow_negative and near_trap:
-        return "ETF yếu + kẹt gần; lực cản đang dày"
-    if flow_negative:
-        return "ETF rút; giá cần tự hấp thụ trước vùng kẹt"
-    if near_trap:
-        return "flow trái chiều; giá đang sát vùng kẹt"
-    return "flow trái chiều; chưa bị ép ngay bởi vùng kẹt"
+    if flow_up and ch24 < 0 and near:
+        return "ETF↑ · giá↓ · kẹt gần → hấp thụ chưa xong"
+    if flow_up and ch24 >= 0 and near:
+        return "ETF↑ · giá↑ · kẹt gần → test cản"
+    if flow_up and not near:
+        return "ETF↑ · còn room tới cản"
+    if flow_down and near:
+        return "ETF↓ · kẹt gần → cản dày"
+    if flow_down:
+        return "ETF↓ · cần hấp thụ lại"
+    return "flow lệch pha"
 
 
 def build_report(market, radar):
     assets = market["assets"]
     names = ("BTC", "ETH", "SOL")
 
-    price_rows = []
+    px_rows = []
     for name in names:
         a = assets[name + "USDT"]
-        price_rows.append(
-            f"<b>{name}</b> {price(a['price'])} | 4H {p(a.get('change_4h_pct'))} | 24H {p(a.get('change_24h_pct'))}"
-        )
+        px_rows.append([name, price(a["price"]), p(a.get("change_4h_pct")), p(a.get("change_24h_pct"))])
 
     etf_rows = [etf_row(market, n) for n in names]
     trap_rows = [trap_row(assets, n) for n in names]
-
-    etf_table = monospace_table(["Coin", "1D", "5S"], etf_rows)
-    trap_table = monospace_table(["Coin", "Price", "Kẹt↑", "Δ"], trap_rows)
-
-    views = []
-    for name in names:
-        a = assets[name + "USDT"]
-        e = market.get("etf", {}).get(name, {})
-        views.append(f"• <b>{name}</b>: {short_view(name, a, e)}")
-
-    rotation = " > ".join(market.get("rotation_24h", []))
-    summary = radar.get("summary", {})
-    gem = f"Gem {summary.get('EARLY_IGNITION',0)} EARLY | {summary.get('WAKE_UP',0)} WAKE"
 
     dates = [
         e.get("latest_date")
@@ -149,20 +112,24 @@ def build_report(market, radar):
         if e.get("status") == "OK" and e.get("latest_date")
     ]
     etf_date = max(dates) if dates else "?"
+    rotation = " > ".join(market.get("rotation_24h", []))
+    summary = radar.get("summary", {})
+
+    views = [
+        f"<b>{n}</b> {verdict(n, assets[n + 'USDT'], market.get('etf', {}).get(n, {}))}"
+        for n in names
+    ]
 
     return "\n".join([
-        f"📊 <b>MARKET BRIEF</b> {market.get('generated_at_ict','?')[11:16]} ICT | {market.get('regime','UNKNOWN')} | {market.get('status','?')}",
-        *price_rows,
-        f"Rotation 24H: {rotation} | {gem}",
-        "",
-        f"💰 <b>ETF FLOW</b> · {etf_date}",
-        f"<pre>{html.escape(etf_table)}</pre>",
-        "🧱 <b>VÙNG KẸT GIÁ</b> · volume 1H/14D proxy",
-        f"<pre>{html.escape(trap_table)}</pre>",
-        "🔎 <b>Giá × Flow × Kẹt</b>",
-        *views,
-        "",
-        f"<code>market={market.get('run_id','?')} radar={radar.get('run_id','?')}</code>",
+        f"📊 <b>MARKET</b> {market.get('generated_at_ict','?')[11:16]} | {market.get('regime','?')} | {rotation}",
+        "<pre>" + html.escape(table(["Coin","Px","4H","24H"], px_rows)) + "</pre>",
+        f"💰 <b>ETF</b> {etf_date}",
+        "<pre>" + html.escape(table(["Coin","1D","5S"], etf_rows)) + "</pre>",
+        "🧱 <b>KẸT GIÁ</b>",
+        "<pre>" + html.escape(table(["Coin","Vùng","Δ"], trap_rows)) + "</pre>",
+        "🔎 " + " | ".join(views),
+        f"💎 {summary.get('EARLY_IGNITION',0)} early · {summary.get('WAKE_UP',0)} wake",
+        f"<code>M{market.get('run_id','?')[-7:-1]} R{radar.get('run_id','?')[-7:-1]}</code>",
     ])
 
 
