@@ -333,6 +333,93 @@ def score_grade(score: float) -> str:
     return "D"
 
 
+def structure_score(feat: dict[str, Any]) -> float:
+    dd = abs(min(0.0, feat.get("drawdown_major_pct", 0.0)))
+    depth = min(20.0, dd / 5.0)
+
+    base_weeks = max(0.0, float(feat.get("weeks_since_26w_low", 0)))
+    base = min(20.0, base_weeks * 2.0)
+
+    base_range = max(0.0, float(feat.get("base_range_12w_pct", 100.0)))
+    compression = max(0.0, min(20.0, (65.0 - base_range) / 65.0 * 20.0))
+
+    pos52 = max(0.0, min(1.0, float(feat.get("position_52w", 1.0))))
+    low_position = (1.0 - pos52) * 15.0
+
+    breakout_context = 15.0 if feat.get("daily_breakout_20d") else 10.0 if feat.get("near_daily_breakout_20d") else 0.0
+
+    spread = feat.get("spread_bps")
+    if spread is None:
+        liquidity = 0.0
+    elif spread <= 20:
+        liquidity = 10.0
+    elif spread <= 40:
+        liquidity = 8.0
+    elif spread <= 80:
+        liquidity = 5.0
+    else:
+        liquidity = 2.0
+
+    return round(max(0.0, min(100.0, depth + base + compression + low_position + breakout_context + liquidity)), 1)
+
+
+def trigger_score(feat: dict[str, Any]) -> float:
+    v4 = max(0.0, float(feat.get("volume_ratio_4h", 0.0)))
+    vol = max(0.0, min(25.0, (v4 - 1.0) / 2.0 * 25.0))
+
+    r12 = float(feat.get("ret_12h_pct", 0.0))
+    momentum = max(0.0, min(20.0, (r12 - 2.0) / 13.0 * 20.0))
+
+    confirms = max(0.0, min(3.0, float(feat.get("confirmed_candles_3x4h", 0))))
+    confirmation = confirms / 3.0 * 25.0
+
+    breakout = 15.0 if (
+        feat.get("breakout_20x4h") or feat.get("daily_breakout_20d")
+    ) else 10.0 if (
+        feat.get("near_breakout_20x4h") or feat.get("near_daily_breakout_20d")
+    ) else 0.0
+
+    entry_state = feat.get("entry_reference", {}).get("state")
+    entry = 15.0 if entry_state == "IN_REF_ZONE" else 12.0 if entry_state == "WAIT_BREAKOUT_RETEST" else 0.0
+
+    vertical_penalty = 0.0
+    if r12 >= 20.0 or float(feat.get("change_24h_pct", 0.0)) >= 30.0:
+        vertical_penalty = 20.0
+
+    return round(max(0.0, min(100.0, vol + momentum + confirmation + breakout + entry - vertical_penalty)), 1)
+
+
+def opportunity_tier(feat: dict[str, Any], cfg: dict[str, Any]) -> str:
+    state = feat.get("state")
+    entry_state = feat.get("entry_reference", {}).get("state")
+    structure = float(feat.get("structure_score", 0.0))
+    trigger = float(feat.get("trigger_score", 0.0))
+    rk = cfg.get("ranking", {})
+
+    if state == "ALREADY_MOVED" or entry_state == "EXTENDED_ABOVE_REF":
+        return "EXTENDED"
+
+    if (
+        state in {"EARLY_IGNITION", "WAKE_UP"}
+        and entry_state == "IN_REF_ZONE"
+        and trigger >= float(rk.get("ready_trigger_min", 50))
+    ):
+        return "READY"
+
+    if (
+        state in {"EARLY_IGNITION", "WAKE_UP"}
+        and entry_state == "WAIT_BREAKOUT_RETEST"
+        and structure >= float(rk.get("structure_watch_min", 55))
+        and trigger >= float(rk.get("trigger_watch_min", 30))
+    ):
+        return "WATCH"
+
+    if state in {"EARLY_IGNITION", "WAKE_UP"}:
+        return "OBSERVE"
+
+    return "BASE"
+
+
 def weekly_preselect(w: dict[str, Any], cfg: dict[str, Any]) -> bool:
     p = cfg["weekly_preselect"]
     return (
@@ -458,6 +545,9 @@ def main() -> int:
             feat["state_changed"] = previous is not None and previous != state
             feat["signal_score"] = signal_score(feat)
             feat["score_grade"] = score_grade(feat["signal_score"])
+            feat["structure_score"] = structure_score(feat)
+            feat["trigger_score"] = trigger_score(feat)
+            feat["opportunity_tier"] = opportunity_tier(feat, cfg)
 
             active_states = {"WAKE_UP", "EARLY_IGNITION", "ALREADY_MOVED"}
             if state in active_states:
@@ -490,6 +580,9 @@ def main() -> int:
                 "state": state,
                 "signal_score": feat["signal_score"],
                 "score_grade": feat["score_grade"],
+                "structure_score": feat["structure_score"],
+                "trigger_score": feat["trigger_score"],
+                "opportunity_tier": feat["opportunity_tier"],
                 "last_price": feat["last_price"],
                 "setup_id": setup_id,
                 "signal_started_at_utc": signal_started_at,
@@ -500,7 +593,13 @@ def main() -> int:
             }
 
         rank = {"EARLY_IGNITION": 0, "WAKE_UP": 1, "DORMANT_BASE": 2, "ALREADY_MOVED": 3}
-        candidates.sort(key=lambda x: (rank.get(x["state"], 9), -x["signal_score"]))
+        tier_rank = {"READY": 0, "WATCH": 1, "OBSERVE": 2, "EXTENDED": 3, "BASE": 4}
+        candidates.sort(key=lambda x: (
+            tier_rank.get(x.get("opportunity_tier"), 9),
+            -x.get("trigger_score", 0),
+            -x.get("structure_score", 0),
+            rank.get(x["state"], 9),
+        ))
         candidates = candidates[: int(cfg["output"]["max_candidates"])]
 
         counts = {k: 0 for k in rank}
