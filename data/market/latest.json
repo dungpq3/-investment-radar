@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "run_id": "20260927T015450Z",
-  "generated_at_utc": "2026-09-27T01:54:50+00:00",
-  "generated_at_ict": "2026-09-27T08:54:50+07:00",
+  "run_id": "20260927T015619Z",
+  "generated_at_utc": "2026-09-27T01:56:19+00:00",
+  "generated_at_ict": "2026-09-27T08:56:19+07:00",
   "status": "OK",
   "source": {
     "market": "Binance Spot public market data",
@@ -17,12 +17,12 @@
   "assets": {
     "BTCUSDT": {
       "symbol": "BTCUSDT",
-      "price": 84516.01,
+      "price": 84530.74,
       "change_4h_pct": 0.4956994823524852,
       "change_12h_pct": 0.30543147690553774,
-      "change_24h_pct": 0.516,
+      "change_24h_pct": 0.55,
       "change_7d_pct": 3.917674328329146,
-      "quote_volume_24h": 651906111.9336346,
+      "quote_volume_24h": 651996295.9692339,
       "last_closed_4h_ms": 1790467199999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
@@ -32,25 +32,25 @@
           "high": 86101.11791666667,
           "center": 85971.66270833334,
           "quote_volume": 1143949111.6479564,
-          "distance_pct": 1.7223395997200353
+          "distance_pct": 1.7046138580276704
         },
         "support": {
           "low": 84029.83458333333,
           "high": 84288.745,
           "center": 84159.28979166667,
           "quote_volume": 1266094642.5193548,
-          "distance_pct": -0.4220741233919134
+          "distance_pct": -0.43942618783809895
         }
       }
     },
     "ETHUSDT": {
       "symbol": "ETHUSDT",
-      "price": 2703.96,
+      "price": 2702.18,
       "change_4h_pct": 0.43544013350020894,
       "change_12h_pct": 0.2543233103673881,
       "change_24h_pct": 0.332,
       "change_7d_pct": 2.4172994161864914,
-      "quote_volume_24h": 243241226.782192,
+      "quote_volume_24h": 243301047.58205,
       "last_closed_4h_ms": 1790467199999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
@@ -60,25 +60,25 @@
           "high": 2751.2825,
           "center": 2746.6110416666666,
           "quote_volume": 543470747.258467,
-          "distance_pct": 1.5773547562340617
+          "distance_pct": 1.644266542816042
         },
         "support": {
           "low": 2685.8820833333334,
           "high": 2695.225,
           "center": 2690.5535416666667,
           "quote_volume": 765610956.4866673,
-          "distance_pct": -0.4958083083083098
+          "distance_pct": -0.4302621710372101
         }
       }
     },
     "SOLUSDT": {
       "symbol": "SOLUSDT",
-      "price": 121.54,
+      "price": 121.5,
       "change_4h_pct": 0.22288261515601704,
       "change_12h_pct": 0.10718997361476301,
-      "change_24h_pct": -0.459,
+      "change_24h_pct": -0.41,
       "change_7d_pct": 9.319286871961108,
-      "quote_volume_24h": 215329477.35229,
+      "quote_volume_24h": 215072002.14431,
       "last_closed_4h_ms": 1790467199999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
@@ -88,14 +88,14 @@
           "high": 122.375,
           "center": 122.0925,
           "quote_volume": 78550641.7073,
-          "distance_pct": 0.4545828533816021
+          "distance_pct": 0.4876543209876516
         },
         "support": {
           "low": 117.28999999999999,
           "high": 117.85499999999999,
           "center": 117.57249999999999,
           "quote_volume": 286496167.7275201,
-          "distance_pct": -3.2643574131973163
+          "distance_pct": -3.2325102880658485
         }
       }
     }

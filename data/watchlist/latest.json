@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "run_id": "20260927T015421Z",
-  "generated_at_utc": "2026-09-27T01:54:21+00:00",
-  "generated_at_ict": "2026-09-27T08:54:21+07:00",
+  "run_id": "20260927T015554Z",
+  "generated_at_utc": "2026-09-27T01:55:54+00:00",
+  "generated_at_ict": "2026-09-27T08:55:54+07:00",
   "status": "OK",
   "policy": {
     "states": [
       "EARLY_IGNITION",
       "WAKE_UP"
     ],
-    "min_score": 65,
+    "min_score": 55,
     "min_confirmed_candles": 1,
     "max_age_hours": 168,
     "targets_pct": [
@@ -20,8 +20,62 @@
     ]
   },
   "note": "Paper watch only; no real position is opened.",
-  "added_this_run": [],
+  "added_this_run": [
+    "AUDIOUSDT-20260927T0152Z"
+  ],
   "expired_this_run": [],
-  "active_count": 0,
-  "active": []
+  "active_count": 1,
+  "active": [
+    {
+      "setup_id": "AUDIOUSDT-20260927T0152Z",
+      "symbol": "AUDIOUSDT",
+      "status": "WATCH_ONLY",
+      "position_opened": false,
+      "paper_only": true,
+      "first_seen_run": "20260927T015554Z",
+      "first_seen_at_utc": "2026-09-27T01:55:54+00:00",
+      "first_seen_at_ict": "2026-09-27T08:55:54+07:00",
+      "watch_price": 0.01493,
+      "watch_state": "WAKE_UP",
+      "watch_score": 59.7,
+      "watch_grade": "D",
+      "watch_confirmed_candles": 1,
+      "watch_volume_ratio_4h": 23.56178564601479,
+      "watch_ret_12h_pct": 3.356164383561633,
+      "entry_reference_at_watch": {
+        "method": "20x4h_breakout_retest_atr",
+        "low": 0.01471875,
+        "high": 0.014934821428571428,
+        "mid": 0.014826785714285712,
+        "state": "EXTENDED_ABOVE_REF"
+      },
+      "dca_reference_at_watch": {
+        "method": "atr_below_breakout_anchor",
+        "dca1": 0.014437857142857143,
+        "dca2": 0.014005714285714285,
+        "invalidation": 0.013789642857142856
+      },
+      "targets_pct": [
+        20,
+        30,
+        50,
+        100
+      ],
+      "targets_hit": {
+        "20": false,
+        "30": false,
+        "50": false,
+        "100": false
+      },
+      "mfe_snapshot_pct": 0.0,
+      "mae_snapshot_pct": 0.0,
+      "last_price": 0.01493,
+      "last_state": "WAKE_UP",
+      "last_score": 59.7,
+      "last_seen_run": "20260927T015554Z",
+      "last_seen_at_utc": "2026-09-27T01:55:54+00:00",
+      "age_hours": 0.0,
+      "move_since_watch_pct": 0.0
+    }
+  ]
 }
