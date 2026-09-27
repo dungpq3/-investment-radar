@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "run_id": "20260927T015421Z",
+  "generated_at_utc": "2026-09-27T01:54:21+00:00",
+  "generated_at_ict": "2026-09-27T08:54:21+07:00",
+  "status": "OK",
+  "policy": {
+    "states": [
+      "EARLY_IGNITION",
+      "WAKE_UP"
+    ],
+    "min_score": 65,
+    "min_confirmed_candles": 1,
+    "max_age_hours": 168,
+    "targets_pct": [
+      20,
+      30,
+      50,
+      100
+    ]
+  },
+  "note": "Paper watch only; no real position is opened.",
+  "added_this_run": [],
+  "expired_this_run": [],
+  "active_count": 0,
+  "active": []
+}
