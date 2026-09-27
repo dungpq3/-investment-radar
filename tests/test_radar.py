@@ -33,5 +33,34 @@ class RadarTests(unittest.TestCase):
         self.assertEqual(radar.classify_state({"change_24h_pct": 50}, cfg), "ALREADY_MOVED")
 
 
+    def test_qnt_like_early_breakout_is_watch(self):
+        feat = {
+            "state": "WAKE_UP",
+            "drawdown_major_pct": -80.56,
+            "weeks_since_26w_low": 4,
+            "base_range_12w_pct": 26.99,
+            "position_52w": 0.234,
+            "daily_breakout_20d": True,
+            "near_daily_breakout_20d": True,
+            "spread_bps": 3.83,
+            "volume_ratio_4h": 1.27,
+            "ret_12h_pct": 4.42,
+            "confirmed_candles_3x4h": 1,
+            "breakout_20x4h": False,
+            "near_breakout_20x4h": False,
+            "change_24h_pct": 8.19,
+            "entry_reference": {"state": "WAIT_BREAKOUT_RETEST"},
+        }
+        cfg = {"ranking": {
+            "structure_watch_min": 55,
+            "trigger_watch_min": 30,
+            "ready_trigger_min": 50,
+        }}
+        feat["structure_score"] = radar.structure_score(feat)
+        feat["trigger_score"] = radar.trigger_score(feat)
+        self.assertGreaterEqual(feat["structure_score"], 55)
+        self.assertGreaterEqual(feat["trigger_score"], 30)
+        self.assertEqual(radar.opportunity_tier(feat, cfg), "WATCH")
+
 if __name__ == "__main__":
     unittest.main()
