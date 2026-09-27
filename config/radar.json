@@ -33,5 +33,22 @@
     "dca1_atr_below": 1,
     "dca2_atr_below": 2,
     "invalidation_atr_below": 2.5
+  },
+  "paper_watch": {
+    "states": [
+      "EARLY_IGNITION",
+      "WAKE_UP"
+    ],
+    "min_score": 65,
+    "min_confirmed_candles": 1,
+    "max_age_hours": 168,
+    "targets_pct": [
+      20,
+      30,
+      50,
+      100
+    ],
+    "max_active": 12,
+    "telegram_max": 8
   }
 }
