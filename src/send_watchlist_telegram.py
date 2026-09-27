@@ -22,56 +22,58 @@ def px(v):
         return "?"
     x = float(v)
     if x >= 1000:
-        return f"{x:,.0f}"
+        return f"{x/1000:.1f}k"
     if x >= 100:
-        return f"{x:.1f}"
+        return f"{x:.0f}"
     if x >= 1:
-        return f"{x:.3f}"
+        return f"{x:.2f}"
     if x >= 0.01:
-        return f"{x:.5f}"
-    return f"{x:.8f}"
+        return f"{x:.4f}"
+    return f"{x:.6f}"
 
 
 def signed(v):
     if v is None:
         return "?"
-    return f"{float(v):+.1f}%"
+    return f"{float(v):+.0f}%"
+
+
+def table(headers, rows):
+    widths = [max(len(str(h)), *(len(str(r[i])) for r in rows)) for i, h in enumerate(headers)]
+    fmt = lambda r: " ".join(str(r[i]).ljust(widths[i]) for i in range(len(headers)))
+    return "\n".join([fmt(headers), *(fmt(r) for r in rows)])
 
 
 def build_report(watch, cfg):
     added = set(watch.get("added_this_run", []))
     active = watch.get("active", [])[: int(cfg["paper_watch"]["telegram_max"])]
 
-    head = (
-        f"👀 <b>PAPER WATCH</b> {watch.get('generated_at_ict','?')[11:16]} ICT | "
-        f"ACTIVE {watch.get('active_count',0)} | NEW {len(added)}"
-    )
     parts = [
-        head,
-        "<i>Chỉ đưa vào tầm theo dõi/backtest — chưa vào lệnh.</i>",
+        f"👀 <b>PAPER WATCH</b> {watch.get('generated_at_ict','?')[11:16]} | "
+        f"{watch.get('active_count',0)} active · {len(added)} new",
+        "<i>Watch/backtest only — chưa vào lệnh.</i>",
     ]
 
     if not active:
-        parts.append("Chưa có setup đạt ngưỡng paper-watch.")
+        parts.append("Không có setup đang theo dõi.")
     else:
+        rows = []
         for item in active:
-            new = "🆕 " if item["setup_id"] in added else ""
-            target_hits = [k for k, hit in item.get("targets_hit", {}).items() if hit]
-            hit_text = ",".join(target_hits) if target_hits else "-"
-            er = item.get("entry_reference_at_watch") or {}
-            dr = item.get("dca_reference_at_watch") or {}
-            parts.append(
-                f"{new}<b>{html.escape(item['symbol'].replace('USDT',''))}</b> "
-                f"{float(item.get('last_score') or 0):.0f}/{item.get('watch_grade','?')} | "
-                f"W {px(item.get('watch_price'))} → {px(item.get('last_price'))} | "
-                f"Δ {signed(item.get('move_since_watch_pct'))}\n"
-                f"  MFE/MAE {signed(item.get('mfe_snapshot_pct'))}/{signed(item.get('mae_snapshot_pct'))} | "
-                f"hit {hit_text} | age {float(item.get('age_hours') or 0):.0f}h\n"
-                f"  Entry-ref {px(er.get('low'))}-{px(er.get('high'))} | "
-                f"DCA-ref {px(dr.get('dca1'))}/{px(dr.get('dca2'))}"
-            )
+            coin = ("+" if item["setup_id"] in added else "") + item["symbol"].replace("USDT","")
+            tier = (item.get("last_opportunity_tier") or item.get("watch_opportunity_tier") or "?")[:5]
+            hit = "/".join(k for k, v in item.get("targets_hit", {}).items() if v) or "-"
+            rows.append([
+                coin,
+                tier,
+                px(item.get("watch_price")),
+                signed(item.get("move_since_watch_pct")),
+                signed(item.get("mfe_snapshot_pct")),
+                signed(item.get("mae_snapshot_pct")),
+                hit,
+            ])
+        parts.append("<pre>" + html.escape(table(["Coin","Tier","Watch","Δ","MFE","MAE","Hit"], rows)) + "</pre>")
 
-    parts.append(f"<code>watch_run={watch.get('run_id','?')}</code>")
+    parts.append(f"<code>W{watch.get('run_id','?')[-7:-1]}</code>")
     return "\n".join(parts)
 
 
