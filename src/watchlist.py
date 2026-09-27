@@ -90,6 +90,9 @@ def main():
             "watch_state": c.get("state"),
             "watch_score": c.get("signal_score"),
             "watch_grade": c.get("score_grade"),
+            "watch_structure_score": c.get("structure_score"),
+            "watch_trigger_score": c.get("trigger_score"),
+            "watch_opportunity_tier": c.get("opportunity_tier"),
             "watch_confirmed_candles": c.get("confirmed_candles_3x4h"),
             "watch_volume_ratio_4h": c.get("volume_ratio_4h"),
             "watch_ret_12h_pct": c.get("ret_12h_pct"),
@@ -125,6 +128,9 @@ def main():
             item["last_price"] = now_price
             item["last_state"] = c.get("state")
             item["last_score"] = c.get("signal_score")
+            item["last_structure_score"] = c.get("structure_score")
+            item["last_trigger_score"] = c.get("trigger_score")
+            item["last_opportunity_tier"] = c.get("opportunity_tier")
             item["last_seen_run"] = run_id
             item["last_seen_at_utc"] = radar["generated_at_utc"]
             item["mfe_snapshot_pct"] = round(max(float(item.get("mfe_snapshot_pct", 0)), mv), 3)
