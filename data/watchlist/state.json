@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_run": "20260927T054732Z",
+  "updated_run": "20260927T054826Z",
   "items": {
     "AUDIOUSDT-20260927T0152Z": {
       "setup_id": "AUDIOUSDT-20260927T0152Z",
@@ -45,13 +45,13 @@
       },
       "mfe_snapshot_pct": 0.0,
       "mae_snapshot_pct": -2.143,
-      "last_price": 0.01479,
+      "last_price": 0.0148,
       "last_state": "DORMANT_BASE",
       "last_score": 28.9,
-      "last_seen_run": "20260927T054732Z",
-      "last_seen_at_utc": "2026-09-27T05:47:32+00:00",
-      "age_hours": 3.86,
-      "move_since_watch_pct": -0.938
+      "last_seen_run": "20260927T054826Z",
+      "last_seen_at_utc": "2026-09-27T05:48:26+00:00",
+      "age_hours": 3.88,
+      "move_since_watch_pct": -0.871
     },
     "WUSDT-20260927T0511Z": {
       "setup_id": "WUSDT-20260927T0511Z",
@@ -94,15 +94,15 @@
         "50": false,
         "100": false
       },
-      "mfe_snapshot_pct": 1.117,
+      "mfe_snapshot_pct": 1.187,
       "mae_snapshot_pct": 0.0,
-      "last_price": 0.01448,
+      "last_price": 0.01449,
       "last_state": "EARLY_IGNITION",
       "last_score": 75.2,
-      "last_seen_run": "20260927T054732Z",
-      "last_seen_at_utc": "2026-09-27T05:47:32+00:00",
-      "age_hours": 0.6,
-      "move_since_watch_pct": 1.117
+      "last_seen_run": "20260927T054826Z",
+      "last_seen_at_utc": "2026-09-27T05:48:26+00:00",
+      "age_hours": 0.62,
+      "move_since_watch_pct": 1.187
     }
   }
 }
