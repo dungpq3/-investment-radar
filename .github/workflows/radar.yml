@@ -41,9 +41,13 @@ jobs:
         continue-on-error: true
         run: python src/radar.py
 
-      - name: Update paper-watch cohorts
+      - name: Update legacy paper-watch cohorts
         if: always()
         run: python src/watchlist.py
+
+      - name: Run one-slot GEM swing paper experiment
+        if: always()
+        run: python src/swing_test.py
 
       - name: Build compact BTC ETH SOL market brief
         if: always()
