@@ -9,7 +9,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LATEST = ROOT / "data" / "radar" / "latest.json"
-SWING = ROOT / "data" / "swing" / "latest.json"
 CONFIG = ROOT / "config" / "radar.json"
 
 
@@ -51,78 +50,39 @@ def short_names(items):
     )
 
 
-def signed(v, digits=1):
-    if v is None:
-        return "?"
-    return f"{float(v):+.{digits}f}%"
+def build_report(latest, cfg):
+    candidates = latest.get("candidates", [])
+    ready = [c for c in candidates if c.get("opportunity_tier") == "READY"][: int(cfg["output"].get("telegram_ready", 3))]
+    watch = [c for c in candidates if c.get("opportunity_tier") == "WATCH"][: int(cfg["output"].get("telegram_watch", 4))]
+    extended = [c for c in candidates if c.get("opportunity_tier") == "EXTENDED"][: int(cfg["output"].get("telegram_extended", 3))]
+    observe_n = sum(1 for c in candidates if c.get("opportunity_tier") == "OBSERVE")
 
+    parts = [
+        f"💎 <b>GEM RADAR</b> {latest.get('generated_at_ict','?')[11:16]} | "
+        f"READY {len(ready)} · WATCH {len(watch)} · EXT {sum(1 for c in candidates if c.get('opportunity_tier') == 'EXTENDED')}"
+    ]
 
-def money(v):
-    if v is None:
-        return "?"
-    return "$" + f"{float(v):+.2f}"
+    if ready:
+        parts.append("🟢 <b>READY</b>\n" + "\n".join(compact_line(c) for c in ready))
+    if watch:
+        parts.append("👀 <b>WATCH</b>\n" + "\n".join(compact_line(c) for c in watch))
+    if extended:
+        parts.append("🔥 <b>EXT</b> " + short_names(extended))
+    if observe_n:
+        parts.append(f"○ OBSERVE {observe_n}")
+    if not ready and not watch and not extended:
+        parts.append("Không có setup nổi bật kỳ này.")
 
+    parts.append(f"<code>R{latest.get('run_id','?')[-7:-1]}</code>")
+    return "\n\n".join(parts)
 
-def coin(symbol):
-    return str(symbol or "?").replace("USDT", "")
-
-
-def build_report(latest, cfg, swing):
-    ts = swing.get("generated_at_ict") or latest.get("generated_at_ict") or "?"
-    hhmm = ts[11:16] if len(ts) >= 16 else "?"
-    events = set(swing.get("events_this_run", []))
-    summary = swing.get("summary", {})
-    closed = swing.get("closed_trade_this_run")
-    active = swing.get("active_trade")
-
-    if closed:
-        reason = closed.get("exit_reason", "CLOSED")
-        icon = "✅" if float(closed.get("net_pnl_usdt") or 0) > 0 else "🛑"
-        parts = [
-            f"{icon} <b>GEM CLOSED</b> {hhmm} | <b>{coin(closed.get('symbol'))}</b>",
-            f"{reason} · {money(closed.get('net_pnl_usdt'))} · {signed(closed.get('net_return_pct'))}",
-            f"MFE {signed(closed.get('mfe_pct'))} · MAE {signed(closed.get('mae_pct'))} · hold {float(closed.get('hold_hours') or 0):.1f}h",
-            "🔎 Scan-only phần còn lại của ngày; không mở lệnh thứ hai.",
-        ]
-    elif active:
-        grade = active.get("entry_grade") or "?"
-        score = float(active.get("entry_signal_score") or 0)
-        levels = active.get("levels", {})
-        dca_txt = "DONE" if active.get("dca_done") else px(levels.get("dca"))
-        header = "💎 <b>GEM OF DAY</b>" if "ENTRY" in events else "👀 <b>GEM TRACK</b>"
-        parts = [
-            f"{header} {hhmm} | <b>{coin(active.get('symbol'))}</b> {score:.0f}{grade}",
-            f"Entry {px(active.get('entry_market_price'))} → {px(active.get('last_price'))} · {signed(active.get('mark_move_pct'))}",
-            f"Paper {money(active.get('capital_deployed_usdt'))} · net {money(active.get('mark_net_pnl_usdt'))}",
-            f"TP25 {px(levels.get('tp'))} · DCA1 {dca_txt} · MFE {signed(active.get('mfe_pct'))} / MAE {signed(active.get('mae_pct'))}",
-        ]
-        if "DCA1" in events:
-            parts.append("🟠 DCA1 đã giả lập; vốn paper hiện $200.")
-    else:
-        if "SCAN_ONLY_DAY_LOCKED" in events:
-            state = "DAY LOCKED"
-        elif "SCAN_ONLY_OFF_SCHEDULE" in events:
-            state = "OFF-SCHEDULE CHECK"
-        else:
-            state = "NO SETUP"
-        parts = [
-            f"💎 <b>GEM RADAR</b> {hhmm} | {state}",
-            "🔎 Scan-only · chưa có lệnh paper mới.",
-        ]
-
-    parts.append(
-        f"30D PAPER: {int(summary.get('closed_trades') or 0)} vòng · "
-        f"net {money(summary.get('net_pnl_usdt') or 0)} · hit {float(summary.get('hit_rate_pct') or 0):.0f}%"
-    )
-    parts.append(f"<code>{swing.get('strategy_version','gem-swing-paper-v1')}</code>")
-    return "\n".join(parts)
 
 def main():
     token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
     chat_id = os.getenv("TELEGRAM_CHAT_ID", "").strip()
     latest = load(LATEST)
     cfg = load(CONFIG)
-    swing = load(SWING) if SWING.exists() else {}\n    text = build_report(latest, cfg, swing)
+    text = build_report(latest, cfg)
     print(text)
     if not token or not chat_id:
         print("TELEGRAM=SKIPPED missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID")
