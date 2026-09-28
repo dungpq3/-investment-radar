@@ -57,5 +57,42 @@
     "structure_watch_min": 55,
     "trigger_watch_min": 30,
     "ready_trigger_min": 50
+  },
+  "swing_test": {
+    "enabled": true,
+    "paper_only": true,
+    "eligible_tiers": [
+      "READY",
+      "WATCH"
+    ],
+    "eligible_states": [
+      "EARLY_IGNITION",
+      "WAKE_UP"
+    ],
+    "min_signal_score": 70,
+    "runner_up_count": 3,
+    "initial_usdt": 100,
+    "dca_usdt": 100,
+    "dca_trigger_pct": -12,
+    "take_profit_pct": 25,
+    "shadow_targets_pct": [
+      20,
+      25,
+      30
+    ],
+    "stop_loss_pct": -25,
+    "max_hold_hours": 168,
+    "fee_bps": 10,
+    "slippage_bps": 5,
+    "tracking_interval": "15m",
+    "scan_slots_ict": [
+      3,
+      7,
+      11,
+      15,
+      19,
+      23
+    ],
+    "max_scan_delay_min": 120
   }
 }
