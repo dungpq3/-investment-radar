@@ -121,7 +121,7 @@ def build_report(market, radar):
     ]
 
     return "\n".join([
-        f"📊 <b>MARKET</b> {market.get('generated_at_ict','?')[11:16]} | {market.get('regime','?')} | {rotation}",
+        f"₿ <b>CORE REBALANCE</b> {market.get('generated_at_ict','?')[11:16]} | {market.get('regime','?')} | {rotation}",
         "<pre>" + html.escape(table(["Coin","Px","4H","24H"], px_rows)) + "</pre>",
         f"💰 <b>ETF</b> {etf_date}",
         "<pre>" + html.escape(table(["Coin","1D","5S"], etf_rows)) + "</pre>",

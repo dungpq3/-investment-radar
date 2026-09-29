@@ -49,7 +49,7 @@ def build_report(watch, cfg):
     active = watch.get("active", [])[: int(cfg["paper_watch"]["telegram_max"])]
 
     parts = [
-        f"👀 <b>PAPER WATCH</b> {watch.get('generated_at_ict','?')[11:16]} | "
+        f"🧪 <b>GEM LAB</b> {watch.get('generated_at_ict','?')[11:16]} | "
         f"{watch.get('active_count',0)} active · {len(added)} new",
         "<i>Watch/backtest only — chưa vào lệnh.</i>",
     ]
