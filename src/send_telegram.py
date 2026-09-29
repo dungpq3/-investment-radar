@@ -58,7 +58,7 @@ def build_report(latest, cfg):
     observe_n = sum(1 for c in candidates if c.get("opportunity_tier") == "OBSERVE")
 
     parts = [
-        f"💎 <b>GEM RADAR</b> {latest.get('generated_at_ict','?')[11:16]} | "
+        f"💎 <b>GEM HUNTER</b> {latest.get('generated_at_ict','?')[11:16]} | "
         f"READY {len(ready)} · WATCH {len(watch)} · EXT {sum(1 for c in candidates if c.get('opportunity_tier') == 'EXTENDED')}"
     ]
 
