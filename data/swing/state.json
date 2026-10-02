@@ -1,8 +1,100 @@
 {
   "schema_version": 1,
-  "active_trade": null,
+  "active_trade": {
+    "trade_id": "GTCUSDT-20261002T203945Z",
+    "paper_only": true,
+    "status": "OPEN",
+    "symbol": "GTCUSDT",
+    "entry_at_utc": "2026-10-02T20:39:45+00:00",
+    "entry_at_ict": "2026-10-03T03:39:45+07:00",
+    "entry_run_id": "20261002T203945Z",
+    "entry_market_price": 0.14854,
+    "entry_signal_score": 81.7,
+    "entry_grade": "B",
+    "entry_structure_score": 83.3,
+    "entry_trigger_score": 80.3,
+    "entry_opportunity_tier": "WATCH",
+    "entry_state": "WAKE_UP",
+    "entry_volume_ratio_4h": 3.9681700032413447,
+    "entry_volume_ratio_8h": 2.672348363758792,
+    "entry_ret_12h_pct": 17.925765876996678,
+    "entry_change_24h_pct": 16.129,
+    "entry_drawdown_major_pct": -99.68577626278277,
+    "entry_position_52w": 0.1136,
+    "entry_quote_volume_24h": 27512157.408054,
+    "entry_spread_bps": 14.127619496114095,
+    "entry_reference": {
+      "method": "20x4h_breakout_retest_atr",
+      "low": 0.177845,
+      "high": 0.18663785714285713,
+      "mid": 0.18224142857142855,
+      "state": "WAIT_BREAKOUT_RETEST"
+    },
+    "dca_reference_from_radar": {
+      "method": "atr_below_breakout_anchor",
+      "dca1": 0.1664142857142857,
+      "dca2": 0.14882857142857142,
+      "invalidation": 0.1400357142857143
+    },
+    "selector_score": 107.075,
+    "scheduled_scan_slot_ict": "03:05",
+    "scan_delay_min": 34,
+    "runner_ups": [],
+    "buy_fills": [
+      {
+        "cash_usdt": 100.0,
+        "market_price": 0.14854,
+        "fill_price": 0.14861427,
+        "gross_qty": 672.8828934125909,
+        "fee_qty": 0.6728828934125909,
+        "net_qty": 672.2100105191782,
+        "effective_cost": 0.14876303303303304,
+        "kind": "ENTRY"
+      }
+    ],
+    "dca_done": false,
+    "mfe_pct": 0.0,
+    "mae_pct": 0.0,
+    "shadow_targets": {
+      "20": {
+        "hit": false,
+        "first_hit_close_ms": null
+      },
+      "25": {
+        "hit": false,
+        "first_hit_close_ms": null
+      },
+      "30": {
+        "hit": false,
+        "first_hit_close_ms": null
+      }
+    },
+    "last_price": 0.14854,
+    "last_processed_close_ms": 1790973585000,
+    "intrabar_ambiguous_count": 0,
+    "qty": 672.2100105191782,
+    "capital_deployed_usdt": 100.0,
+    "avg_effective_cost": 0.14876303303303304,
+    "levels": {
+      "tp": 0.1859537912912913,
+      "stop": 0.11157227477477477,
+      "dca": 0.1307152
+    },
+    "mark_move_pct": 0.0,
+    "mark_net_value_usdt": 99.70035,
+    "mark_net_pnl_usdt": -0.29965,
+    "mark_net_return_pct": -0.2997
+  },
   "closed_trades": [],
-  "daily_locks": {},
-  "updated_run_id": "20261002T144155Z",
-  "updated_at_utc": "2026-10-02T14:41:55+00:00"
+  "daily_locks": {
+    "2026-10-03": {
+      "trade_id": "GTCUSDT-20261002T203945Z",
+      "symbol": "GTCUSDT",
+      "locked_at_utc": "2026-10-02T20:39:45+00:00",
+      "locked_at_ict": "2026-10-03T03:39:45+07:00",
+      "runner_ups": []
+    }
+  },
+  "updated_run_id": "20261002T203945Z",
+  "updated_at_utc": "2026-10-02T20:39:45+00:00"
 }
