@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261003T191058Z",
-  "generated_at_utc": "2026-10-03T19:10:58+00:00",
-  "generated_at_ict": "2026-10-04T02:10:58+07:00",
+  "run_id": "20261003T225053Z",
+  "generated_at_utc": "2026-10-03T22:50:53+00:00",
+  "generated_at_ict": "2026-10-04T05:50:53+07:00",
   "status": "OK",
   "paper_only": true,
   "strategy_version": "gem-swing-paper-v1.0.0",
@@ -101,8 +101,8 @@
         "first_hit_close_ms": null
       }
     },
-    "last_price": 0.11391,
-    "last_processed_close_ms": 1791054899999,
+    "last_price": 0.11344,
+    "last_processed_close_ms": 1791068399999,
     "intrabar_ambiguous_count": 0,
     "qty": 1436.0850224727901,
     "capital_deployed_usdt": 200.0,
@@ -112,18 +112,18 @@
       "stop": 0.10445064021468276,
       "dca": 0.1307152
     },
-    "mark_move_pct": -23.3136,
-    "mark_net_value_usdt": 163.33915,
-    "mark_net_pnl_usdt": -36.66085,
-    "mark_net_return_pct": -18.3304,
+    "mark_move_pct": -23.63,
+    "mark_net_value_usdt": 162.665202,
+    "mark_net_pnl_usdt": -37.334798,
+    "mark_net_return_pct": -18.6674,
     "dca_event_close_ms": 1790988299999,
     "last_radar_state": "DORMANT_BASE",
     "last_radar_tier": "BASE",
     "last_signal_score": 30.0,
     "last_trigger_score": 12.0,
     "last_structure_score": 68.3,
-    "last_update_at_utc": "2026-10-03T19:10:58+00:00",
-    "last_update_at_ict": "2026-10-04T02:10:58+07:00"
+    "last_update_at_utc": "2026-10-03T22:50:53+00:00",
+    "last_update_at_ict": "2026-10-04T05:50:53+07:00"
   },
   "closed_trade_this_run": null,
   "today_lock": null,
