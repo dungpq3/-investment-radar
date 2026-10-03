@@ -50,11 +50,22 @@
         "net_qty": 672.2100105191782,
         "effective_cost": 0.14876303303303304,
         "kind": "ENTRY"
+      },
+      {
+        "cash_usdt": 100.0,
+        "market_price": 0.1307152,
+        "fill_price": 0.13078055759999999,
+        "gross_qty": 764.639651605217,
+        "fee_qty": 0.764639651605217,
+        "net_qty": 763.8750119536118,
+        "effective_cost": 0.13091146906906906,
+        "kind": "DCA1",
+        "event_close_ms": 1790988299999
       }
     ],
-    "dca_done": false,
-    "mfe_pct": 0.0,
-    "mae_pct": 0.0,
+    "dca_done": true,
+    "mfe_pct": 4.5779,
+    "mae_pct": -16.7228,
     "shadow_targets": {
       "20": {
         "hit": false,
@@ -69,21 +80,29 @@
         "first_hit_close_ms": null
       }
     },
-    "last_price": 0.14854,
-    "last_processed_close_ms": 1790973585000,
+    "last_price": 0.12859,
+    "last_processed_close_ms": 1791004499999,
     "intrabar_ambiguous_count": 0,
-    "qty": 672.2100105191782,
-    "capital_deployed_usdt": 100.0,
-    "avg_effective_cost": 0.14876303303303304,
+    "qty": 1436.0850224727901,
+    "capital_deployed_usdt": 200.0,
+    "avg_effective_cost": 0.13926752028624367,
     "levels": {
-      "tp": 0.1859537912912913,
-      "stop": 0.11157227477477477,
+      "tp": 0.1740844003578046,
+      "stop": 0.10445064021468276,
       "dca": 0.1307152
     },
-    "mark_move_pct": 0.0,
-    "mark_net_value_usdt": 99.70035,
-    "mark_net_pnl_usdt": -0.29965,
-    "mark_net_return_pct": -0.2997
+    "mark_move_pct": -13.4307,
+    "mark_net_value_usdt": 184.389266,
+    "mark_net_pnl_usdt": -15.610734,
+    "mark_net_return_pct": -7.8054,
+    "dca_event_close_ms": 1790988299999,
+    "last_radar_state": "DORMANT_BASE",
+    "last_radar_tier": "BASE",
+    "last_signal_score": 36.7,
+    "last_trigger_score": 20.3,
+    "last_structure_score": 66.3,
+    "last_update_at_utc": "2026-10-03T05:10:08+00:00",
+    "last_update_at_ict": "2026-10-03T12:10:08+07:00"
   },
   "closed_trades": [],
   "daily_locks": {
@@ -95,6 +114,6 @@
       "runner_ups": []
     }
   },
-  "updated_run_id": "20261002T203945Z",
-  "updated_at_utc": "2026-10-02T20:39:45+00:00"
+  "updated_run_id": "20261003T051008Z",
+  "updated_at_utc": "2026-10-03T05:10:08+00:00"
 }
