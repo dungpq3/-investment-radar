@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261003T131852Z",
-  "generated_at_utc": "2026-10-03T13:18:52+00:00",
-  "generated_at_ict": "2026-10-03T20:18:52+07:00",
+  "run_id": "20261003T191058Z",
+  "generated_at_utc": "2026-10-03T19:10:58+00:00",
+  "generated_at_ict": "2026-10-04T02:10:58+07:00",
   "status": "OK",
   "paper_only": true,
   "strategy_version": "gem-swing-paper-v1.0.0",
@@ -86,7 +86,7 @@
     ],
     "dca_done": true,
     "mfe_pct": 4.5779,
-    "mae_pct": -19.8802,
+    "mae_pct": -25.6362,
     "shadow_targets": {
       "20": {
         "hit": false,
@@ -101,8 +101,8 @@
         "first_hit_close_ms": null
       }
     },
-    "last_price": 0.12678,
-    "last_processed_close_ms": 1791034199999,
+    "last_price": 0.11391,
+    "last_processed_close_ms": 1791054899999,
     "intrabar_ambiguous_count": 0,
     "qty": 1436.0850224727901,
     "capital_deployed_usdt": 200.0,
@@ -112,27 +112,21 @@
       "stop": 0.10445064021468276,
       "dca": 0.1307152
     },
-    "mark_move_pct": -14.6493,
-    "mark_net_value_usdt": 181.79385,
-    "mark_net_pnl_usdt": -18.20615,
-    "mark_net_return_pct": -9.1031,
+    "mark_move_pct": -23.3136,
+    "mark_net_value_usdt": 163.33915,
+    "mark_net_pnl_usdt": -36.66085,
+    "mark_net_return_pct": -18.3304,
     "dca_event_close_ms": 1790988299999,
     "last_radar_state": "DORMANT_BASE",
     "last_radar_tier": "BASE",
     "last_signal_score": 30.0,
     "last_trigger_score": 12.0,
     "last_structure_score": 68.3,
-    "last_update_at_utc": "2026-10-03T13:18:52+00:00",
-    "last_update_at_ict": "2026-10-03T20:18:52+07:00"
+    "last_update_at_utc": "2026-10-03T19:10:58+00:00",
+    "last_update_at_ict": "2026-10-04T02:10:58+07:00"
   },
   "closed_trade_this_run": null,
-  "today_lock": {
-    "trade_id": "GTCUSDT-20261002T203945Z",
-    "symbol": "GTCUSDT",
-    "locked_at_utc": "2026-10-02T20:39:45+00:00",
-    "locked_at_ict": "2026-10-03T03:39:45+07:00",
-    "runner_ups": []
-  },
+  "today_lock": null,
   "eligible_count": 0,
   "eligible_preview": [],
   "summary": {
