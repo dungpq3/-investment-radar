@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261004T193302Z",
-  "generated_at_utc": "2026-10-04T19:33:02+00:00",
-  "generated_at_ict": "2026-10-05T02:33:02+07:00",
+  "run_id": "20261004T230151Z",
+  "generated_at_utc": "2026-10-04T23:01:51+00:00",
+  "generated_at_ict": "2026-10-05T06:01:51+07:00",
   "status": "OK",
   "paper_only": true,
   "strategy_version": "gem-swing-paper-v1.0.0",
@@ -20,11 +20,15 @@
     "tracking_interval": "15m",
     "intrabar_policy": "conservative_adverse_first"
   },
-  "events_this_run": [],
-  "active_trade": {
+  "events_this_run": [
+    "TP25",
+    "SCAN_ONLY_DAY_LOCKED"
+  ],
+  "active_trade": null,
+  "closed_trade_this_run": {
     "trade_id": "GTCUSDT-20261002T203945Z",
     "paper_only": true,
-    "status": "OPEN",
+    "status": "CLOSED",
     "symbol": "GTCUSDT",
     "entry_at_utc": "2026-10-02T20:39:45+00:00",
     "entry_at_ict": "2026-10-03T03:39:45+07:00",
@@ -85,12 +89,12 @@
       }
     ],
     "dca_done": true,
-    "mfe_pct": 11.0543,
+    "mfe_pct": 20.6813,
     "mae_pct": -25.6362,
     "shadow_targets": {
       "20": {
-        "hit": false,
-        "first_hit_close_ms": null
+        "hit": true,
+        "first_hit_close_ms": 1791152999999
       },
       "25": {
         "hit": false,
@@ -101,8 +105,8 @@
         "first_hit_close_ms": null
       }
     },
-    "last_price": 0.15987,
-    "last_processed_close_ms": 1791143099999,
+    "last_price": 0.17807,
+    "last_processed_close_ms": 1791152999999,
     "intrabar_ambiguous_count": 0,
     "qty": 1436.0850224727901,
     "capital_deployed_usdt": 200.0,
@@ -119,27 +123,44 @@
     "dca_event_close_ms": 1790988299999,
     "last_radar_state": "ALREADY_MOVED",
     "last_radar_tier": "EXTENDED",
-    "last_signal_score": 33.3,
-    "last_trigger_score": 0.0,
+    "last_signal_score": 64.5,
+    "last_trigger_score": 42.6,
     "last_structure_score": 68.3,
-    "last_update_at_utc": "2026-10-04T19:33:02+00:00",
-    "last_update_at_ict": "2026-10-05T02:33:02+07:00"
+    "last_update_at_utc": "2026-10-04T23:01:51+00:00",
+    "last_update_at_ict": "2026-10-05T06:01:51+07:00",
+    "sell_fill": {
+      "qty": 1436.0850224727901,
+      "market_price": 0.1740844003578046,
+      "fill_price": 0.1739973581576257,
+      "gross_usdt": 249.87500000000003,
+      "fee_usdt": 0.24987500000000004,
+      "net_usdt": 249.62512500000003
+    },
+    "exit_reason": "TP25",
+    "exit_market_price": 0.1740844003578046,
+    "exit_event_close_ms": 1791152999999,
+    "exit_at_utc": "2026-10-04T22:29:59+00:00",
+    "exit_at_ict": "2026-10-05T05:29:59+07:00",
+    "net_pnl_usdt": 49.625125,
+    "net_return_pct": 24.8126,
+    "hold_hours": 49.837
   },
-  "closed_trade_this_run": null,
-  "today_lock": null,
+  "today_lock": {
+    "closed_trade_id": "GTCUSDT-20261002T203945Z"
+  },
   "eligible_count": 0,
   "eligible_preview": [],
   "summary": {
-    "closed_trades": 0,
-    "wins": 0,
+    "closed_trades": 1,
+    "wins": 1,
     "losses": 0,
-    "hit_rate_pct": 0.0,
-    "net_pnl_usdt": 0,
-    "avg_net_return_pct": 0.0,
-    "capital_deployed_sum_usdt": 0,
-    "return_on_deployed_pct": 0.0,
-    "best_trade_usdt": 0.0,
-    "worst_trade_usdt": 0.0
+    "hit_rate_pct": 100.0,
+    "net_pnl_usdt": 49.6251,
+    "avg_net_return_pct": 24.8126,
+    "capital_deployed_sum_usdt": 200.0,
+    "return_on_deployed_pct": 24.8126,
+    "best_trade_usdt": 49.6251,
+    "worst_trade_usdt": 49.6251
   },
   "errors": [],
   "note": "Paper simulation only. No exchange order is created."
