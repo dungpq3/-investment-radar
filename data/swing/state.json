@@ -64,7 +64,7 @@
       }
     ],
     "dca_done": true,
-    "mfe_pct": 4.5779,
+    "mfe_pct": 11.0543,
     "mae_pct": -25.6362,
     "shadow_targets": {
       "20": {
@@ -80,8 +80,8 @@
         "first_hit_close_ms": null
       }
     },
-    "last_price": 0.12726,
-    "last_processed_close_ms": 1791122399999,
+    "last_price": 0.15987,
+    "last_processed_close_ms": 1791143099999,
     "intrabar_ambiguous_count": 0,
     "qty": 1436.0850224727901,
     "capital_deployed_usdt": 200.0,
@@ -91,18 +91,18 @@
       "stop": 0.10445064021468276,
       "dca": 0.1307152
     },
-    "mark_move_pct": -14.3261,
-    "mark_net_value_usdt": 182.482137,
-    "mark_net_pnl_usdt": -17.517863,
-    "mark_net_return_pct": -8.7589,
+    "mark_move_pct": 7.6276,
+    "mark_net_value_usdt": 229.242647,
+    "mark_net_pnl_usdt": 29.242647,
+    "mark_net_return_pct": 14.6213,
     "dca_event_close_ms": 1790988299999,
-    "last_radar_state": "DORMANT_BASE",
-    "last_radar_tier": "BASE",
-    "last_signal_score": 34.0,
-    "last_trigger_score": 19.2,
+    "last_radar_state": "ALREADY_MOVED",
+    "last_radar_tier": "EXTENDED",
+    "last_signal_score": 33.3,
+    "last_trigger_score": 0.0,
     "last_structure_score": 68.3,
-    "last_update_at_utc": "2026-10-04T13:53:44+00:00",
-    "last_update_at_ict": "2026-10-04T20:53:44+07:00"
+    "last_update_at_utc": "2026-10-04T19:33:02+00:00",
+    "last_update_at_ict": "2026-10-05T02:33:02+07:00"
   },
   "closed_trades": [],
   "daily_locks": {
@@ -114,6 +114,6 @@
       "runner_ups": []
     }
   },
-  "updated_run_id": "20261004T135344Z",
-  "updated_at_utc": "2026-10-04T13:53:44+00:00"
+  "updated_run_id": "20261004T193302Z",
+  "updated_at_utc": "2026-10-04T19:33:02+00:00"
 }
