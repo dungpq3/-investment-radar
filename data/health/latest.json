@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "run_id": "20261007T054818Z",
+  "run_id": "20261007T153038Z",
   "status": "OK",
-  "generated_at_utc": "2026-10-07T05:48:18+00:00",
-  "generated_at_ict": "2026-10-07T12:48:18+07:00",
+  "generated_at_utc": "2026-10-07T15:30:38+00:00",
+  "generated_at_ict": "2026-10-07T22:30:38+07:00",
   "api_base": "https://data-api.binance.vision",
-  "duration_seconds": 24.69,
+  "duration_seconds": 19.38,
   "errors": 0,
   "error_sample": []
 }
