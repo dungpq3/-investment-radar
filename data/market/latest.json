@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "run_id": "20261007T153057Z",
-  "generated_at_utc": "2026-10-07T15:30:57+00:00",
-  "generated_at_ict": "2026-10-07T22:30:57+07:00",
+  "run_id": "20261007T211454Z",
+  "generated_at_utc": "2026-10-07T21:14:54+00:00",
+  "generated_at_ict": "2026-10-08T04:14:54+07:00",
   "status": "OK",
   "source": {
     "market": "Binance Spot public market data",
@@ -17,13 +17,13 @@
   "assets": {
     "BTCUSDT": {
       "symbol": "BTCUSDT",
-      "price": 83130.01,
-      "change_4h_pct": -0.48133481695978864,
-      "change_12h_pct": -2.1154663715096,
-      "change_24h_pct": -3.651,
+      "price": 83362.47,
+      "change_4h_pct": -0.023437994282871077,
+      "change_12h_pct": -0.8443621897727516,
+      "change_24h_pct": -2.57,
       "change_7d_pct": 2.254586997508823,
-      "quote_volume_24h": 1756113194.4949248,
-      "last_closed_4h_ms": 1791374399999,
+      "quote_volume_24h": 1727271382.0947511,
+      "last_closed_4h_ms": 1791403199999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
         "note": "Proxy from Binance 1h traded quote volume; not holder cost basis.",
@@ -31,55 +31,55 @@
           "low": 83921.29166666667,
           "high": 84018.3125,
           "center": 83969.80208333334,
-          "quote_volume": 1638530860.3470397,
-          "distance_pct": 1.0102153041162243
+          "quote_volume": 1513372057.9275599,
+          "distance_pct": 0.7285437719555921
         },
         "support": {
-          "low": 82660.02083333333,
-          "high": 82757.04166666666,
-          "center": 82708.53125,
-          "quote_volume": 96435961.3726502,
-          "distance_pct": -0.5070115473341019
+          "low": 83048.10416666667,
+          "high": 83145.125,
+          "center": 83096.61458333334,
+          "quote_volume": 656794703.4088945,
+          "distance_pct": -0.31891499456129235
         }
       }
     },
     "ETHUSDT": {
       "symbol": "ETHUSDT",
-      "price": 2562.9,
-      "change_4h_pct": -1.428724315068497,
-      "change_12h_pct": -4.394826301487664,
-      "change_24h_pct": -5.618,
+      "price": 2572.35,
+      "change_4h_pct": 0.014003804366868877,
+      "change_12h_pct": -1.7287640655577308,
+      "change_24h_pct": -4.63,
       "change_7d_pct": 0.7285341936832834,
-      "quote_volume_24h": 1191411038.904611,
-      "last_closed_4h_ms": 1791374399999,
+      "quote_volume_24h": 1106735747.498024,
+      "last_closed_4h_ms": 1791403199999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
         "note": "Proxy from Binance 1h traded quote volume; not holder cost basis.",
         "overhead": {
-          "low": 2683.5508333333332,
-          "high": 2688.2397916666664,
-          "center": 2685.8953125,
-          "quote_volume": 904486633.4249017,
-          "distance_pct": 4.799067950368707
+          "low": 2682.6189583333335,
+          "high": 2687.60375,
+          "center": 2685.111354166667,
+          "quote_volume": 1074869604.8039446,
+          "distance_pct": 4.383592985661622
         },
         "support": {
-          "low": 2552.26,
-          "high": 2556.9489583333334,
-          "center": 2554.604479166667,
-          "quote_volume": 0.0,
-          "distance_pct": -0.3236771170678998
+          "low": 2562.9839583333332,
+          "high": 2567.96875,
+          "center": 2565.4763541666666,
+          "quote_volume": 189731082.52961498,
+          "distance_pct": -0.26721269785734414
         }
       }
     },
     "SOLUSDT": {
       "symbol": "SOLUSDT",
-      "price": 116.25,
-      "change_4h_pct": -1.087414650594276,
-      "change_12h_pct": -2.791815094026995,
-      "change_24h_pct": -4.195,
+      "price": 116.14,
+      "change_4h_pct": -0.7963010531723658,
+      "change_12h_pct": -2.334991148950516,
+      "change_24h_pct": -3.921,
       "change_7d_pct": 1.3092740243390688,
-      "quote_volume_24h": 235283325.88538,
-      "last_closed_4h_ms": 1791374399999,
+      "quote_volume_24h": 233011843.70915,
+      "last_closed_4h_ms": 1791403199999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
         "note": "Proxy from Binance 1h traded quote volume; not holder cost basis.",
@@ -88,14 +88,14 @@
           "high": 119.77083333333334,
           "center": 119.64135416666667,
           "quote_volume": 310527773.67270994,
-          "distance_pct": 2.9172939068100368
+          "distance_pct": 3.0147702485506134
         },
         "support": {
           "low": 114.850625,
           "high": 115.10958333333333,
           "center": 114.98010416666666,
           "quote_volume": 73002550.30164,
-          "distance_pct": -1.0923835125448034
+          "distance_pct": -0.9987048676884269
         }
       }
     }
