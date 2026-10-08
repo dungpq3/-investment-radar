@@ -1,14 +1,14 @@
 {
   "schema_version": 2,
-  "run_id": "20261008T145707Z",
-  "generated_at_utc": "2026-10-08T14:57:07+00:00",
-  "generated_at_ict": "2026-10-08T21:57:07+07:00",
+  "run_id": "20261008T153229Z",
+  "generated_at_utc": "2026-10-08T15:32:29+00:00",
+  "generated_at_ict": "2026-10-08T22:32:29+07:00",
   "status": "OK",
   "source": {
     "market": "Binance Spot public market data",
     "etf": "Farside Investors"
   },
-  "regime": "MIXED",
+  "regime": "RISK_OFF",
   "macro_overlay": {
     "schema_version": 1,
     "status": "OK",
@@ -26,8 +26,8 @@
       "source": "https://query1.finance.yahoo.com/v8/finance/chart/DX-Y.NYB?interval=1d&range=1mo",
       "status": "OK",
       "asof": "2026-10-08",
-      "value": 102.14600372314453,
-      "delta_5sessions_pct": 0.045,
+      "value": 102.24800109863281,
+      "delta_5sessions_pct": 0.145,
       "direction": "FLAT"
     },
     "policy": "Context-only; does not change crypto regime, target weights or trade signals.",
@@ -41,12 +41,12 @@
   "assets": {
     "BTCUSDT": {
       "symbol": "BTCUSDT",
-      "price": 82658.01,
+      "price": 81370.0,
       "change_4h_pct": -0.5936715914396373,
       "change_12h_pct": -0.9790953893104359,
-      "change_24h_pct": -0.337,
+      "change_24h_pct": -2.245,
       "change_7d_pct": -0.3608909446615627,
-      "quote_volume_24h": 1347104379.0130284,
+      "quote_volume_24h": 1417862551.171133,
       "last_closed_4h_ms": 1791460799999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
@@ -56,25 +56,19 @@
           "high": 84042.83416666667,
           "center": 83986.0990625,
           "quote_volume": 1567995949.1790218,
-          "distance_pct": 1.6067276026848543
+          "distance_pct": 3.2150658258571996
         },
-        "support": {
-          "low": 82113.840625,
-          "high": 82227.31083333334,
-          "center": 82170.57572916667,
-          "quote_volume": 107005499.7965961,
-          "distance_pct": -0.5896999828973959
-        }
+        "support": null
       }
     },
     "ETHUSDT": {
       "symbol": "ETHUSDT",
-      "price": 2529.8,
+      "price": 2460.33,
       "change_4h_pct": -1.2061937151778723,
       "change_12h_pct": -1.4261073601280483,
-      "change_24h_pct": -1.258,
+      "change_24h_pct": -4.098,
       "change_7d_pct": -4.164913756836364,
-      "quote_volume_24h": 785808458.470687,
+      "quote_volume_24h": 867708941.464915,
       "last_closed_4h_ms": 1791460799999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
@@ -84,25 +78,19 @@
           "high": 2697.60875,
           "center": 2694.7615625,
           "quote_volume": 1044717166.095215,
-          "distance_pct": 6.520735334809058
+          "distance_pct": 9.52846010494528
         },
-        "support": {
-          "low": 2521.083125,
-          "high": 2526.7775,
-          "center": 2523.9303125,
-          "quote_volume": 62611554.15934,
-          "distance_pct": -0.23202180014230134
-        }
+        "support": null
       }
     },
     "SOLUSDT": {
       "symbol": "SOLUSDT",
-      "price": 112.46,
+      "price": 109.08,
       "change_4h_pct": -1.565898216615913,
       "change_12h_pct": -2.708512467755797,
-      "change_24h_pct": -2.893,
+      "change_24h_pct": -6.232,
       "change_7d_pct": -1.5408059600406476,
-      "quote_volume_24h": 244624126.98041,
+      "quote_volume_24h": 276420487.61644,
       "last_closed_4h_ms": 1791460799999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
@@ -112,15 +100,9 @@
           "high": 119.7975,
           "center": 119.654375,
           "quote_volume": 314263323.35495996,
-          "distance_pct": 6.397274586519663
+          "distance_pct": 9.694146497983125
         },
-        "support": {
-          "low": 112.06875,
-          "high": 112.35499999999999,
-          "center": 112.21187499999999,
-          "quote_volume": 28545436.42805,
-          "distance_pct": -0.22063400320113669
-        }
+        "support": null
       }
     }
   },
