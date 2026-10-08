@@ -59,6 +59,41 @@ def real_yield(today, fetch=fetch_text):
                            "direction": direction(delta, 5)})
     except Exception as exc:
         result["error"] = type(exc).__name__
+    if result.get("status") != "OK":
+        fallback = treasury_real_yield(today, fetch)
+        if fallback.get("status") == "OK":
+            return fallback
+    return result
+
+
+def treasury_real_yield(today, fetch=fetch_text):
+    """Official Treasury *par* TIPS real yield; not the same calculation as FRED DFII10."""
+    url = (f"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/"
+           f"daily-treasury-rates.csv/{today.year}/all?type=daily_treasury_real_yield_curve"
+           f"&field_tdr_date_value={today.year}&page&_format=csv")
+    result = {"source": url, "status": "UNKNOWN", "method": "US_TREASURY_PAR_REAL_YIELD"}
+    try:
+        rows = csv.DictReader(io.StringIO(fetch(url)))
+        points = []
+        for row in rows:
+            stamp = (row.get("Date") or "").strip()
+            raw = (row.get("10 YR") or row.get("10 Yr") or "").strip()
+            if not stamp or not raw or raw.upper() == "N/A":
+                continue
+            day = datetime.strptime(stamp, "%m/%d/%Y").date()
+            val = float(raw)
+            if day <= today and math.isfinite(val):
+                points.append((day, val))
+        points.sort()
+        if len(points) >= 6:
+            day, value = points[-1]
+            delta = round((value - points[-6][1]) * 100, 2)
+            result.update({"status": "OK" if fresh(day.isoformat(), today, 7) else "STALE",
+                           "asof": day.isoformat(), "pct": value,
+                           "delta_5sessions_bp": delta,
+                           "direction": direction(delta, 5)})
+    except Exception as exc:
+        result["error"] = type(exc).__name__
     return result
 
 
