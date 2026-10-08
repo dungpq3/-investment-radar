@@ -23,8 +23,8 @@ class MacroOverlayTests(unittest.TestCase):
         self.assertEqual(out["status"], "PARTIAL")
 
     def test_fred_series_parser(self):
-        rows = "DATE,DFII10\\n" + "".join(
-            f"2026-10-{day:02d},{2.10 + day * 0.01:.2f}\\n" for day in range(1, 9)
+        rows = "DATE,DFII10\n" + "".join(
+            f"2026-10-{day:02d},{2.10 + day * 0.01:.2f}\n" for day in range(1, 9)
         )
         result = m.real_yield(date(2026, 10, 8), fetch=lambda _: rows)
         self.assertEqual(result["status"], "OK")
