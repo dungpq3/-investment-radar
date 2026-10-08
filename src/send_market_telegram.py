@@ -120,6 +120,15 @@ def build_report(market, radar):
         for n in names
     ]
 
+    macro = market.get("macro_overlay") or {}
+    ry = macro.get("us_real_yield_10y") or {}
+    dollar = macro.get("dxy") or {}
+    ry_direction = ry.get("direction", "?") if ry.get("status") == "OK" else "STALE/UNKNOWN"
+    dxy_direction = dollar.get("direction", "?") if dollar.get("status") == "OK" else "STALE/UNKNOWN"
+    macro_line = (f"🌐 <b>MACRO</b> {macro.get('macro_state', 'UNKNOWN')} "
+                  f"| TIPS10Y {ry_direction} · DXY {dxy_direction} "
+                  f"(context only)")
+
     return "\n".join([
         f"₿ <b>CORE REBALANCE</b> {market.get('generated_at_ict','?')[11:16]} | {market.get('regime','?')} | {rotation}",
         "<pre>" + html.escape(table(["Coin","Px","4H","24H"], px_rows)) + "</pre>",
@@ -127,6 +136,7 @@ def build_report(market, radar):
         "<pre>" + html.escape(table(["Coin","1D","5S"], etf_rows)) + "</pre>",
         "🧱 <b>KẸT GIÁ</b>",
         "<pre>" + html.escape(table(["Coin","Vùng","Δ"], trap_rows)) + "</pre>",
+        macro_line,
         "🔎 " + " | ".join(views),
         f"💎 {summary.get('EARLY_IGNITION',0)} early · {summary.get('WAKE_UP',0)} wake",
         f"<code>M{market.get('run_id','?')[-7:-1]} R{radar.get('run_id','?')[-7:-1]}</code>",
