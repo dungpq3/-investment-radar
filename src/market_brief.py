@@ -178,6 +178,11 @@ def parse_flow(value: str):
     return -abs(v) if neg else v
 
 
+def etf_flow_is_fresh(asof: dt.date, today: dt.date, max_calendar_days: int = 6) -> bool:
+    age = (today - asof).days
+    return 0 <= age <= max_calendar_days
+
+
 def etf_flow(asset_name: str):
     url = ETF_URLS[asset_name]
     html = request_text(url)
@@ -202,8 +207,10 @@ def etf_flow(asset_name: str):
     points.sort(key=lambda x: x[0])
     recent = points[-5:]
     latest_day, latest_flow = points[-1]
+    age_days = (dt.datetime.now(dt.timezone.utc).date() - latest_day).days
     return {
-        "status": "OK",
+        "status": "OK" if etf_flow_is_fresh(latest_day, dt.datetime.now(dt.timezone.utc).date()) else "STALE",
+        "data_age_days": age_days,
         "source": "Farside Investors",
         "source_url": url,
         "latest_date": latest_day.isoformat(),
@@ -238,6 +245,8 @@ def main():
     for name in ("BTC", "ETH", "SOL"):
         try:
             etf[name] = etf_flow(name)
+            if etf[name].get("status") != "OK":
+                etf_errors.append(f"{name}: ETF data {etf[name].get('status')}")
         except Exception as exc:
             etf[name] = {
                 "status": "UNKNOWN",
