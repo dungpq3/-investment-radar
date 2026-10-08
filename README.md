@@ -68,3 +68,20 @@ If they are absent, the market scan and paper experiment still run and persist J
 ## Data safety
 
 This is a **public repository**. Do not put account/NAV/holding snapshots or any secrets here. The GEM experiment uses synthetic paper balances only. See `docs/data-policy.md`.
+
+## Cross-asset macro evidence overlay (2026-10-08)
+
+`src/macro_overlay.py` adds a read-only `macro_overlay` object to
+`data/market/latest.json`. Inputs: FRED DFII10 or US Treasury **par** real
+yield fallback (labeled distinctly), plus daily Yahoo DXY.
+Change direction is based on five available sessions, thresholds 5 bp and 0.5%.
+Stale or unavailable inputs produce `UNKNOWN`; source and observation date
+remain visible.
+
+This is **context**, not a new position sizing algorithm. BTC/ETH/SOL price
+regime, ETF flows, relative strength, portfolio target weights and the paper
+experiment remain independent. Gold ETF/CFTC/central-bank activity is not
+misrepresented as crypto fund flows. Farside BTC/ETH/SOL ETF rows older than six
+calendar days are `STALE` and do not feed the Telegram flow verdict.
+Unit tests are offline; the pipeline continues to emit `PARTIAL` for missing
+optional macro context instead of inventing values.
