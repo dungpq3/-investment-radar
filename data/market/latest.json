@@ -1,14 +1,34 @@
 {
   "schema_version": 2,
-  "run_id": "20261008T145101Z",
-  "generated_at_utc": "2026-10-08T14:51:01+00:00",
-  "generated_at_ict": "2026-10-08T21:51:01+07:00",
-  "status": "OK",
+  "run_id": "20261008T145140Z",
+  "generated_at_utc": "2026-10-08T14:51:40+00:00",
+  "generated_at_ict": "2026-10-08T21:51:40+07:00",
+  "status": "PARTIAL",
   "source": {
     "market": "Binance Spot public market data",
     "etf": "Farside Investors"
   },
   "regime": "MIXED",
+  "macro_overlay": {
+    "schema_version": 1,
+    "status": "PARTIAL",
+    "macro_state": "UNKNOWN",
+    "us_real_yield_10y": {
+      "source": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10",
+      "status": "UNKNOWN",
+      "error": "TimeoutError"
+    },
+    "dxy": {
+      "source": "https://query1.finance.yahoo.com/v8/finance/chart/DX-Y.NYB?interval=1d&range=1mo",
+      "status": "OK",
+      "asof": "2026-10-08",
+      "value": 102.11799621582031,
+      "delta_5sessions_pct": 0.018,
+      "direction": "FLAT"
+    },
+    "policy": "Context-only; does not change crypto regime, target weights or trade signals.",
+    "cross_asset_note": "TIPS yields + USD can affect BTC liquidity conditions, not a deterministic inverse correlation; Gold ETF/COT flows are NOT BTC flows."
+  },
   "rotation_24h": [
     "BTC",
     "ETH",
@@ -17,12 +37,12 @@
   "assets": {
     "BTCUSDT": {
       "symbol": "BTCUSDT",
-      "price": 82708.64,
+      "price": 82678.0,
       "change_4h_pct": -0.5936715914396373,
       "change_12h_pct": -0.9790953893104359,
-      "change_24h_pct": -0.383,
+      "change_24h_pct": -0.42,
       "change_7d_pct": -0.3608909446615627,
-      "quote_volume_24h": 1348027926.2274325,
+      "quote_volume_24h": 1348248779.241101,
       "last_closed_4h_ms": 1791460799999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
@@ -32,25 +52,25 @@
           "high": 84042.83416666667,
           "center": 83986.0990625,
           "quote_volume": 1567995949.1790218,
-          "distance_pct": 1.5445291598314315
+          "distance_pct": 1.5821609890176225
         },
         "support": {
           "low": 82113.840625,
           "high": 82227.31083333334,
           "center": 82170.57572916667,
           "quote_volume": 107005499.7965961,
-          "distance_pct": -0.650553885099947
+          "distance_pct": -0.613735541296756
         }
       }
     },
     "ETHUSDT": {
       "symbol": "ETHUSDT",
-      "price": 2532.78,
+      "price": 2531.39,
       "change_4h_pct": -1.2061937151778723,
       "change_12h_pct": -1.4261073601280483,
-      "change_24h_pct": -1.156,
+      "change_24h_pct": -1.228,
       "change_7d_pct": -4.164913756836364,
-      "quote_volume_24h": 786091593.76953,
+      "quote_volume_24h": 786025728.689314,
       "last_closed_4h_ms": 1791460799999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
@@ -60,25 +80,25 @@
           "high": 2697.60875,
           "center": 2694.7615625,
           "quote_volume": 1044717166.095215,
-          "distance_pct": 6.395405937349463
+          "distance_pct": 6.4538282327101015
         },
         "support": {
           "low": 2521.083125,
           "high": 2526.7775,
           "center": 2523.9303125,
           "quote_volume": 62611554.15934,
-          "distance_pct": -0.34940608738224244
+          "distance_pct": -0.29468740494351664
         }
       }
     },
     "SOLUSDT": {
       "symbol": "SOLUSDT",
-      "price": 112.54,
+      "price": 112.48,
       "change_4h_pct": -1.565898216615913,
       "change_12h_pct": -2.708512467755797,
-      "change_24h_pct": -2.907,
+      "change_24h_pct": -2.968,
       "change_7d_pct": -1.5408059600406476,
-      "quote_volume_24h": 244187036.10767,
+      "quote_volume_24h": 244258061.36914,
       "last_closed_4h_ms": 1791460799999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
@@ -88,14 +108,14 @@
           "high": 119.7975,
           "center": 119.654375,
           "quote_volume": 314263323.35495996,
-          "distance_pct": 6.321641194242034
+          "distance_pct": 6.378356152204834
         },
         "support": {
           "low": 112.06875,
           "high": 112.35499999999999,
           "center": 112.21187499999999,
           "quote_volume": 28545436.42805,
-          "distance_pct": -0.2915629998223035
+          "distance_pct": -0.23837571123755952
         }
       }
     }
