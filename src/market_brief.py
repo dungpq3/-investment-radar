@@ -247,17 +247,25 @@ def main():
             }
             etf_errors.append(f"{name}: {exc}")
 
+    # Macro is an independent evidence overlay, never a BTC trade trigger.
+    try:
+        from macro_overlay import build_overlay
+        macro = build_overlay()
+    except Exception as exc:
+        macro = {"status": "PARTIAL", "macro_state": "UNKNOWN", "error": type(exc).__name__}
+
     payload = {
         "schema_version": 2,
         "run_id": now.strftime("%Y%m%dT%H%M%SZ"),
         "generated_at_utc": now.isoformat(timespec="seconds"),
         "generated_at_ict": now.astimezone(dt.timezone(dt.timedelta(hours=7))).isoformat(timespec="seconds"),
-        "status": "OK" if not etf_errors else "PARTIAL",
+        "status": "OK" if not etf_errors and macro.get("status") == "OK" else "PARTIAL",
         "source": {
             "market": "Binance Spot public market data",
             "etf": "Farside Investors",
         },
         "regime": regime(assets),
+        "macro_overlay": macro,
         "rotation_24h": ranking,
         "assets": assets,
         "etf": etf,
