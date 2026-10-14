@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261014T133847Z",
-  "generated_at_utc": "2026-10-14T13:38:47+00:00",
-  "generated_at_ict": "2026-10-14T20:38:47+07:00",
+  "run_id": "20261014T200942Z",
+  "generated_at_utc": "2026-10-14T20:09:42+00:00",
+  "generated_at_ict": "2026-10-15T03:09:42+07:00",
   "status": "OK",
   "policy": {
     "states": [
@@ -21,7 +21,9 @@
   },
   "note": "Paper watch only; no real position is opened.",
   "added_this_run": [],
-  "expired_this_run": [],
+  "expired_this_run": [
+    "BARUSDT-20261007T1530Z"
+  ],
   "active_count": 12,
   "active": [
     {
@@ -78,7 +80,7 @@
       "last_structure_score": 78.5,
       "last_trigger_score": 52.4,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 95.21,
+      "age_hours": 101.73,
       "move_since_watch_pct": 5.211
     },
     {
@@ -135,7 +137,7 @@
       "last_structure_score": 78.5,
       "last_trigger_score": 52.4,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 80.02,
+      "age_hours": 86.53,
       "move_since_watch_pct": 0.0
     },
     {
@@ -192,7 +194,7 @@
       "last_structure_score": 75.1,
       "last_trigger_score": 35.3,
       "last_opportunity_tier": "BASE",
-      "age_hours": 89.63,
+      "age_hours": 96.14,
       "move_since_watch_pct": 13.06
     },
     {
@@ -249,7 +251,7 @@
       "last_structure_score": 75.1,
       "last_trigger_score": 35.3,
       "last_opportunity_tier": "BASE",
-      "age_hours": 70.77,
+      "age_hours": 77.28,
       "move_since_watch_pct": -4.371
     },
     {
@@ -306,7 +308,7 @@
       "last_structure_score": 58.8,
       "last_trigger_score": 37.6,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 160.4,
+      "age_hours": 166.92,
       "move_since_watch_pct": -1.856
     },
     {
@@ -363,7 +365,7 @@
       "last_structure_score": 58.8,
       "last_trigger_score": 37.6,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 18.44,
+      "age_hours": 24.95,
       "move_since_watch_pct": 0.0
     },
     {
@@ -420,7 +422,7 @@
       "last_structure_score": 65.6,
       "last_trigger_score": 33.1,
       "last_opportunity_tier": "BASE",
-      "age_hours": 142.79,
+      "age_hours": 149.31,
       "move_since_watch_pct": 0.997
     },
     {
@@ -477,7 +479,7 @@
       "last_structure_score": 64.1,
       "last_trigger_score": 28.8,
       "last_opportunity_tier": "BASE",
-      "age_hours": 136.38,
+      "age_hours": 142.9,
       "move_since_watch_pct": -3.258
     },
     {
@@ -534,7 +536,7 @@
       "last_structure_score": 65.6,
       "last_trigger_score": 20.3,
       "last_opportunity_tier": "BASE",
-      "age_hours": 95.21,
+      "age_hours": 101.73,
       "move_since_watch_pct": 0.477
     },
     {
@@ -591,7 +593,7 @@
       "last_structure_score": 55.0,
       "last_trigger_score": 22.4,
       "last_opportunity_tier": "BASE",
-      "age_hours": 118.41,
+      "age_hours": 124.93,
       "move_since_watch_pct": 3.763
     },
     {
@@ -648,40 +650,40 @@
       "last_structure_score": 65.1,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 55.85,
+      "age_hours": 62.37,
       "move_since_watch_pct": -10.631
     },
     {
-      "setup_id": "BARUSDT-20261007T1530Z",
-      "symbol": "BARUSDT",
+      "setup_id": "OGNUSDT-20261007T2114Z",
+      "symbol": "OGNUSDT",
       "status": "WATCH_ONLY",
       "position_opened": false,
       "paper_only": true,
-      "first_seen_run": "20261007T153038Z",
-      "first_seen_at_utc": "2026-10-07T15:30:38+00:00",
-      "first_seen_at_ict": "2026-10-07T22:30:38+07:00",
-      "watch_price": 0.288,
+      "first_seen_run": "20261007T211430Z",
+      "first_seen_at_utc": "2026-10-07T21:14:30+00:00",
+      "first_seen_at_ict": "2026-10-08T04:14:30+07:00",
+      "watch_price": 0.02306,
       "watch_state": "WAKE_UP",
-      "watch_score": 70.9,
-      "watch_grade": "C",
-      "watch_structure_score": 70.0,
-      "watch_trigger_score": 56.1,
-      "watch_opportunity_tier": "EXTENDED",
+      "watch_score": 60.4,
+      "watch_grade": "D",
+      "watch_structure_score": 64.0,
+      "watch_trigger_score": 55.5,
+      "watch_opportunity_tier": "WATCH",
       "watch_confirmed_candles": 1,
-      "watch_volume_ratio_4h": 25.64144774898594,
-      "watch_ret_12h_pct": 7.067137809187285,
+      "watch_volume_ratio_4h": 2.7177435384873934,
+      "watch_ret_12h_pct": 10.909957122439252,
       "entry_reference_at_watch": {
         "method": "20x4h_breakout_retest_atr",
-        "low": 0.2968,
-        "high": 0.2999428571428571,
-        "mid": 0.29837142857142857,
-        "state": "EXTENDED_ABOVE_REF"
+        "low": 0.0254105,
+        "high": 0.026252642857142856,
+        "mid": 0.025831571428571426,
+        "state": "WAIT_BREAKOUT_RETEST"
       },
       "dca_reference_at_watch": {
         "method": "atr_below_breakout_anchor",
-        "dca1": 0.29271428571428576,
-        "dca2": 0.2864285714285715,
-        "invalidation": 0.28328571428571436
+        "dca1": 0.024315714285714284,
+        "dca2": 0.02263142857142857,
+        "invalidation": 0.021789285714285712
       },
       "targets_pct": [
         20,
@@ -690,23 +692,23 @@
         100
       ],
       "targets_hit": {
-        "20": false,
-        "30": false,
-        "50": false,
-        "100": false
+        "20": true,
+        "30": true,
+        "50": true,
+        "100": true
       },
-      "mfe_snapshot_pct": 0.0,
-      "mae_snapshot_pct": -1.736,
-      "last_price": 0.283,
+      "mfe_snapshot_pct": 118.474,
+      "mae_snapshot_pct": -2.255,
+      "last_price": 0.03277,
       "last_state": "DORMANT_BASE",
       "last_score": 30.0,
-      "last_seen_run": "20261008T055335Z",
-      "last_seen_at_utc": "2026-10-08T05:53:35+00:00",
-      "last_structure_score": 70.0,
+      "last_seen_run": "20261011T201143Z",
+      "last_seen_at_utc": "2026-10-11T20:11:43+00:00",
+      "last_structure_score": 64.0,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 166.14,
-      "move_since_watch_pct": -1.736
+      "age_hours": 166.92,
+      "move_since_watch_pct": 42.108
     }
   ]
 }
