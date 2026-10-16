@@ -1,21 +1,21 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-10-16T19:31:34+00:00",
+  "updated_at_utc": "2026-10-16T22:46:40+00:00",
   "symbols": {
     "DOGEUSDT": {
       "state": "DORMANT_BASE",
-      "signal_score": 30.2,
+      "signal_score": 28.7,
       "score_grade": "D",
       "structure_score": 62.1,
-      "trigger_score": 14.0,
+      "trigger_score": 12.0,
       "opportunity_tier": "BASE",
-      "last_price": 0.0802,
+      "last_price": 0.08095,
       "setup_id": null,
       "signal_started_at_utc": null,
       "first_entry_mid": null,
       "first_dca1": null,
       "first_dca2": null,
-      "updated_at_utc": "2026-10-16T19:31:34+00:00"
+      "updated_at_utc": "2026-10-16T22:46:40+00:00"
     },
     "SHIBUSDT": {
       "state": "DORMANT_BASE",
@@ -24,43 +24,43 @@
       "structure_score": 64.4,
       "trigger_score": 12.0,
       "opportunity_tier": "BASE",
-      "last_price": 5.07e-06,
+      "last_price": 5.1e-06,
       "setup_id": null,
       "signal_started_at_utc": null,
       "first_entry_mid": null,
       "first_dca1": null,
       "first_dca2": null,
-      "updated_at_utc": "2026-10-16T19:31:34+00:00"
+      "updated_at_utc": "2026-10-16T22:46:40+00:00"
     },
     "APEUSDT": {
       "state": "WAKE_UP",
-      "signal_score": 60.6,
+      "signal_score": 42.0,
       "score_grade": "D",
       "structure_score": 64.1,
-      "trigger_score": 52.4,
-      "opportunity_tier": "WATCH",
-      "last_price": 0.1501,
+      "trigger_score": 26.2,
+      "opportunity_tier": "OBSERVE",
+      "last_price": 0.1511,
       "setup_id": "APEUSDT-20261016T1931Z",
       "signal_started_at_utc": "2026-10-16T19:31:34+00:00",
       "first_entry_mid": 0.15561214285714287,
       "first_dca1": 0.15032142857142858,
       "first_dca2": 0.14444285714285715,
-      "updated_at_utc": "2026-10-16T19:31:34+00:00"
+      "updated_at_utc": "2026-10-16T22:46:40+00:00"
     },
     "ALTUSDT": {
       "state": "DORMANT_BASE",
-      "signal_score": 36.7,
+      "signal_score": 45.4,
       "score_grade": "D",
       "structure_score": 65.9,
-      "trigger_score": 20.3,
+      "trigger_score": 31.3,
       "opportunity_tier": "BASE",
-      "last_price": 0.0083,
+      "last_price": 0.00824,
       "setup_id": null,
       "signal_started_at_utc": null,
       "first_entry_mid": null,
       "first_dca1": null,
       "first_dca2": null,
-      "updated_at_utc": "2026-10-16T19:31:34+00:00"
+      "updated_at_utc": "2026-10-16T22:46:40+00:00"
     },
     "ANIMEUSDT": {
       "state": "DORMANT_BASE",
@@ -69,13 +69,13 @@
       "structure_score": 57.1,
       "trigger_score": 12.0,
       "opportunity_tier": "BASE",
-      "last_price": 0.00292,
+      "last_price": 0.00294,
       "setup_id": null,
       "signal_started_at_utc": null,
       "first_entry_mid": null,
       "first_dca1": null,
       "first_dca2": null,
-      "updated_at_utc": "2026-10-16T19:31:34+00:00"
+      "updated_at_utc": "2026-10-16T22:46:40+00:00"
     },
     "NXPCUSDT": {
       "state": "DORMANT_BASE",
@@ -84,43 +84,43 @@
       "structure_score": 59.4,
       "trigger_score": 12.0,
       "opportunity_tier": "BASE",
-      "last_price": 0.187,
+      "last_price": 0.1833,
       "setup_id": null,
       "signal_started_at_utc": null,
       "first_entry_mid": null,
       "first_dca1": null,
       "first_dca2": null,
-      "updated_at_utc": "2026-10-16T19:31:34+00:00"
+      "updated_at_utc": "2026-10-16T22:46:40+00:00"
     },
     "WLFIUSDT": {
       "state": "DORMANT_BASE",
-      "signal_score": 22.6,
+      "signal_score": 20.7,
       "score_grade": "D",
       "structure_score": 51.7,
-      "trigger_score": 14.4,
+      "trigger_score": 12.0,
       "opportunity_tier": "BASE",
-      "last_price": 0.057,
+      "last_price": 0.0571,
       "setup_id": null,
       "signal_started_at_utc": null,
       "first_entry_mid": null,
       "first_dca1": null,
       "first_dca2": null,
-      "updated_at_utc": "2026-10-16T19:31:34+00:00"
+      "updated_at_utc": "2026-10-16T22:46:40+00:00"
     },
     "ASTERUSDT": {
       "state": "DORMANT_BASE",
-      "signal_score": 29.8,
+      "signal_score": 35.7,
       "score_grade": "D",
       "structure_score": 61.2,
-      "trigger_score": 14.5,
+      "trigger_score": 22.0,
       "opportunity_tier": "BASE",
-      "last_price": 0.7061,
+      "last_price": 0.7095,
       "setup_id": null,
       "signal_started_at_utc": null,
       "first_entry_mid": null,
       "first_dca1": null,
       "first_dca2": null,
-      "updated_at_utc": "2026-10-16T19:31:34+00:00"
+      "updated_at_utc": "2026-10-16T22:46:40+00:00"
     }
   }
 }
