@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261017T041537Z",
-  "generated_at_utc": "2026-10-17T04:15:37+00:00",
-  "generated_at_ict": "2026-10-17T11:15:37+07:00",
+  "run_id": "20261017T120823Z",
+  "generated_at_utc": "2026-10-17T12:08:23+00:00",
+  "generated_at_ict": "2026-10-17T19:08:23+07:00",
   "status": "OK",
   "paper_only": true,
   "strategy_version": "gem-swing-paper-v1.0.0",
