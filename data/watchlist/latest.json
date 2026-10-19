@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261019T043056Z",
-  "generated_at_utc": "2026-10-19T04:30:56+00:00",
-  "generated_at_ict": "2026-10-19T11:30:56+07:00",
+  "run_id": "20261019T153152Z",
+  "generated_at_utc": "2026-10-19T15:31:52+00:00",
+  "generated_at_ict": "2026-10-19T22:31:52+07:00",
   "status": "OK",
   "policy": {
     "states": [
@@ -20,69 +20,12 @@
     ]
   },
   "note": "Paper watch only; no real position is opened.",
-  "added_this_run": [
-    "SHIBUSDT-20261019T0430Z"
+  "added_this_run": [],
+  "expired_this_run": [
+    "FLOWUSDT-20261012T0547Z"
   ],
-  "expired_this_run": [],
-  "active_count": 12,
+  "active_count": 11,
   "active": [
-    {
-      "setup_id": "SHIBUSDT-20261019T0430Z",
-      "symbol": "SHIBUSDT",
-      "status": "WATCH_ONLY",
-      "position_opened": false,
-      "paper_only": true,
-      "first_seen_run": "20261019T043056Z",
-      "first_seen_at_utc": "2026-10-19T04:30:56+00:00",
-      "first_seen_at_ict": "2026-10-19T11:30:56+07:00",
-      "watch_price": 5e-06,
-      "watch_state": "WAKE_UP",
-      "watch_score": 51.2,
-      "watch_grade": "D",
-      "watch_structure_score": 68.0,
-      "watch_trigger_score": 37.2,
-      "watch_opportunity_tier": "WATCH",
-      "watch_confirmed_candles": 1,
-      "watch_volume_ratio_4h": 2.32242084116334,
-      "watch_ret_12h_pct": 2.244897959183678,
-      "entry_reference_at_watch": {
-        "method": "20x4h_breakout_retest_atr",
-        "low": 5.161e-06,
-        "high": 5.2024285714285715e-06,
-        "mid": 5.181714285714286e-06,
-        "state": "WAIT_BREAKOUT_RETEST"
-      },
-      "dca_reference_at_watch": {
-        "method": "atr_below_breakout_anchor",
-        "dca1": 5.107142857142857e-06,
-        "dca2": 5.024285714285714e-06,
-        "invalidation": 4.982857142857142e-06
-      },
-      "targets_pct": [
-        20,
-        30,
-        50,
-        100
-      ],
-      "targets_hit": {
-        "20": false,
-        "30": false,
-        "50": false,
-        "100": false
-      },
-      "mfe_snapshot_pct": 0.0,
-      "mae_snapshot_pct": 0.0,
-      "last_price": 5e-06,
-      "last_state": "WAKE_UP",
-      "last_score": 51.2,
-      "last_seen_run": "20261019T043056Z",
-      "last_seen_at_utc": "2026-10-19T04:30:56+00:00",
-      "last_structure_score": 68.0,
-      "last_trigger_score": 37.2,
-      "last_opportunity_tier": "WATCH",
-      "age_hours": 0.0,
-      "move_since_watch_pct": 0.0
-    },
     {
       "setup_id": "LAZIOUSDT-20261013T1912Z",
       "symbol": "LAZIOUSDT",
@@ -137,7 +80,7 @@
       "last_structure_score": 58.8,
       "last_trigger_score": 37.6,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 129.31,
+      "age_hours": 140.32,
       "move_since_watch_pct": 0.0
     },
     {
@@ -194,7 +137,7 @@
       "last_structure_score": 67.2,
       "last_trigger_score": 22.6,
       "last_opportunity_tier": "BASE",
-      "age_hours": 80.67,
+      "age_hours": 91.69,
       "move_since_watch_pct": 0.082
     },
     {
@@ -251,8 +194,65 @@
       "last_structure_score": 59.4,
       "last_trigger_score": 22.9,
       "last_opportunity_tier": "BASE",
-      "age_hours": 80.67,
+      "age_hours": 91.69,
       "move_since_watch_pct": -33.121
+    },
+    {
+      "setup_id": "SHIBUSDT-20261019T0430Z",
+      "symbol": "SHIBUSDT",
+      "status": "WATCH_ONLY",
+      "position_opened": false,
+      "paper_only": true,
+      "first_seen_run": "20261019T043056Z",
+      "first_seen_at_utc": "2026-10-19T04:30:56+00:00",
+      "first_seen_at_ict": "2026-10-19T11:30:56+07:00",
+      "watch_price": 5e-06,
+      "watch_state": "WAKE_UP",
+      "watch_score": 51.2,
+      "watch_grade": "D",
+      "watch_structure_score": 68.0,
+      "watch_trigger_score": 37.2,
+      "watch_opportunity_tier": "WATCH",
+      "watch_confirmed_candles": 1,
+      "watch_volume_ratio_4h": 2.32242084116334,
+      "watch_ret_12h_pct": 2.244897959183678,
+      "entry_reference_at_watch": {
+        "method": "20x4h_breakout_retest_atr",
+        "low": 5.161e-06,
+        "high": 5.2024285714285715e-06,
+        "mid": 5.181714285714286e-06,
+        "state": "WAIT_BREAKOUT_RETEST"
+      },
+      "dca_reference_at_watch": {
+        "method": "atr_below_breakout_anchor",
+        "dca1": 5.107142857142857e-06,
+        "dca2": 5.024285714285714e-06,
+        "invalidation": 4.982857142857142e-06
+      },
+      "targets_pct": [
+        20,
+        30,
+        50,
+        100
+      ],
+      "targets_hit": {
+        "20": false,
+        "30": false,
+        "50": false,
+        "100": false
+      },
+      "mfe_snapshot_pct": 0.4,
+      "mae_snapshot_pct": 0.0,
+      "last_price": 5.02e-06,
+      "last_state": "DORMANT_BASE",
+      "last_score": 32.2,
+      "last_seen_run": "20261019T153152Z",
+      "last_seen_at_utc": "2026-10-19T15:31:52+00:00",
+      "last_structure_score": 68.0,
+      "last_trigger_score": 14.6,
+      "last_opportunity_tier": "BASE",
+      "age_hours": 11.02,
+      "move_since_watch_pct": 0.4
     },
     {
       "setup_id": "APEUSDT-20261016T1931Z",
@@ -308,122 +308,8 @@
       "last_structure_score": 64.1,
       "last_trigger_score": 12.9,
       "last_opportunity_tier": "BASE",
-      "age_hours": 56.99,
+      "age_hours": 68.0,
       "move_since_watch_pct": -8.927
-    },
-    {
-      "setup_id": "DOGEUSDT-20261015T1950Z",
-      "symbol": "DOGEUSDT",
-      "status": "WATCH_ONLY",
-      "position_opened": false,
-      "paper_only": true,
-      "first_seen_run": "20261015T195043Z",
-      "first_seen_at_utc": "2026-10-15T19:50:43+00:00",
-      "first_seen_at_ict": "2026-10-16T02:50:43+07:00",
-      "watch_price": 0.08157,
-      "watch_state": "WAKE_UP",
-      "watch_score": 56.6,
-      "watch_grade": "D",
-      "watch_structure_score": 62.1,
-      "watch_trigger_score": 45.5,
-      "watch_opportunity_tier": "WATCH",
-      "watch_confirmed_candles": 1,
-      "watch_volume_ratio_4h": 9.310274915792995,
-      "watch_ret_12h_pct": 2.092994109537538,
-      "entry_reference_at_watch": {
-        "method": "20x4h_breakout_retest_atr",
-        "low": 0.08747624999999999,
-        "high": 0.08842446428571428,
-        "mid": 0.08795035714285714,
-        "state": "WAIT_BREAKOUT_RETEST"
-      },
-      "dca_reference_at_watch": {
-        "method": "atr_below_breakout_anchor",
-        "dca1": 0.08624357142857142,
-        "dca2": 0.08434714285714286,
-        "invalidation": 0.08339892857142857
-      },
-      "targets_pct": [
-        20,
-        30,
-        50,
-        100
-      ],
-      "targets_hit": {
-        "20": false,
-        "30": false,
-        "50": false,
-        "100": false
-      },
-      "mfe_snapshot_pct": 0.233,
-      "mae_snapshot_pct": -4.916,
-      "last_price": 0.07948,
-      "last_state": "DORMANT_BASE",
-      "last_score": 30.6,
-      "last_seen_run": "20261019T043056Z",
-      "last_seen_at_utc": "2026-10-19T04:30:56+00:00",
-      "last_structure_score": 63.1,
-      "last_trigger_score": 13.2,
-      "last_opportunity_tier": "BASE",
-      "age_hours": 80.67,
-      "move_since_watch_pct": -2.562
-    },
-    {
-      "setup_id": "FLOWUSDT-20261012T0547Z",
-      "symbol": "FLOWUSDT",
-      "status": "WATCH_ONLY",
-      "position_opened": false,
-      "paper_only": true,
-      "first_seen_run": "20261012T054731Z",
-      "first_seen_at_utc": "2026-10-12T05:47:31+00:00",
-      "first_seen_at_ict": "2026-10-12T12:47:31+07:00",
-      "watch_price": 0.03659,
-      "watch_state": "EARLY_IGNITION",
-      "watch_score": 56.5,
-      "watch_grade": "D",
-      "watch_structure_score": 75.1,
-      "watch_trigger_score": 58.1,
-      "watch_opportunity_tier": "WATCH",
-      "watch_confirmed_candles": 2,
-      "watch_volume_ratio_4h": 1.8459102878619325,
-      "watch_ret_12h_pct": 7.77342573064177,
-      "entry_reference_at_watch": {
-        "method": "20x4h_breakout_retest_atr",
-        "low": 0.037942,
-        "high": 0.038667714285714284,
-        "mid": 0.03830485714285714,
-        "state": "WAIT_BREAKOUT_RETEST"
-      },
-      "dca_reference_at_watch": {
-        "method": "atr_below_breakout_anchor",
-        "dca1": 0.03699857142857143,
-        "dca2": 0.035547142857142854,
-        "invalidation": 0.03482142857142857
-      },
-      "targets_pct": [
-        20,
-        30,
-        50,
-        100
-      ],
-      "targets_hit": {
-        "20": false,
-        "30": false,
-        "50": false,
-        "100": false
-      },
-      "mfe_snapshot_pct": 0.0,
-      "mae_snapshot_pct": -10.631,
-      "last_price": 0.0327,
-      "last_state": "DORMANT_BASE",
-      "last_score": 30.4,
-      "last_seen_run": "20261013T114112Z",
-      "last_seen_at_utc": "2026-10-13T11:41:12+00:00",
-      "last_structure_score": 65.1,
-      "last_trigger_score": 12.0,
-      "last_opportunity_tier": "BASE",
-      "age_hours": 166.72,
-      "move_since_watch_pct": -10.631
     },
     {
       "setup_id": "ALTUSDT-20261017T1825Z",
@@ -479,8 +365,65 @@
       "last_structure_score": 65.9,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 34.1,
+      "age_hours": 45.11,
       "move_since_watch_pct": -4.56
+    },
+    {
+      "setup_id": "DOGEUSDT-20261015T1950Z",
+      "symbol": "DOGEUSDT",
+      "status": "WATCH_ONLY",
+      "position_opened": false,
+      "paper_only": true,
+      "first_seen_run": "20261015T195043Z",
+      "first_seen_at_utc": "2026-10-15T19:50:43+00:00",
+      "first_seen_at_ict": "2026-10-16T02:50:43+07:00",
+      "watch_price": 0.08157,
+      "watch_state": "WAKE_UP",
+      "watch_score": 56.6,
+      "watch_grade": "D",
+      "watch_structure_score": 62.1,
+      "watch_trigger_score": 45.5,
+      "watch_opportunity_tier": "WATCH",
+      "watch_confirmed_candles": 1,
+      "watch_volume_ratio_4h": 9.310274915792995,
+      "watch_ret_12h_pct": 2.092994109537538,
+      "entry_reference_at_watch": {
+        "method": "20x4h_breakout_retest_atr",
+        "low": 0.08747624999999999,
+        "high": 0.08842446428571428,
+        "mid": 0.08795035714285714,
+        "state": "WAIT_BREAKOUT_RETEST"
+      },
+      "dca_reference_at_watch": {
+        "method": "atr_below_breakout_anchor",
+        "dca1": 0.08624357142857142,
+        "dca2": 0.08434714285714286,
+        "invalidation": 0.08339892857142857
+      },
+      "targets_pct": [
+        20,
+        30,
+        50,
+        100
+      ],
+      "targets_hit": {
+        "20": false,
+        "30": false,
+        "50": false,
+        "100": false
+      },
+      "mfe_snapshot_pct": 0.233,
+      "mae_snapshot_pct": -4.916,
+      "last_price": 0.07954,
+      "last_state": "DORMANT_BASE",
+      "last_score": 28.9,
+      "last_seen_run": "20261019T153152Z",
+      "last_seen_at_utc": "2026-10-19T15:31:52+00:00",
+      "last_structure_score": 63.1,
+      "last_trigger_score": 12.0,
+      "last_opportunity_tier": "BASE",
+      "age_hours": 91.69,
+      "move_since_watch_pct": -2.489
     },
     {
       "setup_id": "ASTERUSDT-20261015T1950Z",
@@ -528,16 +471,16 @@
       },
       "mfe_snapshot_pct": 1.105,
       "mae_snapshot_pct": -1.983,
-      "last_price": 0.7006,
+      "last_price": 0.7066,
       "last_state": "DORMANT_BASE",
-      "last_score": 28.3,
-      "last_seen_run": "20261019T043056Z",
-      "last_seen_at_utc": "2026-10-19T04:30:56+00:00",
+      "last_score": 28.4,
+      "last_seen_run": "20261019T153152Z",
+      "last_seen_at_utc": "2026-10-19T15:31:52+00:00",
       "last_structure_score": 60.9,
-      "last_trigger_score": 12.0,
+      "last_trigger_score": 12.3,
       "last_opportunity_tier": "BASE",
-      "age_hours": 80.67,
-      "move_since_watch_pct": -0.751
+      "age_hours": 91.69,
+      "move_since_watch_pct": 0.099
     },
     {
       "setup_id": "BABYUSDT-20261015T1321Z",
@@ -593,7 +536,7 @@
       "last_structure_score": 61.2,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 87.16,
+      "age_hours": 98.18,
       "move_since_watch_pct": 4.112
     },
     {
@@ -650,7 +593,7 @@
       "last_structure_score": 62.6,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 154.72,
+      "age_hours": 165.74,
       "move_since_watch_pct": -3.825
     },
     {
@@ -707,7 +650,7 @@
       "last_structure_score": 57.1,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 80.67,
+      "age_hours": 91.69,
       "move_since_watch_pct": -17.416
     }
   ]
