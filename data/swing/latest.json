@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261020T230834Z",
-  "generated_at_utc": "2026-10-20T23:08:34+00:00",
-  "generated_at_ict": "2026-10-21T06:08:34+07:00",
+  "run_id": "20261021T043423Z",
+  "generated_at_utc": "2026-10-21T04:34:23+00:00",
+  "generated_at_ict": "2026-10-21T11:34:23+07:00",
   "status": "OK",
   "paper_only": true,
   "strategy_version": "gem-swing-paper-v1.0.0",
@@ -21,13 +21,114 @@
     "intrabar_policy": "conservative_adverse_first"
   },
   "events_this_run": [
-    "SCAN_ONLY_OFF_SCHEDULE"
+    "ENTRY"
   ],
-  "active_trade": null,
+  "active_trade": {
+    "trade_id": "IDUSDT-20261021T043423Z",
+    "paper_only": true,
+    "status": "OPEN",
+    "symbol": "IDUSDT",
+    "entry_at_utc": "2026-10-21T04:34:23+00:00",
+    "entry_at_ict": "2026-10-21T11:34:23+07:00",
+    "entry_run_id": "20261021T043423Z",
+    "entry_market_price": 0.033,
+    "entry_signal_score": 79.1,
+    "entry_grade": "B",
+    "entry_structure_score": 65.2,
+    "entry_trigger_score": 70.8,
+    "entry_opportunity_tier": "READY",
+    "entry_state": "EARLY_IGNITION",
+    "entry_volume_ratio_4h": 4.556345693707081,
+    "entry_volume_ratio_8h": 2.681244125487351,
+    "entry_ret_12h_pct": 4.6875,
+    "entry_change_24h_pct": 5.769,
+    "entry_drawdown_major_pct": -98.76,
+    "entry_position_52w": 0.0818,
+    "entry_quote_volume_24h": 2144463.8208,
+    "entry_spread_bps": 30.25718608169317,
+    "entry_reference": {
+      "method": "20x4h_breakout_retest_atr",
+      "low": 0.033362499999999996,
+      "high": 0.0339875,
+      "mid": 0.033675,
+      "state": "IN_REF_ZONE"
+    },
+    "dca_reference_from_radar": {
+      "method": "atr_below_breakout_anchor",
+      "dca1": 0.032549999999999996,
+      "dca2": 0.031299999999999994,
+      "invalidation": 0.030674999999999997
+    },
+    "selector_score": 106.24,
+    "scheduled_scan_slot_ict": "11:05",
+    "scan_delay_min": 29,
+    "runner_ups": [],
+    "buy_fills": [
+      {
+        "cash_usdt": 100.0,
+        "market_price": 0.033,
+        "fill_price": 0.0330165,
+        "gross_qty": 3028.788635985038,
+        "fee_qty": 3.028788635985038,
+        "net_qty": 3025.759847349053,
+        "effective_cost": 0.03304954954954955,
+        "kind": "ENTRY"
+      }
+    ],
+    "dca_done": false,
+    "mfe_pct": 0.0,
+    "mae_pct": 0.0,
+    "shadow_targets": {
+      "20": {
+        "hit": false,
+        "first_hit_close_ms": null
+      },
+      "25": {
+        "hit": false,
+        "first_hit_close_ms": null
+      },
+      "30": {
+        "hit": false,
+        "first_hit_close_ms": null
+      }
+    },
+    "last_price": 0.033,
+    "last_processed_close_ms": 1792557263000,
+    "intrabar_ambiguous_count": 0,
+    "qty": 3025.759847349053,
+    "capital_deployed_usdt": 100.0,
+    "avg_effective_cost": 0.03304954954954955,
+    "levels": {
+      "tp": 0.04131193693693694,
+      "stop": 0.02478716216216216,
+      "dca": 0.02904
+    },
+    "mark_move_pct": 0.0,
+    "mark_net_value_usdt": 99.70035,
+    "mark_net_pnl_usdt": -0.29965,
+    "mark_net_return_pct": -0.2997
+  },
   "closed_trade_this_run": null,
-  "today_lock": null,
-  "eligible_count": 0,
-  "eligible_preview": [],
+  "today_lock": {
+    "trade_id": "IDUSDT-20261021T043423Z",
+    "symbol": "IDUSDT",
+    "locked_at_utc": "2026-10-21T04:34:23+00:00",
+    "locked_at_ict": "2026-10-21T11:34:23+07:00",
+    "runner_ups": []
+  },
+  "eligible_count": 1,
+  "eligible_preview": [
+    {
+      "symbol": "IDUSDT",
+      "selector_score": 106.24,
+      "signal_score": 79.1,
+      "trigger_score": 70.8,
+      "structure_score": 65.2,
+      "tier": "READY",
+      "state": "EARLY_IGNITION",
+      "last_price": 0.033
+    }
+  ],
   "summary": {
     "closed_trades": 1,
     "wins": 1,
