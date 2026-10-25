@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "run_id": "20261025T043137Z",
-  "generated_at_utc": "2026-10-25T04:31:37+00:00",
-  "generated_at_ict": "2026-10-25T11:31:37+07:00",
+  "run_id": "20261025T130918Z",
+  "generated_at_utc": "2026-10-25T13:09:18+00:00",
+  "generated_at_ict": "2026-10-25T20:09:18+07:00",
   "status": "OK",
   "source": {
     "market": "Binance Spot public market data",
@@ -41,13 +41,13 @@
   "assets": {
     "BTCUSDT": {
       "symbol": "BTCUSDT",
-      "price": 80897.28,
-      "change_4h_pct": -0.031129401385820987,
-      "change_12h_pct": 1.3272935169086564,
-      "change_24h_pct": 0.01,
+      "price": 80434.01,
+      "change_4h_pct": -0.1138673330289719,
+      "change_12h_pct": -0.37977127925767906,
+      "change_24h_pct": -0.432,
       "change_7d_pct": -0.7398113952159502,
-      "quote_volume_24h": 903838481.6239763,
-      "last_closed_4h_ms": 1792900799999,
+      "quote_volume_24h": 772912428.2350366,
+      "last_closed_4h_ms": 1792929599999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
         "note": "Proxy from Binance 1h traded quote volume; not holder cost basis.",
@@ -56,26 +56,26 @@
           "high": 81704.54125,
           "center": 81645.403125,
           "quote_volume": 1289943721.9894888,
-          "distance_pct": 0.9247815563143691
+          "distance_pct": 1.5060707839880116
         },
         "support": {
           "low": 80166.95000000001,
           "high": 80285.22625,
           "center": 80226.08812500001,
           "quote_volume": 334180601.16348284,
-          "distance_pct": -0.8296841068080263
+          "distance_pct": -0.2584999492130091
         }
       }
     },
     "ETHUSDT": {
       "symbol": "ETHUSDT",
-      "price": 2366.06,
-      "change_4h_pct": 0.16872843201261034,
-      "change_12h_pct": 2.4449252301195434,
-      "change_24h_pct": -0.63,
+      "price": 2335.81,
+      "change_4h_pct": -0.34667950033858697,
+      "change_12h_pct": -0.8042156671556278,
+      "change_24h_pct": -1.401,
       "change_7d_pct": -1.831181694841899,
-      "quote_volume_24h": 460664649.801871,
-      "last_closed_4h_ms": 1792900799999,
+      "quote_volume_24h": 485761212.786708,
+      "last_closed_4h_ms": 1792929599999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
         "note": "Proxy from Binance 1h traded quote volume; not holder cost basis.",
@@ -84,26 +84,26 @@
           "high": 2455.955,
           "center": 2452.856875,
           "quote_volume": 563108671.8945919,
-          "distance_pct": 3.6684139455466003
+          "distance_pct": 5.010975849919297
         },
         "support": {
           "low": 2307.245,
           "high": 2313.44125,
           "center": 2310.343125,
           "quote_volume": 179944604.73156598,
-          "distance_pct": -2.354837789405173
+          "distance_pct": -1.0902802453966798
         }
       }
     },
     "SOLUSDT": {
       "symbol": "SOLUSDT",
-      "price": 102.54,
-      "change_4h_pct": 0.04883766360619379,
-      "change_12h_pct": 2.655842854279422,
-      "change_24h_pct": -0.156,
+      "price": 100.97,
+      "change_4h_pct": -0.3049980322707646,
+      "change_12h_pct": -1.0255909357296367,
+      "change_24h_pct": -0.571,
       "change_7d_pct": -1.0534454431236129,
-      "quote_volume_24h": 164575522.02402,
-      "last_closed_4h_ms": 1792900799999,
+      "quote_volume_24h": 142448758.13629,
+      "last_closed_4h_ms": 1792929599999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
         "note": "Proxy from Binance 1h traded quote volume; not holder cost basis.",
@@ -112,14 +112,14 @@
           "high": 104.47041666666668,
           "center": 104.31645833333334,
           "quote_volume": 220417031.51915002,
-          "distance_pct": 1.7324540016903978
+          "distance_pct": 3.3143095308837633
         },
         "support": {
-          "low": 102.00708333333334,
-          "high": 102.31500000000001,
-          "center": 102.16104166666668,
-          "quote_volume": 76931461.62599,
-          "distance_pct": -0.36957122423769695
+          "low": 100.4675,
+          "high": 100.77541666666667,
+          "center": 100.62145833333334,
+          "quote_volume": 37902266.784,
+          "distance_pct": -0.3451932917368117
         }
       }
     }
