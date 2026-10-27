@@ -69,8 +69,8 @@
         "first_hit_close_ms": null
       }
     },
-    "last_price": 0.0305,
-    "last_processed_close_ms": 1793077199999,
+    "last_price": 0.0304,
+    "last_processed_close_ms": 1793111399999,
     "intrabar_ambiguous_count": 0,
     "qty": 3025.759847349053,
     "capital_deployed_usdt": 100.0,
@@ -80,12 +80,12 @@
       "stop": 0.02478716216216216,
       "dca": 0.02904
     },
-    "mark_move_pct": -7.5758,
-    "mark_net_value_usdt": 92.147293,
-    "mark_net_pnl_usdt": -7.852707,
-    "mark_net_return_pct": -7.8527,
-    "last_update_at_utc": "2026-10-27T04:54:18+00:00",
-    "last_update_at_ict": "2026-10-27T11:54:18+07:00"
+    "mark_move_pct": -7.8788,
+    "mark_net_value_usdt": 91.845171,
+    "mark_net_pnl_usdt": -8.154829,
+    "mark_net_return_pct": -8.1548,
+    "last_update_at_utc": "2026-10-27T14:22:20+00:00",
+    "last_update_at_ict": "2026-10-27T21:22:20+07:00"
   },
   "closed_trades": [
     {
@@ -228,6 +228,6 @@
       "runner_ups": []
     }
   },
-  "updated_run_id": "20261027T045418Z",
-  "updated_at_utc": "2026-10-27T04:54:18+00:00"
+  "updated_run_id": "20261027T142220Z",
+  "updated_at_utc": "2026-10-27T14:22:20+00:00"
 }
