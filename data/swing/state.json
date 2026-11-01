@@ -1,6 +1,90 @@
 {
   "schema_version": 1,
-  "active_trade": null,
+  "active_trade": {
+    "trade_id": "BIOUSDT-20261101T202720Z",
+    "paper_only": true,
+    "status": "OPEN",
+    "symbol": "BIOUSDT",
+    "entry_at_utc": "2026-11-01T20:27:20+00:00",
+    "entry_at_ict": "2026-11-02T03:27:20+07:00",
+    "entry_run_id": "20261101T202720Z",
+    "entry_market_price": 0.0227,
+    "entry_signal_score": 74.2,
+    "entry_grade": "C",
+    "entry_structure_score": 64.5,
+    "entry_trigger_score": 68.0,
+    "entry_opportunity_tier": "WATCH",
+    "entry_state": "EARLY_IGNITION",
+    "entry_volume_ratio_4h": 4.623842887601211,
+    "entry_volume_ratio_8h": 5.880348283115962,
+    "entry_ret_12h_pct": 4.825143868968573,
+    "entry_change_24h_pct": 5.976,
+    "entry_drawdown_major_pct": -98.490182802979,
+    "entry_position_52w": 0.0808,
+    "entry_quote_volume_24h": 2998657.751998,
+    "entry_spread_bps": 13.224597751819372,
+    "entry_reference": {
+      "method": "20x4h_breakout_retest_atr",
+      "low": 0.023775499999999998,
+      "high": 0.024139071428571426,
+      "mid": 0.023957285714285712,
+      "state": "WAIT_BREAKOUT_RETEST"
+    },
+    "dca_reference_from_radar": {
+      "method": "atr_below_breakout_anchor",
+      "dca1": 0.023302857142857143,
+      "dca2": 0.022575714285714286,
+      "invalidation": 0.022212142857142857
+    },
+    "selector_score": 95.85,
+    "scheduled_scan_slot_ict": "03:05",
+    "scan_delay_min": 22,
+    "runner_ups": [],
+    "buy_fills": [
+      {
+        "cash_usdt": 100.0,
+        "market_price": 0.0227,
+        "fill_price": 0.02271135,
+        "gross_qty": 4403.0848012117285,
+        "fee_qty": 4.403084801211729,
+        "net_qty": 4398.681716410517,
+        "effective_cost": 0.022734084084084085,
+        "kind": "ENTRY"
+      }
+    ],
+    "dca_done": false,
+    "mfe_pct": 0.0,
+    "mae_pct": 0.0,
+    "shadow_targets": {
+      "20": {
+        "hit": false,
+        "first_hit_close_ms": null
+      },
+      "25": {
+        "hit": false,
+        "first_hit_close_ms": null
+      },
+      "30": {
+        "hit": false,
+        "first_hit_close_ms": null
+      }
+    },
+    "last_price": 0.0227,
+    "last_processed_close_ms": 1793564840000,
+    "intrabar_ambiguous_count": 0,
+    "qty": 4398.681716410517,
+    "capital_deployed_usdt": 100.0,
+    "avg_effective_cost": 0.022734084084084085,
+    "levels": {
+      "tp": 0.028417605105105107,
+      "stop": 0.017050563063063063,
+      "dca": 0.019976
+    },
+    "mark_move_pct": 0.0,
+    "mark_net_value_usdt": 99.70035,
+    "mark_net_pnl_usdt": -0.29965,
+    "mark_net_return_pct": -0.2997
+  },
   "closed_trades": [
     {
       "trade_id": "GTCUSDT-20261002T203945Z",
@@ -246,8 +330,15 @@
     },
     "2026-10-28": {
       "closed_trade_id": "IDUSDT-20261021T043423Z"
+    },
+    "2026-11-02": {
+      "trade_id": "BIOUSDT-20261101T202720Z",
+      "symbol": "BIOUSDT",
+      "locked_at_utc": "2026-11-01T20:27:20+00:00",
+      "locked_at_ict": "2026-11-02T03:27:20+07:00",
+      "runner_ups": []
     }
   },
-  "updated_run_id": "20261101T145934Z",
-  "updated_at_utc": "2026-11-01T14:59:34+00:00"
+  "updated_run_id": "20261101T202720Z",
+  "updated_at_utc": "2026-11-01T20:27:20+00:00"
 }
