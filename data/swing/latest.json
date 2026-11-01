@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261101T055233Z",
-  "generated_at_utc": "2026-11-01T05:52:33+00:00",
-  "generated_at_ict": "2026-11-01T12:52:33+07:00",
+  "run_id": "20261101T145934Z",
+  "generated_at_utc": "2026-11-01T14:59:34+00:00",
+  "generated_at_ict": "2026-11-01T21:59:34+07:00",
   "status": "OK",
   "paper_only": true,
   "strategy_version": "gem-swing-paper-v1.0.0",
@@ -21,7 +21,7 @@
     "intrabar_policy": "conservative_adverse_first"
   },
   "events_this_run": [
-    "SCAN_ONLY_NO_SETUP"
+    "SCAN_ONLY_OFF_SCHEDULE"
   ],
   "active_trade": null,
   "closed_trade_this_run": null,
