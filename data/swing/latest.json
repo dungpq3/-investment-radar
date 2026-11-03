@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261103T115056Z",
-  "generated_at_utc": "2026-11-03T11:50:56+00:00",
-  "generated_at_ict": "2026-11-03T18:50:56+07:00",
+  "run_id": "20261103T192650Z",
+  "generated_at_utc": "2026-11-03T19:26:50+00:00",
+  "generated_at_ict": "2026-11-04T02:26:50+07:00",
   "status": "OK",
   "paper_only": true,
   "strategy_version": "gem-swing-paper-v1.0.0",
@@ -90,8 +90,8 @@
         "first_hit_close_ms": null
       }
     },
-    "last_price": 0.0208,
-    "last_processed_close_ms": 1793707199999,
+    "last_price": 0.0205,
+    "last_processed_close_ms": 1793734199999,
     "intrabar_ambiguous_count": 0,
     "qty": 4398.681716410517,
     "capital_deployed_usdt": 100.0,
@@ -101,17 +101,28 @@
       "stop": 0.017050563063063063,
       "dca": 0.019976
     },
-    "mark_move_pct": -8.37,
-    "mark_net_value_usdt": 91.355387,
-    "mark_net_pnl_usdt": -8.644613,
-    "mark_net_return_pct": -8.6446,
-    "last_update_at_utc": "2026-11-03T11:50:56+00:00",
-    "last_update_at_ict": "2026-11-03T18:50:56+07:00"
+    "mark_move_pct": -9.6916,
+    "mark_net_value_usdt": 90.037761,
+    "mark_net_pnl_usdt": -9.962239,
+    "mark_net_return_pct": -9.9622,
+    "last_update_at_utc": "2026-11-03T19:26:50+00:00",
+    "last_update_at_ict": "2026-11-04T02:26:50+07:00"
   },
   "closed_trade_this_run": null,
   "today_lock": null,
-  "eligible_count": 0,
-  "eligible_preview": [],
+  "eligible_count": 1,
+  "eligible_preview": [
+    {
+      "symbol": "WLFIUSDT",
+      "selector_score": 99.03,
+      "signal_score": 73.1,
+      "trigger_score": 67.0,
+      "structure_score": 58.8,
+      "tier": "READY",
+      "state": "WAKE_UP",
+      "last_price": 0.0511
+    }
+  ],
   "summary": {
     "closed_trades": 2,
     "wins": 1,
