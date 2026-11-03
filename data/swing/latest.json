@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261103T021313Z",
-  "generated_at_utc": "2026-11-03T02:13:13+00:00",
-  "generated_at_ict": "2026-11-03T09:13:13+07:00",
+  "run_id": "20261103T115056Z",
+  "generated_at_utc": "2026-11-03T11:50:56+00:00",
+  "generated_at_ict": "2026-11-03T18:50:56+07:00",
   "status": "OK",
   "paper_only": true,
   "strategy_version": "gem-swing-paper-v1.0.0",
@@ -75,7 +75,7 @@
     ],
     "dca_done": false,
     "mfe_pct": 0.7048,
-    "mae_pct": -10.6608,
+    "mae_pct": -10.8811,
     "shadow_targets": {
       "20": {
         "hit": false,
@@ -90,8 +90,8 @@
         "first_hit_close_ms": null
       }
     },
-    "last_price": 0.02062,
-    "last_processed_close_ms": 1793672099999,
+    "last_price": 0.0208,
+    "last_processed_close_ms": 1793707199999,
     "intrabar_ambiguous_count": 0,
     "qty": 4398.681716410517,
     "capital_deployed_usdt": 100.0,
@@ -101,12 +101,12 @@
       "stop": 0.017050563063063063,
       "dca": 0.019976
     },
-    "mark_move_pct": -9.163,
-    "mark_net_value_usdt": 90.564811,
-    "mark_net_pnl_usdt": -9.435189,
-    "mark_net_return_pct": -9.4352,
-    "last_update_at_utc": "2026-11-03T02:13:13+00:00",
-    "last_update_at_ict": "2026-11-03T09:13:13+07:00"
+    "mark_move_pct": -8.37,
+    "mark_net_value_usdt": 91.355387,
+    "mark_net_pnl_usdt": -8.644613,
+    "mark_net_return_pct": -8.6446,
+    "last_update_at_utc": "2026-11-03T11:50:56+00:00",
+    "last_update_at_ict": "2026-11-03T18:50:56+07:00"
   },
   "closed_trade_this_run": null,
   "today_lock": null,
