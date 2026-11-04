@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261104T120021Z",
-  "generated_at_utc": "2026-11-04T12:00:21+00:00",
-  "generated_at_ict": "2026-11-04T19:00:21+07:00",
+  "run_id": "20261104T194126Z",
+  "generated_at_utc": "2026-11-04T19:41:26+00:00",
+  "generated_at_ict": "2026-11-05T02:41:26+07:00",
   "status": "OK",
   "paper_only": true,
   "strategy_version": "gem-swing-paper-v1.0.0",
@@ -20,9 +20,7 @@
     "tracking_interval": "15m",
     "intrabar_policy": "conservative_adverse_first"
   },
-  "events_this_run": [
-    "DCA1"
-  ],
+  "events_this_run": [],
   "active_trade": {
     "trade_id": "BIOUSDT-20261101T202720Z",
     "paper_only": true,
@@ -103,8 +101,8 @@
         "first_hit_close_ms": null
       }
     },
-    "last_price": 0.02117,
-    "last_processed_close_ms": 1793794499999,
+    "last_price": 0.02085,
+    "last_processed_close_ms": 1793821499999,
     "intrabar_ambiguous_count": 0,
     "qty": 9397.183666877014,
     "capital_deployed_usdt": 200.0,
@@ -114,18 +112,29 @@
       "stop": 0.01596222925052712,
       "dca": 0.019976
     },
-    "mark_move_pct": -6.7401,
-    "mark_net_value_usdt": 198.64007,
-    "mark_net_pnl_usdt": -1.35993,
-    "mark_net_return_pct": -0.68,
-    "last_update_at_utc": "2026-11-04T12:00:21+00:00",
-    "last_update_at_ict": "2026-11-04T19:00:21+07:00",
+    "mark_move_pct": -8.1498,
+    "mark_net_value_usdt": 195.637481,
+    "mark_net_pnl_usdt": -4.362519,
+    "mark_net_return_pct": -2.1813,
+    "last_update_at_utc": "2026-11-04T19:41:26+00:00",
+    "last_update_at_ict": "2026-11-05T02:41:26+07:00",
     "dca_event_close_ms": 1793762099999
   },
   "closed_trade_this_run": null,
   "today_lock": null,
-  "eligible_count": 0,
-  "eligible_preview": [],
+  "eligible_count": 1,
+  "eligible_preview": [
+    {
+      "symbol": "XLMUSDT",
+      "selector_score": 93.675,
+      "signal_score": 72.2,
+      "trigger_score": 69.9,
+      "structure_score": 59.9,
+      "tier": "WATCH",
+      "state": "EARLY_IGNITION",
+      "last_price": 0.1661
+    }
+  ],
   "summary": {
     "closed_trades": 2,
     "wins": 1,
