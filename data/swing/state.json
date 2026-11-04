@@ -50,11 +50,22 @@
         "net_qty": 4398.681716410517,
         "effective_cost": 0.022734084084084085,
         "kind": "ENTRY"
+      },
+      {
+        "cash_usdt": 100.0,
+        "market_price": 0.019976,
+        "fill_price": 0.019985988,
+        "gross_qty": 5003.505455922419,
+        "fee_qty": 5.0035054559224195,
+        "net_qty": 4998.501950466497,
+        "effective_cost": 0.020005993993993994,
+        "kind": "DCA1",
+        "event_close_ms": 1793762099999
       }
     ],
-    "dca_done": false,
+    "dca_done": true,
     "mfe_pct": 0.7048,
-    "mae_pct": -10.8811,
+    "mae_pct": -12.8194,
     "shadow_targets": {
       "20": {
         "hit": false,
@@ -69,23 +80,24 @@
         "first_hit_close_ms": null
       }
     },
-    "last_price": 0.02031,
-    "last_processed_close_ms": 1793753099999,
+    "last_price": 0.02117,
+    "last_processed_close_ms": 1793794499999,
     "intrabar_ambiguous_count": 0,
-    "qty": 4398.681716410517,
-    "capital_deployed_usdt": 100.0,
-    "avg_effective_cost": 0.022734084084084085,
+    "qty": 9397.183666877014,
+    "capital_deployed_usdt": 200.0,
+    "avg_effective_cost": 0.021282972334036164,
     "levels": {
-      "tp": 0.028417605105105107,
-      "stop": 0.017050563063063063,
+      "tp": 0.026603715417545207,
+      "stop": 0.01596222925052712,
       "dca": 0.019976
     },
-    "mark_move_pct": -10.5286,
-    "mark_net_value_usdt": 89.203264,
-    "mark_net_pnl_usdt": -10.796736,
-    "mark_net_return_pct": -10.7967,
-    "last_update_at_utc": "2026-11-04T00:33:59+00:00",
-    "last_update_at_ict": "2026-11-04T07:33:59+07:00"
+    "mark_move_pct": -6.7401,
+    "mark_net_value_usdt": 198.64007,
+    "mark_net_pnl_usdt": -1.35993,
+    "mark_net_return_pct": -0.68,
+    "last_update_at_utc": "2026-11-04T12:00:21+00:00",
+    "last_update_at_ict": "2026-11-04T19:00:21+07:00",
+    "dca_event_close_ms": 1793762099999
   },
   "closed_trades": [
     {
@@ -341,6 +353,6 @@
       "runner_ups": []
     }
   },
-  "updated_run_id": "20261104T003359Z",
-  "updated_at_utc": "2026-11-04T00:33:59+00:00"
+  "updated_run_id": "20261104T120021Z",
+  "updated_at_utc": "2026-11-04T12:00:21+00:00"
 }
