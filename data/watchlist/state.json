@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_run": "20261110T024028Z",
+  "updated_run": "20261110T123033Z",
   "items": {
     "AUDIOUSDT-20260927T0152Z": {
       "setup_id": "AUDIOUSDT-20260927T0152Z",
@@ -6304,7 +6304,7 @@
       "last_structure_score": 56.8,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 151.23,
+      "age_hours": 161.06,
       "move_since_watch_pct": -7.632
     },
     "XLMUSDT-20261104T1941Z": {
@@ -6361,7 +6361,7 @@
       "last_structure_score": 59.9,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 126.98,
+      "age_hours": 136.82,
       "move_since_watch_pct": -9.633
     },
     "ADAUSDT-20261104T1941Z": {
@@ -6410,16 +6410,16 @@
       },
       "mfe_snapshot_pct": 0.97,
       "mae_snapshot_pct": -10.725,
-      "last_price": 0.177,
+      "last_price": 0.178,
       "last_state": "DORMANT_BASE",
-      "last_score": 37.1,
-      "last_seen_run": "20261110T024028Z",
-      "last_seen_at_utc": "2026-11-10T02:40:28+00:00",
+      "last_score": 30.3,
+      "last_seen_run": "20261110T123033Z",
+      "last_seen_at_utc": "2026-11-10T12:30:33+00:00",
       "last_structure_score": 61.9,
-      "last_trigger_score": 20.3,
+      "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 126.98,
-      "move_since_watch_pct": -9.602
+      "age_hours": 136.82,
+      "move_since_watch_pct": -9.091
     },
     "DOGEUSDT-20261104T1941Z": {
       "setup_id": "DOGEUSDT-20261104T1941Z",
@@ -6475,7 +6475,7 @@
       "last_structure_score": 64.4,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 126.98,
+      "age_hours": 136.82,
       "move_since_watch_pct": -7.297
     },
     "SHIBUSDT-20261104T1941Z": {
@@ -6532,7 +6532,7 @@
       "last_structure_score": 66.1,
       "last_trigger_score": 39.4,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 126.98,
+      "age_hours": 136.82,
       "move_since_watch_pct": -5.708
     },
     "WLFIUSDT-20261106T0628Z": {
@@ -6589,7 +6589,7 @@
       "last_structure_score": 56.8,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 92.19,
+      "age_hours": 102.03,
       "move_since_watch_pct": 0.0
     },
     "HOTUSDT-20261108T1503Z": {
@@ -6646,7 +6646,7 @@
       "last_structure_score": 60.4,
       "last_trigger_score": 43.5,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 30.27,
+      "age_hours": 40.1,
       "move_since_watch_pct": 0.0
     },
     "ADAUSDT-20261109T1841Z": {
@@ -6695,16 +6695,16 @@
       },
       "mfe_snapshot_pct": 0.0,
       "mae_snapshot_pct": -0.84,
-      "last_price": 0.177,
+      "last_price": 0.178,
       "last_state": "DORMANT_BASE",
-      "last_score": 37.1,
-      "last_seen_run": "20261110T024028Z",
-      "last_seen_at_utc": "2026-11-10T02:40:28+00:00",
+      "last_score": 30.3,
+      "last_seen_run": "20261110T123033Z",
+      "last_seen_at_utc": "2026-11-10T12:30:33+00:00",
       "last_structure_score": 61.9,
-      "last_trigger_score": 20.3,
+      "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 7.98,
-      "move_since_watch_pct": -0.84
+      "age_hours": 17.81,
+      "move_since_watch_pct": -0.28
     },
     "SHIBUSDT-20261109T1841Z": {
       "setup_id": "SHIBUSDT-20261109T1841Z",
@@ -6760,7 +6760,7 @@
       "last_structure_score": 66.1,
       "last_trigger_score": 39.4,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 7.98,
+      "age_hours": 17.81,
       "move_since_watch_pct": 0.0
     }
   }
