@@ -1,51 +1,36 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-09T18:41:53+00:00",
+  "updated_at_utc": "2026-11-10T02:40:28+00:00",
   "symbols": {
     "ADAUSDT": {
-      "state": "WAKE_UP",
-      "signal_score": 56.7,
+      "state": "DORMANT_BASE",
+      "signal_score": 37.1,
       "score_grade": "D",
       "structure_score": 61.9,
-      "trigger_score": 45.0,
-      "opportunity_tier": "WATCH",
-      "last_price": 0.1785,
-      "setup_id": "ADAUSDT-20261109T1841Z",
-      "signal_started_at_utc": "2026-11-09T18:41:53+00:00",
-      "first_entry_mid": 0.18933,
-      "first_dca1": 0.186,
-      "first_dca2": 0.18230000000000002,
-      "updated_at_utc": "2026-11-09T18:41:53+00:00"
-    },
-    "SHIBUSDT": {
-      "state": "WAKE_UP",
-      "signal_score": 52.8,
-      "score_grade": "D",
-      "structure_score": 66.1,
-      "trigger_score": 39.4,
-      "opportunity_tier": "WATCH",
-      "last_price": 4.46e-06,
-      "setup_id": "SHIBUSDT-20261109T1841Z",
-      "signal_started_at_utc": "2026-11-09T18:41:53+00:00",
-      "first_entry_mid": 4.622428571428571e-06,
-      "first_dca1": 4.554285714285714e-06,
-      "first_dca2": 4.478571428571428e-06,
-      "updated_at_utc": "2026-11-09T18:41:53+00:00"
-    },
-    "ASTERUSDT": {
-      "state": "DORMANT_BASE",
-      "signal_score": 39.0,
-      "score_grade": "D",
-      "structure_score": 63.0,
-      "trigger_score": 25.0,
+      "trigger_score": 20.3,
       "opportunity_tier": "BASE",
-      "last_price": 0.6462,
+      "last_price": 0.177,
       "setup_id": null,
       "signal_started_at_utc": null,
       "first_entry_mid": null,
       "first_dca1": null,
       "first_dca2": null,
-      "updated_at_utc": "2026-11-09T18:41:53+00:00"
+      "updated_at_utc": "2026-11-10T02:40:28+00:00"
+    },
+    "ASTERUSDT": {
+      "state": "DORMANT_BASE",
+      "signal_score": 36.3,
+      "score_grade": "D",
+      "structure_score": 63.0,
+      "trigger_score": 21.1,
+      "opportunity_tier": "BASE",
+      "last_price": 0.6498,
+      "setup_id": null,
+      "signal_started_at_utc": null,
+      "first_entry_mid": null,
+      "first_dca1": null,
+      "first_dca2": null,
+      "updated_at_utc": "2026-11-10T02:40:28+00:00"
     }
   }
 }
