@@ -1,51 +1,51 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-10T21:46:12+00:00",
+  "updated_at_utc": "2026-11-11T05:59:28+00:00",
   "symbols": {
     "ADAUSDT": {
       "state": "DORMANT_BASE",
-      "signal_score": 36.1,
+      "signal_score": 30.7,
       "score_grade": "D",
       "structure_score": 61.9,
-      "trigger_score": 19.7,
+      "trigger_score": 12.0,
       "opportunity_tier": "BASE",
-      "last_price": 0.1742,
+      "last_price": 0.1755,
       "setup_id": null,
       "signal_started_at_utc": null,
       "first_entry_mid": null,
       "first_dca1": null,
       "first_dca2": null,
-      "updated_at_utc": "2026-11-10T21:46:12+00:00"
+      "updated_at_utc": "2026-11-11T05:59:28+00:00"
     },
     "SHIBUSDT": {
-      "state": "DORMANT_BASE",
-      "signal_score": 39.0,
+      "state": "WAKE_UP",
+      "signal_score": 53.3,
       "score_grade": "D",
       "structure_score": 66.1,
-      "trigger_score": 23.2,
-      "opportunity_tier": "BASE",
-      "last_price": 4.42e-06,
-      "setup_id": null,
-      "signal_started_at_utc": null,
-      "first_entry_mid": null,
-      "first_dca1": null,
-      "first_dca2": null,
-      "updated_at_utc": "2026-11-10T21:46:12+00:00"
+      "trigger_score": 40.3,
+      "opportunity_tier": "WATCH",
+      "last_price": 4.46e-06,
+      "setup_id": "SHIBUSDT-20261111T0559Z",
+      "signal_started_at_utc": "2026-11-11T05:59:28+00:00",
+      "first_entry_mid": 4.510142857142857e-06,
+      "first_dca1": 4.421428571428572e-06,
+      "first_dca2": 4.322857142857143e-06,
+      "updated_at_utc": "2026-11-11T05:59:28+00:00"
     },
     "ASTERUSDT": {
       "state": "DORMANT_BASE",
-      "signal_score": 28.5,
+      "signal_score": 28.9,
       "score_grade": "D",
       "structure_score": 63.0,
-      "trigger_score": 12.4,
+      "trigger_score": 12.0,
       "opportunity_tier": "BASE",
-      "last_price": 0.6337,
+      "last_price": 0.642,
       "setup_id": null,
       "signal_started_at_utc": null,
       "first_entry_mid": null,
       "first_dca1": null,
       "first_dca2": null,
-      "updated_at_utc": "2026-11-10T21:46:12+00:00"
+      "updated_at_utc": "2026-11-11T05:59:28+00:00"
     }
   }
 }
