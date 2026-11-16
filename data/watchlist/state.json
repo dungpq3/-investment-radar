@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_run": "20261115T205900Z",
+  "updated_run": "20261116T061429Z",
   "items": {
     "AUDIOUSDT-20260927T0152Z": {
       "setup_id": "AUDIOUSDT-20260927T0152Z",
@@ -6717,7 +6717,7 @@
       "last_structure_score": 61.9,
       "last_trigger_score": 14.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 146.29,
+      "age_hours": 155.54,
       "move_since_watch_pct": -13.333
     },
     "SHIBUSDT-20261109T1841Z": {
@@ -6774,7 +6774,7 @@
       "last_structure_score": 66.1,
       "last_trigger_score": 20.4,
       "last_opportunity_tier": "BASE",
-      "age_hours": 146.29,
+      "age_hours": 155.54,
       "move_since_watch_pct": -11.659
     },
     "SHIBUSDT-20261111T0559Z": {
@@ -6831,7 +6831,7 @@
       "last_structure_score": 66.1,
       "last_trigger_score": 20.4,
       "last_opportunity_tier": "BASE",
-      "age_hours": 110.99,
+      "age_hours": 120.25,
       "move_since_watch_pct": -11.659
     },
     "ASTERUSDT-20261111T1604Z": {
@@ -6888,7 +6888,7 @@
       "last_structure_score": 63.0,
       "last_trigger_score": 14.5,
       "last_opportunity_tier": "BASE",
-      "age_hours": 100.91,
+      "age_hours": 110.17,
       "move_since_watch_pct": -6.766
     },
     "BARDUSDT-20261112T1645Z": {
@@ -6945,7 +6945,7 @@
       "last_structure_score": 67.4,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 76.23,
+      "age_hours": 85.48,
       "move_since_watch_pct": -8.364
     },
     "SHIBUSDT-20261115T1536Z": {
@@ -7002,7 +7002,7 @@
       "last_structure_score": 66.1,
       "last_trigger_score": 20.4,
       "last_opportunity_tier": "BASE",
-      "age_hours": 5.37,
+      "age_hours": 14.63,
       "move_since_watch_pct": 0.767
     },
     "SHELLUSDT-20261115T2059Z": {
@@ -7059,7 +7059,7 @@
       "last_structure_score": 68.1,
       "last_trigger_score": 40.3,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 0.0,
+      "age_hours": 9.26,
       "move_since_watch_pct": 0.0
     }
   }
