@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261117T025337Z",
-  "generated_at_utc": "2026-11-17T02:53:37+00:00",
-  "generated_at_ict": "2026-11-17T09:53:37+07:00",
+  "run_id": "20261117T131046Z",
+  "generated_at_utc": "2026-11-17T13:10:46+00:00",
+  "generated_at_ict": "2026-11-17T20:10:46+07:00",
   "status": "OK",
   "policy": {
     "states": [
@@ -21,10 +21,7 @@
   },
   "note": "Paper watch only; no real position is opened.",
   "added_this_run": [],
-  "expired_this_run": [
-    "ADAUSDT-20261109T1841Z",
-    "SHIBUSDT-20261109T1841Z"
-  ],
+  "expired_this_run": [],
   "active_count": 5,
   "active": [
     {
@@ -81,7 +78,7 @@
       "last_structure_score": 68.1,
       "last_trigger_score": 40.3,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 29.91,
+      "age_hours": 40.2,
       "move_since_watch_pct": 0.0
     },
     {
@@ -138,7 +135,7 @@
       "last_structure_score": 66.1,
       "last_trigger_score": 20.4,
       "last_opportunity_tier": "BASE",
-      "age_hours": 140.9,
+      "age_hours": 151.19,
       "move_since_watch_pct": -11.659
     },
     {
@@ -195,7 +192,7 @@
       "last_structure_score": 66.1,
       "last_trigger_score": 20.4,
       "last_opportunity_tier": "BASE",
-      "age_hours": 35.28,
+      "age_hours": 45.57,
       "move_since_watch_pct": 0.767
     },
     {
@@ -252,7 +249,7 @@
       "last_structure_score": 63.0,
       "last_trigger_score": 14.5,
       "last_opportunity_tier": "BASE",
-      "age_hours": 130.82,
+      "age_hours": 141.1,
       "move_since_watch_pct": -6.766
     },
     {
@@ -309,7 +306,7 @@
       "last_structure_score": 67.4,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 106.14,
+      "age_hours": 116.42,
       "move_since_watch_pct": -8.364
     }
   ]
