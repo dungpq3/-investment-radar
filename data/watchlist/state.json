@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_run": "20261117T131046Z",
+  "updated_run": "20261117T232754Z",
   "items": {
     "AUDIOUSDT-20260927T0152Z": {
       "setup_id": "AUDIOUSDT-20260927T0152Z",
@@ -6835,7 +6835,7 @@
       "last_structure_score": 66.1,
       "last_trigger_score": 20.4,
       "last_opportunity_tier": "BASE",
-      "age_hours": 151.19,
+      "age_hours": 161.47,
       "move_since_watch_pct": -11.659
     },
     "ASTERUSDT-20261111T1604Z": {
@@ -6892,7 +6892,7 @@
       "last_structure_score": 63.0,
       "last_trigger_score": 14.5,
       "last_opportunity_tier": "BASE",
-      "age_hours": 141.1,
+      "age_hours": 151.39,
       "move_since_watch_pct": -6.766
     },
     "BARDUSDT-20261112T1645Z": {
@@ -6949,7 +6949,7 @@
       "last_structure_score": 67.4,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 116.42,
+      "age_hours": 126.71,
       "move_since_watch_pct": -8.364
     },
     "SHIBUSDT-20261115T1536Z": {
@@ -7006,7 +7006,7 @@
       "last_structure_score": 66.1,
       "last_trigger_score": 20.4,
       "last_opportunity_tier": "BASE",
-      "age_hours": 45.57,
+      "age_hours": 55.86,
       "move_since_watch_pct": 0.767
     },
     "SHELLUSDT-20261115T2059Z": {
@@ -7063,7 +7063,7 @@
       "last_structure_score": 68.1,
       "last_trigger_score": 40.3,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 40.2,
+      "age_hours": 50.48,
       "move_since_watch_pct": 0.0
     }
   }
