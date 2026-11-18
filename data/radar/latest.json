@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261118T071427Z",
-  "generated_at_utc": "2026-11-18T07:14:27+00:00",
-  "generated_at_ict": "2026-11-18T14:14:27+07:00",
+  "run_id": "20261118T171059Z",
+  "generated_at_utc": "2026-11-18T17:10:59+00:00",
+  "generated_at_ict": "2026-11-19T00:10:59+07:00",
   "status": "OK",
   "source": {
     "venue": "Binance Spot public market data",
@@ -15,12 +15,12 @@
     ]
   },
   "scan": {
-    "spot_usdt_universe": 510,
-    "liquid_universe": 100,
+    "spot_usdt_universe": 517,
+    "liquid_universe": 97,
     "weekly_preselected": 0,
     "fully_evaluated": 0,
     "errors": 0,
-    "duration_seconds": 17.26
+    "duration_seconds": 10.52
   },
   "summary": {
     "EARLY_IGNITION": 0,
