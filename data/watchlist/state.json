@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_run": "20261119T125314Z",
+  "updated_run": "20261119T230015Z",
   "items": {
     "AUDIOUSDT-20260927T0152Z": {
       "setup_id": "AUDIOUSDT-20260927T0152Z",
@@ -6902,7 +6902,7 @@
     "BARDUSDT-20261112T1645Z": {
       "setup_id": "BARDUSDT-20261112T1645Z",
       "symbol": "BARDUSDT",
-      "status": "WATCH_ONLY",
+      "status": "EXPIRED",
       "position_opened": false,
       "paper_only": true,
       "first_seen_run": "20261112T164523Z",
@@ -6953,8 +6953,10 @@
       "last_structure_score": 67.4,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 164.13,
-      "move_since_watch_pct": -8.364
+      "age_hours": 174.25,
+      "move_since_watch_pct": -8.364,
+      "expired_run": "20261119T230015Z",
+      "expired_at_utc": "2026-11-19T23:00:15+00:00"
     },
     "SHIBUSDT-20261115T1536Z": {
       "setup_id": "SHIBUSDT-20261115T1536Z",
@@ -7010,7 +7012,7 @@
       "last_structure_score": 66.1,
       "last_trigger_score": 20.4,
       "last_opportunity_tier": "BASE",
-      "age_hours": 93.28,
+      "age_hours": 103.39,
       "move_since_watch_pct": 0.767
     },
     "SHELLUSDT-20261115T2059Z": {
@@ -7067,7 +7069,7 @@
       "last_structure_score": 68.1,
       "last_trigger_score": 40.3,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 87.9,
+      "age_hours": 98.02,
       "move_since_watch_pct": 0.0
     }
   }
