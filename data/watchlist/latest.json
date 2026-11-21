@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261121T123126Z",
-  "generated_at_utc": "2026-11-21T12:31:26+00:00",
-  "generated_at_ict": "2026-11-21T19:31:26+07:00",
+  "run_id": "20261121T213653Z",
+  "generated_at_utc": "2026-11-21T21:36:53+00:00",
+  "generated_at_ict": "2026-11-22T04:36:53+07:00",
   "status": "OK",
   "policy": {
     "states": [
@@ -78,7 +78,7 @@
       "last_structure_score": 68.1,
       "last_trigger_score": 40.3,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 135.54,
+      "age_hours": 144.63,
       "move_since_watch_pct": 0.0
     },
     {
@@ -135,7 +135,7 @@
       "last_structure_score": 66.1,
       "last_trigger_score": 20.4,
       "last_opportunity_tier": "BASE",
-      "age_hours": 140.91,
+      "age_hours": 150.0,
       "move_since_watch_pct": 0.767
     }
   ]
