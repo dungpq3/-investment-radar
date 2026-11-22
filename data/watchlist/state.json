@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_run": "20261122T063433Z",
+  "updated_run": "20261122T161145Z",
   "items": {
     "AUDIOUSDT-20260927T0152Z": {
       "setup_id": "AUDIOUSDT-20260927T0152Z",
@@ -6961,7 +6961,7 @@
     "SHIBUSDT-20261115T1536Z": {
       "setup_id": "SHIBUSDT-20261115T1536Z",
       "symbol": "SHIBUSDT",
-      "status": "WATCH_ONLY",
+      "status": "EXPIRED",
       "position_opened": false,
       "paper_only": true,
       "first_seen_run": "20261115T153635Z",
@@ -7012,8 +7012,10 @@
       "last_structure_score": 66.1,
       "last_trigger_score": 20.4,
       "last_opportunity_tier": "BASE",
-      "age_hours": 158.97,
-      "move_since_watch_pct": 0.767
+      "age_hours": 168.59,
+      "move_since_watch_pct": 0.767,
+      "expired_run": "20261122T161145Z",
+      "expired_at_utc": "2026-11-22T16:11:45+00:00"
     },
     "SHELLUSDT-20261115T2059Z": {
       "setup_id": "SHELLUSDT-20261115T2059Z",
@@ -7069,7 +7071,7 @@
       "last_structure_score": 68.1,
       "last_trigger_score": 40.3,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 153.59,
+      "age_hours": 163.21,
       "move_since_watch_pct": 0.0
     }
   }
