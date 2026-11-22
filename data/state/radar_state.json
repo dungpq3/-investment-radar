@@ -1,21 +1,5 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-21T21:36:53+00:00",
-  "symbols": {
-    "WBETHUSDT": {
-      "state": "DORMANT_BASE",
-      "signal_score": 29.3,
-      "score_grade": "D",
-      "structure_score": 57.4,
-      "trigger_score": 14.2,
-      "opportunity_tier": "BASE",
-      "last_price": 1870.89,
-      "setup_id": null,
-      "signal_started_at_utc": null,
-      "first_entry_mid": null,
-      "first_dca1": null,
-      "first_dca2": null,
-      "updated_at_utc": "2026-11-21T21:36:53+00:00"
-    }
-  }
+  "updated_at_utc": "2026-11-22T06:34:33+00:00",
+  "symbols": {}
 }
