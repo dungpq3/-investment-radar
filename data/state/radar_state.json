@@ -1,21 +1,21 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-23T00:47:16+00:00",
+  "updated_at_utc": "2026-11-23T14:27:57+00:00",
   "symbols": {
     "LISTAUSDT": {
-      "state": "EARLY_IGNITION",
-      "signal_score": 88.6,
-      "score_grade": "A",
-      "structure_score": 62.5,
-      "trigger_score": 86.2,
-      "opportunity_tier": "READY",
-      "last_price": 0.0775,
+      "state": "WAKE_UP",
+      "signal_score": 65.0,
+      "score_grade": "C",
+      "structure_score": 64.5,
+      "trigger_score": 54.8,
+      "opportunity_tier": "WATCH",
+      "last_price": 0.0816,
       "setup_id": "LISTAUSDT-20261123T0047Z",
       "signal_started_at_utc": "2026-11-23T00:47:16+00:00",
       "first_entry_mid": 0.07690642857142857,
       "first_dca1": 0.07426428571428571,
       "first_dca2": 0.07132857142857144,
-      "updated_at_utc": "2026-11-23T00:47:16+00:00"
+      "updated_at_utc": "2026-11-23T14:27:57+00:00"
     }
   }
 }
