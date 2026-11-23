@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_run": "20261122T161145Z",
+  "updated_run": "20261123T004716Z",
   "items": {
     "AUDIOUSDT-20260927T0152Z": {
       "setup_id": "AUDIOUSDT-20260927T0152Z",
@@ -7020,7 +7020,7 @@
     "SHELLUSDT-20261115T2059Z": {
       "setup_id": "SHELLUSDT-20261115T2059Z",
       "symbol": "SHELLUSDT",
-      "status": "WATCH_ONLY",
+      "status": "EXPIRED",
       "position_opened": false,
       "paper_only": true,
       "first_seen_run": "20261115T205900Z",
@@ -7071,7 +7071,66 @@
       "last_structure_score": 68.1,
       "last_trigger_score": 40.3,
       "last_opportunity_tier": "WATCH",
-      "age_hours": 163.21,
+      "age_hours": 171.8,
+      "move_since_watch_pct": 0.0,
+      "expired_run": "20261123T004716Z",
+      "expired_at_utc": "2026-11-23T00:47:16+00:00"
+    },
+    "LISTAUSDT-20261123T0047Z": {
+      "setup_id": "LISTAUSDT-20261123T0047Z",
+      "symbol": "LISTAUSDT",
+      "status": "WATCH_ONLY",
+      "position_opened": false,
+      "paper_only": true,
+      "first_seen_run": "20261123T004716Z",
+      "first_seen_at_utc": "2026-11-23T00:47:16+00:00",
+      "first_seen_at_ict": "2026-11-23T07:47:16+07:00",
+      "watch_price": 0.0775,
+      "watch_state": "EARLY_IGNITION",
+      "watch_score": 88.6,
+      "watch_grade": "A",
+      "watch_structure_score": 62.5,
+      "watch_trigger_score": 86.2,
+      "watch_opportunity_tier": "READY",
+      "watch_confirmed_candles": 3,
+      "watch_volume_ratio_4h": 6.2007090560214255,
+      "watch_ret_12h_pct": 9.27246790299574,
+      "entry_reference_at_watch": {
+        "method": "20x4h_breakout_retest_atr",
+        "low": 0.0761725,
+        "high": 0.07764035714285715,
+        "mid": 0.07690642857142857,
+        "state": "IN_REF_ZONE"
+      },
+      "dca_reference_at_watch": {
+        "method": "atr_below_breakout_anchor",
+        "dca1": 0.07426428571428571,
+        "dca2": 0.07132857142857144,
+        "invalidation": 0.06986071428571429
+      },
+      "targets_pct": [
+        20,
+        30,
+        50,
+        100
+      ],
+      "targets_hit": {
+        "20": false,
+        "30": false,
+        "50": false,
+        "100": false
+      },
+      "mfe_snapshot_pct": 0.0,
+      "mae_snapshot_pct": 0.0,
+      "last_price": 0.0775,
+      "last_state": "EARLY_IGNITION",
+      "last_score": 88.6,
+      "last_seen_run": "20261123T004716Z",
+      "last_seen_at_utc": "2026-11-23T00:47:16+00:00",
+      "last_structure_score": 62.5,
+      "last_trigger_score": 86.2,
+      "last_opportunity_tier": "READY",
+      "age_hours": 0.0,
       "move_since_watch_pct": 0.0
     }
   }

@@ -1,6 +1,90 @@
 {
   "schema_version": 1,
-  "active_trade": null,
+  "active_trade": {
+    "trade_id": "LISTAUSDT-20261123T004716Z",
+    "paper_only": true,
+    "status": "OPEN",
+    "symbol": "LISTAUSDT",
+    "entry_at_utc": "2026-11-23T00:47:16+00:00",
+    "entry_at_ict": "2026-11-23T07:47:16+07:00",
+    "entry_run_id": "20261123T004716Z",
+    "entry_market_price": 0.0775,
+    "entry_signal_score": 88.6,
+    "entry_grade": "A",
+    "entry_structure_score": 62.5,
+    "entry_trigger_score": 86.2,
+    "entry_opportunity_tier": "READY",
+    "entry_state": "EARLY_IGNITION",
+    "entry_volume_ratio_4h": 6.2007090560214255,
+    "entry_volume_ratio_8h": 15.252243154284063,
+    "entry_ret_12h_pct": 9.27246790299574,
+    "entry_change_24h_pct": 14.138,
+    "entry_drawdown_major_pct": -91.06288647765722,
+    "entry_position_52w": 0.2083,
+    "entry_quote_volume_24h": 2882850.93739,
+    "entry_spread_bps": 25.873221216040342,
+    "entry_reference": {
+      "method": "20x4h_breakout_retest_atr",
+      "low": 0.0761725,
+      "high": 0.07764035714285715,
+      "mid": 0.07690642857142857,
+      "state": "IN_REF_ZONE"
+    },
+    "dca_reference_from_radar": {
+      "method": "atr_below_breakout_anchor",
+      "dca1": 0.07426428571428571,
+      "dca2": 0.07132857142857144,
+      "invalidation": 0.06986071428571429
+    },
+    "selector_score": 117.78,
+    "scheduled_scan_slot_ict": "07:05",
+    "scan_delay_min": 42,
+    "runner_ups": [],
+    "buy_fills": [
+      {
+        "cash_usdt": 100.0,
+        "market_price": 0.0775,
+        "fill_price": 0.07753874999999999,
+        "gross_qty": 1289.6777417742744,
+        "fee_qty": 1.2896777417742744,
+        "net_qty": 1288.3880640325,
+        "effective_cost": 0.07761636636636636,
+        "kind": "ENTRY"
+      }
+    ],
+    "dca_done": false,
+    "mfe_pct": 0.0,
+    "mae_pct": 0.0,
+    "shadow_targets": {
+      "20": {
+        "hit": false,
+        "first_hit_close_ms": null
+      },
+      "25": {
+        "hit": false,
+        "first_hit_close_ms": null
+      },
+      "30": {
+        "hit": false,
+        "first_hit_close_ms": null
+      }
+    },
+    "last_price": 0.0775,
+    "last_processed_close_ms": 1795394836000,
+    "intrabar_ambiguous_count": 0,
+    "qty": 1288.3880640325,
+    "capital_deployed_usdt": 100.0,
+    "avg_effective_cost": 0.07761636636636636,
+    "levels": {
+      "tp": 0.09702045795795795,
+      "stop": 0.058212274774774767,
+      "dca": 0.0682
+    },
+    "mark_move_pct": 0.0,
+    "mark_net_value_usdt": 99.70035,
+    "mark_net_pnl_usdt": -0.29965,
+    "mark_net_return_pct": -0.2997
+  },
   "closed_trades": [
     {
       "trade_id": "GTCUSDT-20261002T203945Z",
@@ -361,8 +445,15 @@
     },
     "2026-11-09": {
       "closed_trade_id": "BIOUSDT-20261101T202720Z"
+    },
+    "2026-11-23": {
+      "trade_id": "LISTAUSDT-20261123T004716Z",
+      "symbol": "LISTAUSDT",
+      "locked_at_utc": "2026-11-23T00:47:16+00:00",
+      "locked_at_ict": "2026-11-23T07:47:16+07:00",
+      "runner_ups": []
     }
   },
-  "updated_run_id": "20261122T161145Z",
-  "updated_at_utc": "2026-11-22T16:11:45+00:00"
+  "updated_run_id": "20261123T004716Z",
+  "updated_at_utc": "2026-11-23T00:47:16+00:00"
 }
