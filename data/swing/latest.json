@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "run_id": "20261123T142757Z",
-  "generated_at_utc": "2026-11-23T14:27:57+00:00",
-  "generated_at_ict": "2026-11-23T21:27:57+07:00",
+  "run_id": "20261124T025207Z",
+  "generated_at_utc": "2026-11-24T02:52:07+00:00",
+  "generated_at_ict": "2026-11-24T09:52:07+07:00",
   "status": "OK",
   "paper_only": true,
   "strategy_version": "gem-swing-paper-v1.0.0",
@@ -20,11 +20,15 @@
     "tracking_interval": "15m",
     "intrabar_policy": "conservative_adverse_first"
   },
-  "events_this_run": [],
-  "active_trade": {
+  "events_this_run": [
+    "TP25",
+    "SCAN_ONLY_DAY_LOCKED"
+  ],
+  "active_trade": null,
+  "closed_trade_this_run": {
     "trade_id": "LISTAUSDT-20261123T004716Z",
     "paper_only": true,
-    "status": "OPEN",
+    "status": "CLOSED",
     "symbol": "LISTAUSDT",
     "entry_at_utc": "2026-11-23T00:47:16+00:00",
     "entry_at_ict": "2026-11-23T07:47:16+07:00",
@@ -74,24 +78,24 @@
       }
     ],
     "dca_done": false,
-    "mfe_pct": 13.5484,
+    "mfe_pct": 28.9032,
     "mae_pct": -2.0645,
     "shadow_targets": {
       "20": {
-        "hit": false,
-        "first_hit_close_ms": null
+        "hit": true,
+        "first_hit_close_ms": 1795453199999
       },
       "25": {
-        "hit": false,
-        "first_hit_close_ms": null
+        "hit": true,
+        "first_hit_close_ms": 1795480199999
       },
       "30": {
         "hit": false,
         "first_hit_close_ms": null
       }
     },
-    "last_price": 0.0816,
-    "last_processed_close_ms": 1795444199999,
+    "last_price": 0.0961,
+    "last_processed_close_ms": 1795480199999,
     "intrabar_ambiguous_count": 0,
     "qty": 1288.3880640325,
     "capital_deployed_usdt": 100.0,
@@ -106,32 +110,43 @@
     "mark_net_pnl_usdt": 4.97482,
     "mark_net_return_pct": 4.9748,
     "last_radar_state": "WAKE_UP",
-    "last_radar_tier": "WATCH",
-    "last_signal_score": 65.0,
-    "last_trigger_score": 54.8,
-    "last_structure_score": 64.5,
-    "last_update_at_utc": "2026-11-23T14:27:57+00:00",
-    "last_update_at_ict": "2026-11-23T21:27:57+07:00"
+    "last_radar_tier": "EXTENDED",
+    "last_signal_score": 67.5,
+    "last_trigger_score": 56.9,
+    "last_structure_score": 77.5,
+    "last_update_at_utc": "2026-11-24T02:52:07+00:00",
+    "last_update_at_ict": "2026-11-24T09:52:07+07:00",
+    "sell_fill": {
+      "qty": 1288.3880640325,
+      "market_price": 0.09702045795795795,
+      "fill_price": 0.09697194772897898,
+      "gross_usdt": 124.93750000000001,
+      "fee_usdt": 0.12493750000000002,
+      "net_usdt": 124.81256250000001
+    },
+    "exit_reason": "TP25",
+    "exit_market_price": 0.09702045795795795,
+    "exit_event_close_ms": 1795480199999,
+    "exit_at_utc": "2026-11-24T00:29:59+00:00",
+    "exit_at_ict": "2026-11-24T07:29:59+07:00",
+    "net_pnl_usdt": 24.812563,
+    "net_return_pct": 24.8126,
+    "hold_hours": 23.712
   },
-  "closed_trade_this_run": null,
   "today_lock": {
-    "trade_id": "LISTAUSDT-20261123T004716Z",
-    "symbol": "LISTAUSDT",
-    "locked_at_utc": "2026-11-23T00:47:16+00:00",
-    "locked_at_ict": "2026-11-23T07:47:16+07:00",
-    "runner_ups": []
+    "closed_trade_id": "LISTAUSDT-20261123T004716Z"
   },
   "eligible_count": 0,
   "eligible_preview": [],
   "summary": {
-    "closed_trades": 3,
-    "wins": 1,
+    "closed_trades": 4,
+    "wins": 2,
     "losses": 2,
-    "hit_rate_pct": 33.33,
-    "net_pnl_usdt": 22.2918,
-    "avg_net_return_pct": 2.6079,
-    "capital_deployed_sum_usdt": 500.0,
-    "return_on_deployed_pct": 4.4584,
+    "hit_rate_pct": 50.0,
+    "net_pnl_usdt": 47.1044,
+    "avg_net_return_pct": 8.1591,
+    "capital_deployed_sum_usdt": 600.0,
+    "return_on_deployed_pct": 7.8507,
     "best_trade_usdt": 49.6251,
     "worst_trade_usdt": -20.6891
   },
