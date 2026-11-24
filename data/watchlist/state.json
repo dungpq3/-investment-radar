@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_run": "20261124T025207Z",
+  "updated_run": "20261124T144514Z",
   "items": {
     "AUDIOUSDT-20260927T0152Z": {
       "setup_id": "AUDIOUSDT-20260927T0152Z",
@@ -7116,22 +7116,22 @@
       ],
       "targets_hit": {
         "20": true,
-        "30": false,
+        "30": true,
         "50": false,
         "100": false
       },
-      "mfe_snapshot_pct": 24.0,
+      "mfe_snapshot_pct": 37.935,
       "mae_snapshot_pct": 0.0,
-      "last_price": 0.0961,
-      "last_state": "WAKE_UP",
-      "last_score": 67.5,
-      "last_seen_run": "20261124T025207Z",
-      "last_seen_at_utc": "2026-11-24T02:52:07+00:00",
-      "last_structure_score": 77.5,
-      "last_trigger_score": 56.9,
-      "last_opportunity_tier": "EXTENDED",
-      "age_hours": 26.08,
-      "move_since_watch_pct": 24.0
+      "last_price": 0.1069,
+      "last_state": "EARLY_IGNITION",
+      "last_score": 81.0,
+      "last_seen_run": "20261124T144514Z",
+      "last_seen_at_utc": "2026-11-24T14:45:14+00:00",
+      "last_structure_score": 79.5,
+      "last_trigger_score": 75.1,
+      "last_opportunity_tier": "WATCH",
+      "age_hours": 37.97,
+      "move_since_watch_pct": 37.935
     }
   }
 }
