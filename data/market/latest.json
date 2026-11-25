@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "run_id": "20261124T144533Z",
-  "generated_at_utc": "2026-11-24T14:45:33+00:00",
-  "generated_at_ict": "2026-11-24T21:45:33+07:00",
+  "run_id": "20261125T003525Z",
+  "generated_at_utc": "2026-11-25T00:35:25+00:00",
+  "generated_at_ict": "2026-11-25T07:35:25+07:00",
   "status": "OK",
   "source": {
     "market": "Binance Spot public market data",
@@ -17,65 +17,65 @@
       "source": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2026&page&_format=csv",
       "status": "OK",
       "method": "US_TREASURY_PAR_REAL_YIELD",
-      "asof": "2026-11-23",
+      "asof": "2026-11-24",
       "pct": 2.79,
-      "delta_5sessions_bp": -13.0,
+      "delta_5sessions_bp": -10.0,
       "direction": "DOWN"
     },
     "dxy": {
       "source": "https://query1.finance.yahoo.com/v8/finance/chart/DX-Y.NYB?interval=1d&range=1mo",
       "status": "OK",
       "asof": "2026-11-24",
-      "value": 103.76300048828125,
-      "delta_5sessions_pct": 0.264,
+      "value": 103.8479995727539,
+      "delta_5sessions_pct": 0.346,
       "direction": "FLAT"
     },
     "policy": "Context-only; does not change crypto regime, target weights or trade signals.",
     "cross_asset_note": "TIPS yields + USD can affect BTC liquidity conditions, not a deterministic inverse correlation; Gold ETF/COT flows are NOT BTC flows."
   },
   "rotation_24h": [
-    "BTC",
     "ETH",
+    "BTC",
     "SOL"
   ],
   "assets": {
     "BTCUSDT": {
       "symbol": "BTCUSDT",
-      "price": 60503.53,
-      "change_4h_pct": -0.019260040495727715,
-      "change_12h_pct": -1.3816666402811206,
-      "change_24h_pct": -4.512,
-      "change_7d_pct": -5.566862255014304,
-      "quote_volume_24h": 1422657957.3954155,
-      "last_closed_4h_ms": 1795521599999,
+      "price": 59571.41,
+      "change_4h_pct": 0.2560692020232125,
+      "change_12h_pct": -0.9803494848187988,
+      "change_24h_pct": -2.6,
+      "change_7d_pct": -7.876148911387448,
+      "quote_volume_24h": 1169853564.3453193,
+      "last_closed_4h_ms": 1795564799999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
         "note": "Proxy from Binance 1h traded quote volume; not holder cost basis.",
         "overhead": {
-          "low": 64576.20541666667,
-          "high": 64986.91,
-          "center": 64781.557708333334,
-          "quote_volume": 1920777781.3104694,
-          "distance_pct": 7.070707623725969
+          "low": 64560.69479166667,
+          "high": 64970.725,
+          "center": 64765.70989583334,
+          "quote_volume": 1850400279.3535767,
+          "distance_pct": 8.719450984680964
         },
         "support": {
-          "low": 60058.455,
-          "high": 60469.159583333334,
-          "center": 60263.80729166667,
-          "quote_volume": 1404494280.892691,
-          "distance_pct": -0.3962127636739976
+          "low": 58410.24166666667,
+          "high": 58820.271875,
+          "center": 58615.25677083334,
+          "quote_volume": 692855500.8739733,
+          "distance_pct": -1.6050538826706706
         }
       }
     },
     "ETHUSDT": {
       "symbol": "ETHUSDT",
-      "price": 1696.46,
-      "change_4h_pct": 0.2738548157222187,
-      "change_12h_pct": -0.4688276386168977,
-      "change_24h_pct": -5.606,
-      "change_7d_pct": -6.0428303866159165,
-      "quote_volume_24h": 658860789.337146,
-      "last_closed_4h_ms": 1795521599999,
+      "price": 1671.15,
+      "change_4h_pct": 0.3829838083288406,
+      "change_12h_pct": -1.32265965007079,
+      "change_24h_pct": -2.028,
+      "change_7d_pct": -7.933124369821587,
+      "quote_volume_24h": 497787658.582794,
+      "last_closed_4h_ms": 1795564799999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
         "note": "Proxy from Binance 1h traded quote volume; not holder cost basis.",
@@ -84,26 +84,26 @@
           "high": 1809.1029166666667,
           "center": 1803.209375,
           "quote_volume": 770194817.977866,
-          "distance_pct": 6.292478160404591
+          "distance_pct": 7.902305298746359
         },
         "support": {
-          "low": 1679.4450000000002,
-          "high": 1691.2320833333335,
-          "center": 1685.338541666667,
-          "quote_volume": 437181940.34311604,
-          "distance_pct": -0.6555685564842761
+          "low": 1620.5095833333335,
+          "high": 1632.2966666666669,
+          "center": 1626.4031250000003,
+          "quote_volume": 301502118.672209,
+          "distance_pct": -2.6776097298267576
         }
       }
     },
     "SOLUSDT": {
       "symbol": "SOLUSDT",
-      "price": 70.05,
-      "change_4h_pct": -0.8391608391608352,
-      "change_12h_pct": -1.5687907816187674,
-      "change_24h_pct": -8.801,
-      "change_7d_pct": 0.6286672254819825,
-      "quote_volume_24h": 237991920.92568,
-      "last_closed_4h_ms": 1795521599999,
+      "price": 69.66,
+      "change_4h_pct": 0.9853644399362205,
+      "change_12h_pct": -1.7066290550070584,
+      "change_24h_pct": -3.223,
+      "change_7d_pct": -7.314802500332496,
+      "quote_volume_24h": 172148589.26835,
+      "last_closed_4h_ms": 1795564799999,
       "volume_clusters": {
         "method": "14d_1h_quote_volume_profile_proxy",
         "note": "Proxy from Binance 1h traded quote volume; not holder cost basis.",
@@ -112,14 +112,14 @@
           "high": 72.7375,
           "center": 72.51895833333333,
           "quote_volume": 234611187.32382,
-          "distance_pct": 3.5245657863430813
+          "distance_pct": 4.104160685233027
         },
         "support": {
           "low": 68.80375000000001,
           "high": 69.24083333333334,
           "center": 69.02229166666667,
-          "quote_volume": 127387852.72601,
-          "distance_pct": -1.4671068284558442
+          "quote_volume": 154944422.14096,
+          "distance_pct": -0.9154584170733893
         }
       }
     }
@@ -127,32 +127,32 @@
   "etf": {
     "BTC": {
       "status": "OK",
-      "data_age_days": 0,
+      "data_age_days": 1,
       "source": "Farside Investors",
       "source_url": "https://farside.co.uk/btc/",
       "latest_date": "2026-11-24",
-      "latest_flow_usdm": 0.0,
-      "five_session_flow_usdm": -2127.7,
+      "latest_flow_usdm": -8.7,
+      "five_session_flow_usdm": -2136.4,
       "sessions_in_5d_sum": 5
     },
     "ETH": {
       "status": "OK",
-      "data_age_days": 0,
+      "data_age_days": 1,
       "source": "Farside Investors",
       "source_url": "https://farside.co.uk/eth/",
       "latest_date": "2026-11-24",
-      "latest_flow_usdm": 0.0,
-      "five_session_flow_usdm": -353.2,
+      "latest_flow_usdm": -3.8,
+      "five_session_flow_usdm": -357.0,
       "sessions_in_5d_sum": 5
     },
     "SOL": {
       "status": "OK",
-      "data_age_days": 0,
+      "data_age_days": 1,
       "source": "Farside Investors",
       "source_url": "https://farside.co.uk/sol/",
       "latest_date": "2026-11-24",
-      "latest_flow_usdm": 0.0,
-      "five_session_flow_usdm": -10.8,
+      "latest_flow_usdm": 0.7,
+      "five_session_flow_usdm": -10.1,
       "sessions_in_5d_sum": 5
     }
   },
