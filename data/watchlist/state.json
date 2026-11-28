@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_run": "20261128T073652Z",
+  "updated_run": "20261128T164804Z",
   "items": {
     "AUDIOUSDT-20260927T0152Z": {
       "setup_id": "AUDIOUSDT-20260927T0152Z",
@@ -7130,7 +7130,7 @@
       "last_structure_score": 62.5,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 126.83,
+      "age_hours": 136.01,
       "move_since_watch_pct": 13.161
     },
     "LISTAUSDT-20261127T1344Z": {
@@ -7187,7 +7187,7 @@
       "last_structure_score": 62.5,
       "last_trigger_score": 12.0,
       "last_opportunity_tier": "BASE",
-      "age_hours": 17.87,
+      "age_hours": 27.05,
       "move_since_watch_pct": -12.736
     }
   }
