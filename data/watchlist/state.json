@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_run": "20261127T134450Z",
+  "updated_run": "20261127T235943Z",
   "items": {
     "AUDIOUSDT-20260927T0152Z": {
       "setup_id": "AUDIOUSDT-20260927T0152Z",
@@ -7122,16 +7122,16 @@
       },
       "mfe_snapshot_pct": 42.581,
       "mae_snapshot_pct": 0.0,
-      "last_price": 0.1005,
-      "last_state": "WAKE_UP",
-      "last_score": 55.7,
-      "last_seen_run": "20261127T134450Z",
-      "last_seen_at_utc": "2026-11-27T13:44:50+00:00",
-      "last_structure_score": 62.5,
-      "last_trigger_score": 31.6,
-      "last_opportunity_tier": "WATCH",
-      "age_hours": 108.96,
-      "move_since_watch_pct": 29.677
+      "last_price": 0.0893,
+      "last_state": "DORMANT_BASE",
+      "last_score": 30.0,
+      "last_seen_run": "20261127T235943Z",
+      "last_seen_at_utc": "2026-11-27T23:59:43+00:00",
+      "last_structure_score": 64.5,
+      "last_trigger_score": 12.0,
+      "last_opportunity_tier": "BASE",
+      "age_hours": 119.21,
+      "move_since_watch_pct": 15.226
     },
     "LISTAUSDT-20261127T1344Z": {
       "setup_id": "LISTAUSDT-20261127T1344Z",
@@ -7178,17 +7178,17 @@
         "100": false
       },
       "mfe_snapshot_pct": 0.0,
-      "mae_snapshot_pct": 0.0,
-      "last_price": 0.1005,
-      "last_state": "WAKE_UP",
-      "last_score": 55.7,
-      "last_seen_run": "20261127T134450Z",
-      "last_seen_at_utc": "2026-11-27T13:44:50+00:00",
-      "last_structure_score": 62.5,
-      "last_trigger_score": 31.6,
-      "last_opportunity_tier": "WATCH",
-      "age_hours": 0.0,
-      "move_since_watch_pct": 0.0
+      "mae_snapshot_pct": -11.144,
+      "last_price": 0.0893,
+      "last_state": "DORMANT_BASE",
+      "last_score": 30.0,
+      "last_seen_run": "20261127T235943Z",
+      "last_seen_at_utc": "2026-11-27T23:59:43+00:00",
+      "last_structure_score": 64.5,
+      "last_trigger_score": 12.0,
+      "last_opportunity_tier": "BASE",
+      "age_hours": 10.25,
+      "move_since_watch_pct": -11.144
     }
   }
 }
